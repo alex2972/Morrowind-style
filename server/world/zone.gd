@@ -30,6 +30,7 @@ func setup(zone_id: String) -> bool:
 	_world.render_target_update_mode = SubViewport.UPDATE_DISABLED
 	add_child(_world)
 	_world.add_child(load(dir + 'collision.scn').instantiate())
+	_world.add_child(Doors.interior_floors())
 	return true
 
 func spawn_point() -> Vector3:

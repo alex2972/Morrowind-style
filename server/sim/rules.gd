@@ -9,6 +9,9 @@ const POTION_COOLDOWN := 10.0
 const PACK_SLOTS := 28           ## RuneScape-sized backpack
 const COMBAT_TIMEOUT := 5.0      ## seconds without hits before regeneration resumes
 const NPC_REACH := 2.2
+const NPC_WALK_SPEED := 1.3      ## m/s when wandering or walking a path
+const WALK_CLIP_SPEED := 1.06    ## m/s the walk clip shows at rate 1 on an NPC body (client plays rate = speed / this)
+const RUN_CLIP_SPEED := 4.9
 const INTERACT_RANGE := 5.0
 const PARTY_RANGE := 60.0        ## members this close share kills, XP and quest credit
 const PARTY_MAX := 5

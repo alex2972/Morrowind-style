@@ -34,3 +34,20 @@ static func interior_at(p: Vector3) -> String:
 	if absf(d.x) < TAVERN_HALF.x + 1.0 and absf(d.z) < TAVERN_HALF.z + 1.0 and d.y > -3.0 and d.y < TAVERN_HALF.y + 3.0:
 		return TAVERN_NAME
 	return ''
+
+static func interior_floors() -> Node3D:
+	## Floors of the interiors for the realm's physics world (its baked collision is the outdoors only),
+	## so NPCs placed inside stand on them.
+	var root := Node3D.new()
+	root.name = 'InteriorFloors'
+	var body := StaticBody3D.new()
+	body.collision_layer = 1
+	body.collision_mask = 0
+	var shape := CollisionShape3D.new()
+	var box := BoxShape3D.new()
+	box.size = Vector3(TAVERN_HALF.x * 2.0 + 0.6, 0.3, TAVERN_HALF.z * 2.0 + 0.6)
+	shape.shape = box
+	body.add_child(shape)
+	body.position = TAVERN_ORIGIN - Vector3(0, 0.15, 0)
+	root.add_child(body)
+	return root

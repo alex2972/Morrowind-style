@@ -70,7 +70,7 @@ func run() -> void:
 
 	# Database and content
 	check(FileAccess.file_exists(SAVE.path_join('veyr.db')), 'SQLite database created')
-	check(int(realm.db.value('SELECT COUNT(*) FROM npc_templates')) == 6 and int(realm.db.value('SELECT COUNT(*) FROM spawns')) == 15, 'content tables seeded')
+	check(int(realm.db.value('SELECT COUNT(*) FROM npc_templates')) == 11 and int(realm.db.value('SELECT COUNT(*) FROM spawns')) == 20 and int(realm.db.value('SELECT COUNT(*) FROM path_points')) == 7, 'content tables seeded')
 	check(int(realm.db.value("SELECT is_admin FROM accounts WHERE username = 'offline'")) == 1, 'offline account is a realm admin')
 	check(Catalog.races.has('high_elf') and Catalog.items.has('health_tonic'), 'client received the display catalog')
 	check(not Catalog.items.health_tonic.has('price') and not Catalog.classes.mage.has('health_base'), 'catalog carries no rules (prices, stats)')
@@ -196,27 +196,63 @@ func run() -> void:
 
 	# Death and release
 	realm.combat.damage(realm.entities.bandit_4, me_server(), 99999.0, 'melee')
-	await frames(10)
+	await wait_for(func() -> bool: return session.me.dead and player.dead, 3.0)
 	check(session.me.dead and player.dead, 'player died')
 	session.release_spirit()
+	await wait_for(func() -> bool: return not session.me.dead and not player.dead, 3.0)
 	await frames(20)
 	check(not session.me.dead and player.global_position.distance_to(realm.zones.veyr.spawn_point()) < 1.5, 'released at the harbour')
 
 	# Doors: the realm only moves a player through a door they stand at
+	main.world.hud.set_interface_open(false)   # the dialogues above left the cursor mode on
 	session.send(Protocol.C_USE_DOOR, {'door': 'tavern_enter'})
 	await frames(20)
 	check(Doors.interior_at(me_server().pos) == '', 'tavern door refused from the pier')
 	await teleport(me_server(), Vector3(-11.4, 0, 48.6))
 	player.rotation.y = PI / 2
 	player.head.rotation.x = 0.0
-	await frames(10)
+	await wait_for(func() -> bool: return main.world.doors.focused == 'tavern_enter', 3.0)
 	check(main.world.doors.focused == 'tavern_enter' and main.world.doors.use_focused(), 'E at the tavern door')
-	await frames(40)
+	await wait_for(func() -> bool: return Doors.interior_at(player.global_position) != '', 3.0)
 	check(Doors.interior_at(me_server().pos) == Doors.TAVERN_NAME and Doors.interior_at(player.global_position) == Doors.TAVERN_NAME,
 			'realm moved the player into the tavern')
 	session.send(Protocol.C_USE_DOOR, {'door': 'tavern_exit'})
 	await frames(20)
 	check(Doors.interior_at(me_server().pos) == '' and player.global_position.distance_to(Vector3(-11.4, 4.4, 48.6)) < 1.5, 'and back out to the street')
+
+	# NPC movement: still / sitting, a waypoint path, wandering hostiles
+	var keeper: Dictionary = realm.entities.innkeeper
+	check(absf(keeper.pos.y - Doors.TAVERN_ORIGIN.y) < 0.1 and keeper.movement == 'still', 'innkeeper stands on the tavern floor (y=%.2f)' % keeper.pos.y)
+	check(realm.entities.old_fisher.clip == 'sit_talk' and realm.entities.scholar.clip == 'sit_idle', 'patrons sit at the tables')
+	var tilda: Dictionary = realm.entities.serving_girl
+	var tilda_seen := {}
+	var tilda_start: Vector3 = tilda.pos
+	var tilda_far := 0.0
+	for i in 600:
+		await physics_frame
+		tilda_seen[tilda.leg] = true
+		tilda_far = maxf(tilda_far, tilda.pos.distance_to(tilda_start))
+		if Doors.interior_at(tilda.pos) == '':
+			break
+	check(tilda_seen.size() >= 3 and tilda_far > 0.5, 'serving girl walks her path (reached %d points)' % tilda_seen.size())
+	check(Doors.interior_at(tilda.pos) == Doors.TAVERN_NAME and absf(tilda.pos.y - Doors.TAVERN_ORIGIN.y) < 0.1, 'and stays inside on the floor')
+	var wanderer: Dictionary = realm.entities.bandit_6
+	var furthest := 0.0
+	for i in 900:
+		await physics_frame
+		furthest = maxf(furthest, Vector2(wanderer.pos.x - wanderer.home.x, wanderer.pos.z - wanderer.home.z).length())
+	check(wanderer.movement == 'wander' and furthest > 0.5 and furthest <= wanderer.wander_radius + 0.3,
+			'bandit wanders around its camp (%.1f m of %.0f)' % [furthest, wanderer.wander_radius])
+	await teleport(me_server(), tilda.pos + Vector3(1.0, 0, 0))
+	await wait_for(func() -> bool: return session.actors.has('serving_girl'))
+	session.set_target('serving_girl')
+	session.interact()
+	await wait_for(func() -> bool: return not session.dialogue.is_empty(), 3.0)
+	var held: Vector3 = tilda.pos
+	await frames(120)
+	check(tilda.pos.distance_to(held) < 0.05 and not session.dialogue.is_empty(), 'serving girl stops to talk')
+	session.close_dialogue()
+	await teleport(me_server(), realm.zones.veyr.spawn_point())
 
 	# Persistence: log out to the lobby, then sign in again from scratch
 	var level := int(session.sheet.level)

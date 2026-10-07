@@ -55,6 +55,16 @@ Then create up to three characters: a name, sex, race (Human, High Elf or Dark E
 
 **Editing the game.** All content lives in the realm's SQLite database: races, classes, abilities, items, NPCs, loot, vendors, spawns and quests. Open it with [DB Browser for SQLite](https://sqlitebrowser.org/), edit rows, then type `/reload` in game. The offline account is an admin; on a dedicated realm, set `is_admin = 1` in the `accounts` table. Offline play uses `%APPDATA%/Godot/app_userdata/Veyr - A Morrowind-style Walk/offline/veyr.db`.
 
+**How NPCs move.** Each row in `spawns` says what that NPC does when nobody is fighting it:
+
+| `movement` | Behaviour | Uses |
+| --- | --- | --- |
+| `still` | Stands at its spawn point facing `yaw` | `idle_anim` (e.g. `sit_idle`, `sit_talk`; empty = standing idle) |
+| `wander` | Strolls to random spots near its spawn and pauses between them | `wander_radius` (metres) |
+| `path` | Walks a route, looping or back and forth | `path_id` → `paths` (`mode`: `loop` / `back_and_forth`) and its `path_points` (`x`, `z`, `wait` seconds, `yaw` to face while waiting, `anim` to play while waiting) |
+
+Routes are their own tables, so several NPCs can share one. Hostile NPCs keep watching for players while they move. After evading, they walk back to where the fight started and carry on. The town's bandits and cultists wander within 6 m of their camps. In the Lantern & Gull, Tilda walks the `tavern_rounds` path, the innkeeper stands behind the bar, and three patrons sit at the tables.
+
 ## The region
 
 - **Veyr Harbour** — two piers, rowboats, a dressed-stone seawall and a lighthouse on the eastern point.

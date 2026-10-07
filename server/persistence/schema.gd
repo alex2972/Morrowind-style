@@ -180,4 +180,56 @@ const MIGRATIONS := [
 			icon TEXT NOT NULL DEFAULT '',
 			sort INTEGER NOT NULL DEFAULT 0)""",
 	],
+	# 2 - how spawned NPCs move when nobody is fighting them, routes, and the Lantern & Gull's people
+	[
+		"""CREATE TABLE paths (
+			id TEXT PRIMARY KEY,
+			mode TEXT NOT NULL DEFAULT 'loop' CHECK (mode IN ('loop', 'back_and_forth')),
+			description TEXT NOT NULL DEFAULT '')""",
+		"""CREATE TABLE path_points (
+			path_id TEXT NOT NULL REFERENCES paths(id) ON DELETE CASCADE,
+			idx INTEGER NOT NULL,
+			x REAL NOT NULL, z REAL NOT NULL,
+			wait REAL NOT NULL DEFAULT 0,          -- seconds to stop here
+			yaw REAL,                              -- degrees to face while stopped (NULL: keep facing)
+			anim TEXT NOT NULL DEFAULT '',         -- clip while stopped ('' = idle)
+			PRIMARY KEY (path_id, idx))""",
+		"ALTER TABLE spawns ADD COLUMN movement TEXT NOT NULL DEFAULT 'still' CHECK (movement IN ('still', 'wander', 'path'))",
+		"ALTER TABLE spawns ADD COLUMN wander_radius REAL NOT NULL DEFAULT 0",   # metres around the spawn point (wander)
+		"ALTER TABLE spawns ADD COLUMN path_id TEXT REFERENCES paths(id)",        # the route it walks (path)
+		"ALTER TABLE spawns ADD COLUMN idle_anim TEXT NOT NULL DEFAULT ''",       # clip while standing: '' = idle, 'sit_idle', 'sit_talk'...
+		# hostile NPCs already in the world roam their camps
+		"UPDATE spawns SET movement = 'wander', wander_radius = 6 WHERE template_id IN (SELECT id FROM npc_templates WHERE hostile = 1)",
+		# databases seeded before this version get the tavern's people (new ones get them from the seed)
+		"""INSERT OR IGNORE INTO npc_templates (id, name, subtitle, sex, race_id, skin, role, level, health, greeting)
+			SELECT * FROM (SELECT 'innkeeper', 'Marta Gullbright', 'Innkeeper', 'female', 'human', 1, 'vendor', 12, 880, 'Welcome to the Lantern & Gull. Sit where you like - mind Brannoc, he bites when the tide is out.'
+			UNION ALL SELECT 'old_fisher', 'Old Brannoc', 'Fisherman', 'male', 'human', 3, '', 8, 600, 'Forty years I hauled nets off this coast. Now the nets haul me - to this bench, every evening.'
+			UNION ALL SELECT 'sailor', 'Seyla Dren', 'Deckhand', 'female', 'dark_elf', 1, '', 9, 640, 'Our ship sails when the ash clears. Could be tomorrow. Could be never. Pass the ale.'
+			UNION ALL SELECT 'scholar', 'Tavian Ores', 'Wandering scholar', 'male', 'high_elf', 0, '', 10, 700, 'Hm? Oh - the Nine, the tides, the old Velothi roads. I read about all of it. Mostly I read.'
+			UNION ALL SELECT 'serving_girl', 'Tilda', 'Serving girl', 'female', 'human', 2, '', 6, 500, 'Ale''s on the bar, stew''s on the fire, and the floor''s wet - all three, every night.')
+			WHERE EXISTS (SELECT 1 FROM npc_templates)""",
+		"""INSERT OR IGNORE INTO npc_vendor (template_id, item_id, mode)
+			SELECT * FROM (SELECT 'innkeeper', 'health_tonic', 'sell'
+			UNION ALL SELECT 'innkeeper', 'mana_tonic', 'sell')
+			WHERE EXISTS (SELECT 1 FROM npc_vendor)""",
+		"""INSERT OR IGNORE INTO paths (id, mode, description)
+			SELECT * FROM (SELECT 'tavern_rounds', 'loop', 'Tilda: door, bar, hearth, tables')
+			WHERE EXISTS (SELECT 1 FROM spawns)""",
+		"""INSERT OR IGNORE INTO path_points (path_id, idx, x, z, wait, yaw, anim)
+			SELECT * FROM (SELECT 'tavern_rounds', 0, 4.4, 418.6, 0, NULL, ''
+			UNION ALL SELECT 'tavern_rounds', 1, 1.0, 418.4, 4, 0, 'talk'
+			UNION ALL SELECT 'tavern_rounds', 2, -3.2, 418.5, 0, NULL, ''
+			UNION ALL SELECT 'tavern_rounds', 3, -4.0, 419.7, 3, 90, ''
+			UNION ALL SELECT 'tavern_rounds', 4, -3.2, 418.5, 0, NULL, ''
+			UNION ALL SELECT 'tavern_rounds', 5, 2.9, 419.0, 0, NULL, ''
+			UNION ALL SELECT 'tavern_rounds', 6, 3.0, 421.6, 3, 90, 'talk')
+			WHERE EXISTS (SELECT 1 FROM spawns)""",
+		"""INSERT OR IGNORE INTO spawns (id, zone_id, template_id, x, z, yaw, movement, wander_radius, path_id, idle_anim)
+			SELECT * FROM (SELECT 'innkeeper', 'veyr', 'innkeeper', 0.5, 416.3, 180, 'still', 0, NULL, ''
+			UNION ALL SELECT 'old_fisher', 'veyr', 'old_fisher', -2.9, 423.08, 0, 'still', 0, NULL, 'sit_talk'
+			UNION ALL SELECT 'sailor', 'veyr', 'sailor', -1.9, 421.52, 180, 'still', 0, NULL, 'sit_talk'
+			UNION ALL SELECT 'scholar', 'veyr', 'scholar', 1.6, 423.38, 0, 'still', 0, NULL, 'sit_idle'
+			UNION ALL SELECT 'serving_girl', 'veyr', 'serving_girl', 4.4, 418.6, 270, 'path', 0, 'tavern_rounds', '')
+			WHERE EXISTS (SELECT 1 FROM spawns)""",
+	],
 ]

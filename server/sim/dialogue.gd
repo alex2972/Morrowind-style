@@ -21,6 +21,7 @@ func _on_interact(p: Dictionary, d: Dictionary) -> void:
 	if p.pos.distance_to(npc.pos) > Rules.INTERACT_RANGE:
 		realm.error(p, 'You are too far away.')
 		return
+	realm.ai.hold_for_talk(npc, p)
 	realm.emit('talked', {'player': p, 'npc': npc})
 	_show(p, npc, str(npc.template.greeting))
 

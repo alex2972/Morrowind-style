@@ -15,6 +15,7 @@ var abilities: Dictionary = {}     ## 'effects' parsed
 var items: Dictionary = {}         ## 'use_effect' parsed
 var templates: Dictionary = {}     ## npc templates + 'loot', 'sells', 'buys'
 var spawns: Array = []
+var paths: Dictionary = {}         ## routes NPCs walk + 'points': [{x, z, wait, yaw, anim}] in order
 var quests: Dictionary = {}        ## + 'objectives', 'start_items' {item: n}, 'reward_items' {item: n}
 var quest_order: Array = []
 var skills: Dictionary = {}
@@ -70,6 +71,7 @@ func reload() -> Array:
 		'items': _index(_rows('items', 'id')),
 		'templates': _index(_rows('npc_templates', 'id')),
 		'spawns': _rows('spawns', 'id'),
+		'paths': _index(_rows('paths', 'id')),
 		'quests': _index(_rows('quests', 'sort, id')),
 		'skills': _index(_rows('skills', 'sort, id')),
 	}
@@ -101,6 +103,11 @@ func reload() -> Array:
 	for row in _rows('npc_vendor', 'template_id, mode, item_id'):
 		if next.templates.has(row.template_id):
 			next.templates[row.template_id]['sells' if row.mode == 'sell' else 'buys'].append(str(row.item_id))
+	for path in next.paths.values():
+		path.points = []
+	for row in _rows('path_points', 'path_id, idx'):
+		if next.paths.has(row.path_id):
+			next.paths[row.path_id].points.append(row)
 	for q in next.quests.values():
 		q.objectives = []
 		q.start_items = {}
@@ -121,6 +128,7 @@ func reload() -> Array:
 	items = next.items
 	templates = next.templates
 	spawns = next.spawns
+	paths = next.paths
 	quests = next.quests
 	quest_order = quests.keys()
 	skills = next.skills
@@ -136,6 +144,15 @@ func _validate(c: Dictionary) -> Array:
 	for s in c.spawns:
 		if not c.templates.has(s.template_id):
 			p.append('spawn %s uses unknown npc template %s' % [s.id, s.template_id])
+		match str(s.movement):
+			'wander':
+				if float(s.wander_radius) <= 0.0:
+					p.append('spawn %s wanders but has no wander_radius' % s.id)
+			'path':
+				if not c.paths.has(str(s.path_id)):
+					p.append('spawn %s walks unknown path %s' % [s.id, s.path_id])
+				elif c.paths[str(s.path_id)].points.size() < 2:
+					p.append('path %s needs at least two points' % s.path_id)
 	for t in c.templates.values():
 		if not c.races.has(t.race_id):
 			p.append('npc %s has unknown race %s' % [t.id, t.race_id])

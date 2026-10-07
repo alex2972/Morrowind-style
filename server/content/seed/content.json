@@ -8,6 +8,8 @@
   "npc_templates",
   "npc_loot",
   "npc_vendor",
+  "paths",
+  "path_points",
   "spawns",
   "quests",
   "quest_objectives",
@@ -527,6 +529,121 @@
     "gold_min": 0,
     "gold_max": 0,
     "greeting": "Keep your blade sheathed in town. Outside the walls, the marsh west along the coast road is crawling with bandits, and cultists haunt the Grey Ash Barrens."
+   },
+   {
+    "id": "innkeeper",
+    "name": "Marta Gullbright",
+    "subtitle": "Innkeeper",
+    "sex": "female",
+    "race_id": "human",
+    "skin": 1,
+    "role": "vendor",
+    "hostile": 0,
+    "level": 12,
+    "health": 880,
+    "damage_min": 0,
+    "damage_max": 0,
+    "swing": 2.4,
+    "aggro_radius": 0,
+    "leash_radius": 30,
+    "respawn_seconds": 30,
+    "speed": 3.5,
+    "xp_factor": 1.0,
+    "gold_min": 0,
+    "gold_max": 0,
+    "greeting": "Welcome to the Lantern & Gull. Sit where you like - mind Brannoc, he bites when the tide is out."
+   },
+   {
+    "id": "old_fisher",
+    "name": "Old Brannoc",
+    "subtitle": "Fisherman",
+    "sex": "male",
+    "race_id": "human",
+    "skin": 3,
+    "role": "",
+    "hostile": 0,
+    "level": 8,
+    "health": 600,
+    "damage_min": 0,
+    "damage_max": 0,
+    "swing": 2.4,
+    "aggro_radius": 0,
+    "leash_radius": 30,
+    "respawn_seconds": 30,
+    "speed": 3.5,
+    "xp_factor": 1.0,
+    "gold_min": 0,
+    "gold_max": 0,
+    "greeting": "Forty years I hauled nets off this coast. Now the nets haul me - to this bench, every evening."
+   },
+   {
+    "id": "sailor",
+    "name": "Seyla Dren",
+    "subtitle": "Deckhand",
+    "sex": "female",
+    "race_id": "dark_elf",
+    "skin": 1,
+    "role": "",
+    "hostile": 0,
+    "level": 9,
+    "health": 640,
+    "damage_min": 0,
+    "damage_max": 0,
+    "swing": 2.4,
+    "aggro_radius": 0,
+    "leash_radius": 30,
+    "respawn_seconds": 30,
+    "speed": 3.5,
+    "xp_factor": 1.0,
+    "gold_min": 0,
+    "gold_max": 0,
+    "greeting": "Our ship sails when the ash clears. Could be tomorrow. Could be never. Pass the ale."
+   },
+   {
+    "id": "scholar",
+    "name": "Tavian Ores",
+    "subtitle": "Wandering scholar",
+    "sex": "male",
+    "race_id": "high_elf",
+    "skin": 0,
+    "role": "",
+    "hostile": 0,
+    "level": 10,
+    "health": 700,
+    "damage_min": 0,
+    "damage_max": 0,
+    "swing": 2.4,
+    "aggro_radius": 0,
+    "leash_radius": 30,
+    "respawn_seconds": 30,
+    "speed": 3.5,
+    "xp_factor": 1.0,
+    "gold_min": 0,
+    "gold_max": 0,
+    "greeting": "Hm? Oh - the Nine, the tides, the old Velothi roads. I read about all of it. Mostly I read."
+   },
+   {
+    "id": "serving_girl",
+    "name": "Tilda",
+    "subtitle": "Serving girl",
+    "sex": "female",
+    "race_id": "human",
+    "skin": 2,
+    "role": "",
+    "hostile": 0,
+    "level": 6,
+    "health": 500,
+    "damage_min": 0,
+    "damage_max": 0,
+    "swing": 2.4,
+    "aggro_radius": 0,
+    "leash_radius": 30,
+    "respawn_seconds": 30,
+    "speed": 3.5,
+    "xp_factor": 1.0,
+    "gold_min": 0,
+    "gold_max": 0,
+    "greeting": "Ale's on the bar, stew's on the fire, and the floor's wet - all three, every night."
    }
   ],
   "npc_loot": [
@@ -574,6 +691,16 @@
     "template_id": "trader",
     "item_id": "bandit_token",
     "mode": "buy"
+   },
+   {
+    "template_id": "innkeeper",
+    "item_id": "health_tonic",
+    "mode": "sell"
+   },
+   {
+    "template_id": "innkeeper",
+    "item_id": "mana_tonic",
+    "mode": "sell"
    }
   ],
   "spawns": [
@@ -583,7 +710,11 @@
     "template_id": "harbourmaster",
     "x": -8.0,
     "z": 66.0,
-    "yaw": 180
+    "yaw": 180,
+    "movement": "still",
+    "wander_radius": 0,
+    "path_id": null,
+    "idle_anim": ""
    },
    {
     "id": "trader",
@@ -591,7 +722,11 @@
     "template_id": "trader",
     "x": 8.0,
     "z": 34.0,
-    "yaw": 270
+    "yaw": 270,
+    "movement": "still",
+    "wander_radius": 0,
+    "path_id": null,
+    "idle_anim": ""
    },
    {
     "id": "priestess",
@@ -599,7 +734,11 @@
     "template_id": "priestess",
     "x": 5.0,
     "z": -48.0,
-    "yaw": 0
+    "yaw": 0,
+    "movement": "still",
+    "wander_radius": 0,
+    "path_id": null,
+    "idle_anim": ""
    },
    {
     "id": "guard_captain",
@@ -607,7 +746,11 @@
     "template_id": "guard_captain",
     "x": -6.0,
     "z": 6.0,
-    "yaw": 90
+    "yaw": 90,
+    "movement": "still",
+    "wander_radius": 0,
+    "path_id": null,
+    "idle_anim": ""
    },
    {
     "id": "bandit_1",
@@ -615,7 +758,11 @@
     "template_id": "marsh_bandit",
     "x": -100,
     "z": 31,
-    "yaw": 0
+    "yaw": 0,
+    "movement": "wander",
+    "wander_radius": 6,
+    "path_id": null,
+    "idle_anim": ""
    },
    {
     "id": "bandit_2",
@@ -623,7 +770,11 @@
     "template_id": "marsh_bandit",
     "x": -110,
     "z": 14,
-    "yaw": 0
+    "yaw": 0,
+    "movement": "wander",
+    "wander_radius": 6,
+    "path_id": null,
+    "idle_anim": ""
    },
    {
     "id": "bandit_3",
@@ -631,7 +782,11 @@
     "template_id": "marsh_bandit",
     "x": -118,
     "z": 36,
-    "yaw": 0
+    "yaw": 0,
+    "movement": "wander",
+    "wander_radius": 6,
+    "path_id": null,
+    "idle_anim": ""
    },
    {
     "id": "bandit_4",
@@ -639,7 +794,11 @@
     "template_id": "marsh_bandit",
     "x": -125,
     "z": 21,
-    "yaw": 0
+    "yaw": 0,
+    "movement": "wander",
+    "wander_radius": 6,
+    "path_id": null,
+    "idle_anim": ""
    },
    {
     "id": "bandit_5",
@@ -647,7 +806,11 @@
     "template_id": "marsh_bandit",
     "x": -140,
     "z": 16,
-    "yaw": 0
+    "yaw": 0,
+    "movement": "wander",
+    "wander_radius": 6,
+    "path_id": null,
+    "idle_anim": ""
    },
    {
     "id": "bandit_6",
@@ -655,7 +818,11 @@
     "template_id": "marsh_bandit",
     "x": -132,
     "z": 4,
-    "yaw": 0
+    "yaw": 0,
+    "movement": "wander",
+    "wander_radius": 6,
+    "path_id": null,
+    "idle_anim": ""
    },
    {
     "id": "cultist_1",
@@ -663,7 +830,11 @@
     "template_id": "ash_cultist",
     "x": 128,
     "z": -96,
-    "yaw": 0
+    "yaw": 0,
+    "movement": "wander",
+    "wander_radius": 6,
+    "path_id": null,
+    "idle_anim": ""
    },
    {
     "id": "cultist_2",
@@ -671,7 +842,11 @@
     "template_id": "ash_cultist",
     "x": 140,
     "z": -108,
-    "yaw": 0
+    "yaw": 0,
+    "movement": "wander",
+    "wander_radius": 6,
+    "path_id": null,
+    "idle_anim": ""
    },
    {
     "id": "cultist_3",
@@ -679,7 +854,11 @@
     "template_id": "ash_cultist",
     "x": 120,
     "z": -116,
-    "yaw": 0
+    "yaw": 0,
+    "movement": "wander",
+    "wander_radius": 6,
+    "path_id": null,
+    "idle_anim": ""
    },
    {
     "id": "cultist_4",
@@ -687,7 +866,11 @@
     "template_id": "ash_cultist",
     "x": 146,
     "z": -90,
-    "yaw": 0
+    "yaw": 0,
+    "movement": "wander",
+    "wander_radius": 6,
+    "path_id": null,
+    "idle_anim": ""
    },
    {
     "id": "cultist_5",
@@ -695,7 +878,71 @@
     "template_id": "ash_cultist",
     "x": 132,
     "z": -124,
-    "yaw": 0
+    "yaw": 0,
+    "movement": "wander",
+    "wander_radius": 6,
+    "path_id": null,
+    "idle_anim": ""
+   },
+   {
+    "id": "innkeeper",
+    "zone_id": "veyr",
+    "template_id": "innkeeper",
+    "x": 0.5,
+    "z": 416.3,
+    "yaw": 180,
+    "movement": "still",
+    "wander_radius": 0,
+    "path_id": null,
+    "idle_anim": ""
+   },
+   {
+    "id": "old_fisher",
+    "zone_id": "veyr",
+    "template_id": "old_fisher",
+    "x": -2.9,
+    "z": 423.08,
+    "yaw": 0,
+    "movement": "still",
+    "wander_radius": 0,
+    "path_id": null,
+    "idle_anim": "sit_talk"
+   },
+   {
+    "id": "sailor",
+    "zone_id": "veyr",
+    "template_id": "sailor",
+    "x": -1.9,
+    "z": 421.52,
+    "yaw": 180,
+    "movement": "still",
+    "wander_radius": 0,
+    "path_id": null,
+    "idle_anim": "sit_talk"
+   },
+   {
+    "id": "scholar",
+    "zone_id": "veyr",
+    "template_id": "scholar",
+    "x": 1.6,
+    "z": 423.38,
+    "yaw": 0,
+    "movement": "still",
+    "wander_radius": 0,
+    "path_id": null,
+    "idle_anim": "sit_idle"
+   },
+   {
+    "id": "serving_girl",
+    "zone_id": "veyr",
+    "template_id": "serving_girl",
+    "x": 4.4,
+    "z": 418.6,
+    "yaw": 270,
+    "movement": "path",
+    "wander_radius": 0,
+    "path_id": "tavern_rounds",
+    "idle_anim": ""
    }
   ],
   "quests": [
@@ -822,6 +1069,78 @@
     "icon": "",
     "sort": 3,
     "description": "Smelt ore and forge weapons and armour."
+   }
+  ],
+  "paths": [
+   {
+    "id": "tavern_rounds",
+    "mode": "loop",
+    "description": "Tilda: door, bar, hearth, tables"
+   }
+  ],
+  "path_points": [
+   {
+    "path_id": "tavern_rounds",
+    "idx": 0,
+    "x": 4.4,
+    "z": 418.6,
+    "wait": 0,
+    "yaw": null,
+    "anim": ""
+   },
+   {
+    "path_id": "tavern_rounds",
+    "idx": 1,
+    "x": 1.0,
+    "z": 418.4,
+    "wait": 4,
+    "yaw": 0,
+    "anim": "talk"
+   },
+   {
+    "path_id": "tavern_rounds",
+    "idx": 2,
+    "x": -3.2,
+    "z": 418.5,
+    "wait": 0,
+    "yaw": null,
+    "anim": ""
+   },
+   {
+    "path_id": "tavern_rounds",
+    "idx": 3,
+    "x": -4.0,
+    "z": 419.7,
+    "wait": 3,
+    "yaw": 90,
+    "anim": ""
+   },
+   {
+    "path_id": "tavern_rounds",
+    "idx": 4,
+    "x": -3.2,
+    "z": 418.5,
+    "wait": 0,
+    "yaw": null,
+    "anim": ""
+   },
+   {
+    "path_id": "tavern_rounds",
+    "idx": 5,
+    "x": 2.9,
+    "z": 419.0,
+    "wait": 0,
+    "yaw": null,
+    "anim": ""
+   },
+   {
+    "path_id": "tavern_rounds",
+    "idx": 6,
+    "x": 3.0,
+    "z": 421.6,
+    "wait": 3,
+    "yaw": 90,
+    "anim": "talk"
    }
   ]
  }
