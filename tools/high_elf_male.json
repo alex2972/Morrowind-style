@@ -1,0 +1,26 @@
+{
+  "id": "high_elf",
+  "sex": "male",
+  "source": "docs/character_animation/player_body_rigged.blend",
+  "body_width": 0.92,
+  "head_width": 0.94,
+  "chin_drop": 0.007,
+  "cheek_projection": 0.01,
+  "eye_slant": 0.0045,
+  "ear_length": 0.037,
+  "ear_rise": 0.033,
+  "skin_grade": [
+    0.96,
+    1.03,
+    0.79
+  ],
+  "notes": "Exact human bind skeleton and clips; height comes from Catalog.race_scale (1.06), applied once at runtime.",
+  "chin_projection": 0.003,
+  "chin_width": 0.78,
+  "jaw_width": 0.001,
+  "cheek_width": 0.007,
+  "neck_slim": 0.23,
+  "brow_projection": 0.015,
+  "brow_angle": 0.009,
+  "forehead_recede": 0.009
+}

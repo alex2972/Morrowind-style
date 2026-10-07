@@ -1,0 +1,34 @@
+INFO: PyNifly 28.3.0 registered
+00:01.031  blend            | Read blend: "Z:\godot\morrowind-style\docs\character_animation\player_body_rigged.blend"
+BlenderMCP addon registered
+[INFO ] services.locationservice ...............: Not adding link to MakeHuman user data, since neither explicit path nor auto-discovery is set in preferences.
+[INFO ] mpfb.init ..............................: Build info 20260722
+[INFO ] mpfb.init ..............................: Online access preference is not enabled. Not checking if MakeHuman is online.
+[INFO ] mpfb.init ..............................: MPFB initialization has finished.
+1876 (-0.0895, -0.0275, 1.7174)
+1877 (-0.0898, -0.0312, 1.733)
+1878 (-0.0817, -0.0373, 1.698)
+1882 (-0.08, -0.0433, 1.7431)
+1884 (-0.0867, -0.0367, 1.7278)
+1885 (-0.082, -0.0446, 1.7285)
+1887 (-0.0864, -0.0368, 1.7169)
+1888 (-0.0787, -0.0405, 1.6976)
+1889 (-0.0784, -0.053, 1.6947)
+2079 (-0.0851, -0.0307, 1.7064)
+2084 (-0.0838, -0.0384, 1.7057)
+2154 (0.0895, -0.0275, 1.7174)
+2155 (0.0898, -0.0312, 1.733)
+2156 (0.0817, -0.0373, 1.698)
+2160 (0.08, -0.0433, 1.7431)
+2162 (0.0867, -0.0367, 1.7278)
+2163 (0.082, -0.0446, 1.7285)
+2165 (0.0864, -0.0368, 1.7169)
+2166 (0.0787, -0.0405, 1.6976)
+2167 (0.0784, -0.053, 1.6947)
+2353 (0.0851, -0.0307, 1.7064)
+2358 (0.0838, -0.0384, 1.7057)
+LOCAL (-0.2768591046333313, -0.05879337713122368, 1.532455563545227) WORLD (-0.2768591046333313, -0.05879337713122368, 1.4753921031951904)
+BlenderMCP addon unregistered
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

@@ -1,0 +1,13 @@
+00:00.532  blend            | Read blend: "Z:\godot\morrowind-style\docs\character_female\player_body_female.blend"
+Traceback (most recent call last):
+  File "Z:\godot\morrowind-style\docs\character_female\refinement\update_source.py", line 13, in <module>
+    body['female_body_refinement']=1;bpy.ops.wm.save_as_mainfile(filepath=str(p))
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+RuntimeError: Error: Cannot open file Z:\godot\morrowind-style\<bpy_struct, MeshVertex at 0x0000021A386D38D8>@ for writing: Invalid argument
+
+Error: Cannot open file Z:\godot\morrowind-style\<bpy_struct, MeshVertex at 0x0000021A386D38D8>@ for writing: Invalid argument
+
+Error: script failed, file: 'docs/character_female/refinement/update_source.py', exiting.
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

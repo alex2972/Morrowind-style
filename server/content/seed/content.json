@@ -1,0 +1,828 @@
+{
+ "order": [
+  "races",
+  "classes",
+  "abilities",
+  "class_abilities",
+  "items",
+  "npc_templates",
+  "npc_loot",
+  "npc_vendor",
+  "spawns",
+  "quests",
+  "quest_objectives",
+  "quest_items",
+  "skills"
+ ],
+ "tables": {
+  "races": [
+   {
+    "id": "human",
+    "name": "Human",
+    "scale": 1.0,
+    "playable": 1,
+    "sort": 0,
+    "description": "Imperials of the old Cyrodiilic line: adaptable, stubborn and found in every port.",
+    "skins": [
+     "ffffff",
+     "f0ddcc",
+     "d6b89c",
+     "a88a70"
+    ]
+   },
+   {
+    "id": "high_elf",
+    "name": "High Elf",
+    "scale": 1.07,
+    "playable": 1,
+    "sort": 1,
+    "description": "Altmer of the Summerset Isles: tall, golden-skinned and proud. (Placeholder: shares the human body for now.)",
+    "skins": [
+     "fff8dc",
+     "f7ecc4",
+     "ecdcac",
+     "dcc794"
+    ]
+   },
+   {
+    "id": "dark_elf",
+    "name": "Dark Elf",
+    "scale": 1.0,
+    "playable": 1,
+    "sort": 2,
+    "description": "Dunmer of Morrowind, ash-skinned and red-eyed. (Placeholder: shares the human body for now.)",
+    "skins": [
+     "b4bec4",
+     "9ca8b0",
+     "86929a",
+     "717c84"
+    ]
+   }
+  ],
+  "classes": [
+   {
+    "id": "warrior",
+    "name": "Warrior",
+    "resource": "rage",
+    "sort": 0,
+    "description": "A front-line fighter in heavy steel. Builds rage by dealing and taking blows, and spends it on crushing strikes.",
+    "health_base": 140,
+    "health_per_level": 22,
+    "resource_base": 100,
+    "resource_per_level": 0,
+    "melee_base": 11,
+    "melee_per_level": 2.4,
+    "swing": 2.2,
+    "power": 0.0,
+    "armor": 20
+   },
+   {
+    "id": "priest",
+    "name": "Priest",
+    "resource": "mana",
+    "sort": 1,
+    "description": "A servant of the Nine. Smites the wicked with holy fire and mends the wounds of allies.",
+    "health_base": 95,
+    "health_per_level": 14,
+    "resource_base": 150,
+    "resource_per_level": 24,
+    "melee_base": 6,
+    "melee_per_level": 1.2,
+    "swing": 2.4,
+    "power": 1.0,
+    "armor": 6
+   },
+   {
+    "id": "mage",
+    "name": "Mage",
+    "resource": "mana",
+    "sort": 2,
+    "description": "A scholar of destruction. Hurls fire and frost from afar, but falls quickly when the enemy closes in.",
+    "health_base": 85,
+    "health_per_level": 12,
+    "resource_base": 165,
+    "resource_per_level": 26,
+    "melee_base": 5,
+    "melee_per_level": 1.0,
+    "swing": 2.4,
+    "power": 1.15,
+    "armor": 4
+   }
+  ],
+  "abilities": [
+   {
+    "id": "heroic_strike",
+    "name": "Heroic Strike",
+    "level": 1,
+    "icon": "atlas:1",
+    "cost": 15,
+    "cooldown": 0,
+    "cast_time": 0,
+    "range": 4.0,
+    "target": "enemy",
+    "effects": [
+     {
+      "type": "damage",
+      "amount": 22,
+      "weapon": true
+     }
+    ],
+    "anim": "sword_slash_a",
+    "fx": "melee",
+    "description": "A strong attack that adds {damage} damage. 15 rage."
+   },
+   {
+    "id": "thunder_clap",
+    "name": "Thunder Clap",
+    "level": 3,
+    "icon": "gen:thunder_clap",
+    "cost": 20,
+    "cooldown": 6,
+    "cast_time": 0,
+    "range": 0,
+    "target": "self_area",
+    "effects": [
+     {
+      "type": "area_damage",
+      "amount": 18,
+      "radius": 8.0
+     }
+    ],
+    "anim": "sword_slash_c",
+    "fx": "thunder",
+    "description": "Blasts all nearby enemies for {damage} damage. 20 rage, 6 sec cooldown."
+   },
+   {
+    "id": "sundering_blow",
+    "name": "Sundering Blow",
+    "level": 5,
+    "icon": "atlas:2",
+    "cost": 25,
+    "cooldown": 10,
+    "cast_time": 0,
+    "range": 4.0,
+    "target": "enemy",
+    "effects": [
+     {
+      "type": "damage",
+      "amount": 46,
+      "weapon": true
+     }
+    ],
+    "anim": "sword_slash_b",
+    "fx": "melee",
+    "description": "A crushing blow for {damage} damage. 25 rage, 10 sec cooldown."
+   },
+   {
+    "id": "smite",
+    "name": "Smite",
+    "level": 1,
+    "icon": "atlas:3",
+    "cost": 20,
+    "cooldown": 0,
+    "cast_time": 1.8,
+    "range": 30.0,
+    "target": "enemy",
+    "effects": [
+     {
+      "type": "damage",
+      "amount": 30
+     }
+    ],
+    "anim": "spell_cast",
+    "fx": "holy",
+    "description": "Holy fire for {damage} damage. 1.8 sec cast, 20 mana."
+   },
+   {
+    "id": "lesser_heal",
+    "name": "Lesser Heal",
+    "level": 1,
+    "icon": "atlas:4",
+    "cost": 30,
+    "cooldown": 0,
+    "cast_time": 2.0,
+    "range": 30.0,
+    "target": "ally",
+    "effects": [
+     {
+      "type": "heal",
+      "amount": 55
+     }
+    ],
+    "anim": "spell_cast",
+    "fx": "healing",
+    "description": "Heals a friendly target, or you, for {heal}. 2 sec cast, 30 mana."
+   },
+   {
+    "id": "shadow_word_pain",
+    "name": "Shadow Word: Pain",
+    "level": 4,
+    "icon": "gen:shadow_word_pain",
+    "cost": 25,
+    "cooldown": 0,
+    "cast_time": 0,
+    "range": 30.0,
+    "target": "enemy",
+    "effects": [
+     {
+      "type": "dot",
+      "amount": 9,
+      "ticks": 6,
+      "interval": 3.0
+     }
+    ],
+    "anim": "spell_cast",
+    "fx": "shadow",
+    "description": "Shadow damage: {dot} every 3 sec for 18 sec. 25 mana."
+   },
+   {
+    "id": "fireball",
+    "name": "Fireball",
+    "level": 1,
+    "icon": "gen:fireball",
+    "cost": 25,
+    "cooldown": 0,
+    "cast_time": 2.2,
+    "range": 32.0,
+    "target": "enemy",
+    "effects": [
+     {
+      "type": "damage",
+      "amount": 36
+     }
+    ],
+    "anim": "spell_cast",
+    "fx": "fire",
+    "description": "Hurls a fiery ball for {damage} damage. 2.2 sec cast, 25 mana."
+   },
+   {
+    "id": "fire_blast",
+    "name": "Fire Blast",
+    "level": 3,
+    "icon": "gen:fire_blast",
+    "cost": 30,
+    "cooldown": 8,
+    "cast_time": 0,
+    "range": 20.0,
+    "target": "enemy",
+    "effects": [
+     {
+      "type": "damage",
+      "amount": 28
+     }
+    ],
+    "anim": "spell_cast",
+    "fx": "fire",
+    "description": "Instant fire damage: {damage}. 30 mana, 8 sec cooldown."
+   },
+   {
+    "id": "frostbolt",
+    "name": "Frostbolt",
+    "level": 5,
+    "icon": "gen:frostbolt",
+    "cost": 30,
+    "cooldown": 0,
+    "cast_time": 2.6,
+    "range": 32.0,
+    "target": "enemy",
+    "effects": [
+     {
+      "type": "damage",
+      "amount": 50
+     }
+    ],
+    "anim": "spell_cast",
+    "fx": "frost",
+    "description": "A bolt of frost for {damage} damage. 2.6 sec cast, 30 mana."
+   }
+  ],
+  "class_abilities": [
+   {
+    "class_id": "warrior",
+    "ability_id": "heroic_strike",
+    "sort": 0
+   },
+   {
+    "class_id": "warrior",
+    "ability_id": "thunder_clap",
+    "sort": 1
+   },
+   {
+    "class_id": "warrior",
+    "ability_id": "sundering_blow",
+    "sort": 2
+   },
+   {
+    "class_id": "priest",
+    "ability_id": "smite",
+    "sort": 0
+   },
+   {
+    "class_id": "priest",
+    "ability_id": "lesser_heal",
+    "sort": 1
+   },
+   {
+    "class_id": "priest",
+    "ability_id": "shadow_word_pain",
+    "sort": 2
+   },
+   {
+    "class_id": "mage",
+    "ability_id": "fireball",
+    "sort": 0
+   },
+   {
+    "class_id": "mage",
+    "ability_id": "fire_blast",
+    "sort": 1
+   },
+   {
+    "class_id": "mage",
+    "ability_id": "frostbolt",
+    "sort": 2
+   }
+  ],
+  "items": [
+   {
+    "id": "health_tonic",
+    "name": "Crimson Tonic",
+    "icon": "atlas:5",
+    "price": 12,
+    "stack": 10,
+    "quest_item": 0,
+    "use_effect": {
+     "heal": 70
+    },
+    "description": "Restores 70 health. Tonics share a 10 sec cooldown."
+   },
+   {
+    "id": "mana_tonic",
+    "name": "Azure Tonic",
+    "icon": "atlas:6",
+    "price": 12,
+    "stack": 10,
+    "quest_item": 0,
+    "use_effect": {
+     "mana": 70
+    },
+    "description": "Restores 70 mana. Tonics share a 10 sec cooldown."
+   },
+   {
+    "id": "bandit_token",
+    "name": "Brineroot Token",
+    "icon": "atlas:7",
+    "price": 2,
+    "stack": 50,
+    "quest_item": 0,
+    "use_effect": {},
+    "description": "A crude tin token carried by the marsh bandits. Traders pay a little for them."
+   },
+   {
+    "id": "harbour_letter",
+    "name": "Sealed Letter",
+    "icon": "gen:letter",
+    "price": 0,
+    "stack": 1,
+    "quest_item": 1,
+    "use_effect": {},
+    "description": "A letter from Harbourmaster Ilvar to the Chapel of Veyr."
+   }
+  ],
+  "npc_templates": [
+   {
+    "id": "marsh_bandit",
+    "name": "Brineroot Bandit",
+    "subtitle": "",
+    "sex": "male",
+    "race_id": "human",
+    "skin": 3,
+    "role": "enemy",
+    "hostile": 1,
+    "level": 2,
+    "health": 110,
+    "damage_min": 6,
+    "damage_max": 9,
+    "swing": 2.4,
+    "aggro_radius": 9,
+    "leash_radius": 32,
+    "respawn_seconds": 30,
+    "speed": 3.6,
+    "xp_factor": 1.0,
+    "gold_min": 3,
+    "gold_max": 8,
+    "greeting": ""
+   },
+   {
+    "id": "ash_cultist",
+    "name": "Ash Cultist",
+    "subtitle": "",
+    "sex": "female",
+    "race_id": "dark_elf",
+    "skin": 2,
+    "role": "enemy",
+    "hostile": 1,
+    "level": 4,
+    "health": 170,
+    "damage_min": 9,
+    "damage_max": 13,
+    "swing": 2.2,
+    "aggro_radius": 11,
+    "leash_radius": 32,
+    "respawn_seconds": 40,
+    "speed": 3.8,
+    "xp_factor": 1.2,
+    "gold_min": 6,
+    "gold_max": 14,
+    "greeting": ""
+   },
+   {
+    "id": "harbourmaster",
+    "name": "Harbourmaster Ilvar",
+    "subtitle": "Veyr Harbour",
+    "sex": "male",
+    "race_id": "human",
+    "skin": 2,
+    "role": "quest",
+    "hostile": 0,
+    "level": 12,
+    "health": 880,
+    "damage_min": 0,
+    "damage_max": 0,
+    "swing": 2.4,
+    "aggro_radius": 0,
+    "leash_radius": 30,
+    "respawn_seconds": 30,
+    "speed": 3.5,
+    "xp_factor": 1.0,
+    "gold_min": 0,
+    "gold_max": 0,
+    "greeting": "Welcome to Veyr, traveler. The tide brings all sorts ashore - most of them useful, some of them trouble."
+   },
+   {
+    "id": "trader",
+    "name": "Gelvar the Trader",
+    "subtitle": "General goods",
+    "sex": "male",
+    "race_id": "human",
+    "skin": 1,
+    "role": "vendor",
+    "hostile": 0,
+    "level": 12,
+    "health": 880,
+    "damage_min": 0,
+    "damage_max": 0,
+    "swing": 2.4,
+    "aggro_radius": 0,
+    "leash_radius": 30,
+    "respawn_seconds": 30,
+    "speed": 3.5,
+    "xp_factor": 1.0,
+    "gold_min": 0,
+    "gold_max": 0,
+    "greeting": "Tonics, fresh from the Chapel stills. Coin first, questions after."
+   },
+   {
+    "id": "priestess",
+    "name": "Priestess Aldra",
+    "subtitle": "Chapel of Veyr",
+    "sex": "female",
+    "race_id": "high_elf",
+    "skin": 1,
+    "role": "quest",
+    "hostile": 0,
+    "level": 12,
+    "health": 880,
+    "damage_min": 0,
+    "damage_max": 0,
+    "swing": 2.4,
+    "aggro_radius": 0,
+    "leash_radius": 30,
+    "respawn_seconds": 30,
+    "speed": 3.5,
+    "xp_factor": 1.0,
+    "gold_min": 0,
+    "gold_max": 0,
+    "greeting": "The Nine watch over this town, though lately the ash wind carries other voices."
+   },
+   {
+    "id": "guard_captain",
+    "name": "Captain Varro",
+    "subtitle": "Town Watch",
+    "sex": "male",
+    "race_id": "human",
+    "skin": 2,
+    "role": "guard",
+    "hostile": 0,
+    "level": 12,
+    "health": 880,
+    "damage_min": 0,
+    "damage_max": 0,
+    "swing": 2.4,
+    "aggro_radius": 0,
+    "leash_radius": 30,
+    "respawn_seconds": 30,
+    "speed": 3.5,
+    "xp_factor": 1.0,
+    "gold_min": 0,
+    "gold_max": 0,
+    "greeting": "Keep your blade sheathed in town. Outside the walls, the marsh west along the coast road is crawling with bandits, and cultists haunt the Grey Ash Barrens."
+   }
+  ],
+  "npc_loot": [
+   {
+    "template_id": "marsh_bandit",
+    "item_id": "bandit_token",
+    "chance": 0.6,
+    "count_min": 1,
+    "count_max": 2
+   },
+   {
+    "template_id": "marsh_bandit",
+    "item_id": "health_tonic",
+    "chance": 0.15,
+    "count_min": 1,
+    "count_max": 1
+   },
+   {
+    "template_id": "ash_cultist",
+    "item_id": "mana_tonic",
+    "chance": 0.2,
+    "count_min": 1,
+    "count_max": 1
+   },
+   {
+    "template_id": "ash_cultist",
+    "item_id": "health_tonic",
+    "chance": 0.2,
+    "count_min": 1,
+    "count_max": 1
+   }
+  ],
+  "npc_vendor": [
+   {
+    "template_id": "trader",
+    "item_id": "health_tonic",
+    "mode": "sell"
+   },
+   {
+    "template_id": "trader",
+    "item_id": "mana_tonic",
+    "mode": "sell"
+   },
+   {
+    "template_id": "trader",
+    "item_id": "bandit_token",
+    "mode": "buy"
+   }
+  ],
+  "spawns": [
+   {
+    "id": "harbourmaster",
+    "zone_id": "veyr",
+    "template_id": "harbourmaster",
+    "x": -8.0,
+    "z": 66.0,
+    "yaw": 180
+   },
+   {
+    "id": "trader",
+    "zone_id": "veyr",
+    "template_id": "trader",
+    "x": 8.0,
+    "z": 34.0,
+    "yaw": 270
+   },
+   {
+    "id": "priestess",
+    "zone_id": "veyr",
+    "template_id": "priestess",
+    "x": 5.0,
+    "z": -48.0,
+    "yaw": 0
+   },
+   {
+    "id": "guard_captain",
+    "zone_id": "veyr",
+    "template_id": "guard_captain",
+    "x": -6.0,
+    "z": 6.0,
+    "yaw": 90
+   },
+   {
+    "id": "bandit_1",
+    "zone_id": "veyr",
+    "template_id": "marsh_bandit",
+    "x": -100,
+    "z": 31,
+    "yaw": 0
+   },
+   {
+    "id": "bandit_2",
+    "zone_id": "veyr",
+    "template_id": "marsh_bandit",
+    "x": -110,
+    "z": 14,
+    "yaw": 0
+   },
+   {
+    "id": "bandit_3",
+    "zone_id": "veyr",
+    "template_id": "marsh_bandit",
+    "x": -118,
+    "z": 36,
+    "yaw": 0
+   },
+   {
+    "id": "bandit_4",
+    "zone_id": "veyr",
+    "template_id": "marsh_bandit",
+    "x": -125,
+    "z": 21,
+    "yaw": 0
+   },
+   {
+    "id": "bandit_5",
+    "zone_id": "veyr",
+    "template_id": "marsh_bandit",
+    "x": -140,
+    "z": 16,
+    "yaw": 0
+   },
+   {
+    "id": "bandit_6",
+    "zone_id": "veyr",
+    "template_id": "marsh_bandit",
+    "x": -132,
+    "z": 4,
+    "yaw": 0
+   },
+   {
+    "id": "cultist_1",
+    "zone_id": "veyr",
+    "template_id": "ash_cultist",
+    "x": 128,
+    "z": -96,
+    "yaw": 0
+   },
+   {
+    "id": "cultist_2",
+    "zone_id": "veyr",
+    "template_id": "ash_cultist",
+    "x": 140,
+    "z": -108,
+    "yaw": 0
+   },
+   {
+    "id": "cultist_3",
+    "zone_id": "veyr",
+    "template_id": "ash_cultist",
+    "x": 120,
+    "z": -116,
+    "yaw": 0
+   },
+   {
+    "id": "cultist_4",
+    "zone_id": "veyr",
+    "template_id": "ash_cultist",
+    "x": 146,
+    "z": -90,
+    "yaw": 0
+   },
+   {
+    "id": "cultist_5",
+    "zone_id": "veyr",
+    "template_id": "ash_cultist",
+    "x": 132,
+    "z": -124,
+    "yaw": 0
+   }
+  ],
+  "quests": [
+   {
+    "id": "marsh_trouble",
+    "title": "Trouble in the Marsh",
+    "giver_id": "harbourmaster",
+    "turn_in_id": "harbourmaster",
+    "level": 1,
+    "requires_id": null,
+    "sort": 0,
+    "reward_xp": 250,
+    "reward_gold": 25,
+    "offer_text": "Bandits out of Brineroot Marsh, west along the coast road, have been robbing every cart that passes. The Watch won't go into the mud. You might.\n\nThin their numbers: put down five of them.",
+    "progress_text": "Five bandits, traveler. Take the road west out of the Imperial Quarter into the marsh.",
+    "complete_text": "Five fewer thieves on my road. Here's your pay, and my thanks."
+   },
+   {
+    "id": "word_to_chapel",
+    "title": "A Word to the Chapel",
+    "giver_id": "harbourmaster",
+    "turn_in_id": "priestess",
+    "level": 1,
+    "requires_id": "marsh_trouble",
+    "sort": 1,
+    "reward_xp": 150,
+    "reward_gold": 10,
+    "offer_text": "Those bandits weren't just thieves - one carried ash-cult markings. Take this letter to Priestess Aldra at the High Chapel, at the north end of the main street.",
+    "progress_text": "The Chapel is north, up the cobbled road past the plaza.",
+    "complete_text": "Ash-cult markings, this close to Veyr... Thank you for bringing this to me, traveler."
+   },
+   {
+    "id": "ashes_and_embers",
+    "title": "Ashes and Embers",
+    "giver_id": "priestess",
+    "turn_in_id": "priestess",
+    "level": 3,
+    "requires_id": "word_to_chapel",
+    "sort": 2,
+    "reward_xp": 600,
+    "reward_gold": 40,
+    "offer_text": "Cultists gather in the Grey Ash Barrens, north-east of the Shell Ward, chanting over the ash. Scatter them before their rites bear fruit.\n\nDefeat four Ash Cultists.",
+    "progress_text": "The Barrens lie north-east, beyond the Shell Ward plateau. Be careful - they hit harder than any bandit.",
+    "complete_text": "The chanting has stopped. The Nine are grateful, and so am I."
+   }
+  ],
+  "quest_objectives": [
+   {
+    "quest_id": "marsh_trouble",
+    "idx": 0,
+    "type": "kill",
+    "target": "marsh_bandit",
+    "count": 5,
+    "label": "Brineroot Bandits slain"
+   },
+   {
+    "quest_id": "word_to_chapel",
+    "idx": 0,
+    "type": "deliver",
+    "target": "harbour_letter",
+    "count": 1,
+    "label": "Deliver the letter to Priestess Aldra"
+   },
+   {
+    "quest_id": "ashes_and_embers",
+    "idx": 0,
+    "type": "kill",
+    "target": "ash_cultist",
+    "count": 4,
+    "label": "Ash Cultists defeated"
+   }
+  ],
+  "quest_items": [
+   {
+    "quest_id": "marsh_trouble",
+    "item_id": "health_tonic",
+    "count": 3,
+    "kind": "reward"
+   },
+   {
+    "quest_id": "word_to_chapel",
+    "item_id": "harbour_letter",
+    "count": 1,
+    "kind": "start"
+   },
+   {
+    "quest_id": "ashes_and_embers",
+    "item_id": "mana_tonic",
+    "count": 2,
+    "kind": "reward"
+   },
+   {
+    "quest_id": "ashes_and_embers",
+    "item_id": "health_tonic",
+    "count": 2,
+    "kind": "reward"
+   }
+  ],
+  "skills": [
+   {
+    "id": "woodcutting",
+    "name": "Woodcutting",
+    "icon": "",
+    "sort": 0,
+    "description": "Fell trees for logs."
+   },
+   {
+    "id": "fishing",
+    "name": "Fishing",
+    "icon": "",
+    "sort": 1,
+    "description": "Catch fish from the coast and the marsh pools."
+   },
+   {
+    "id": "mining",
+    "name": "Mining",
+    "icon": "",
+    "sort": 2,
+    "description": "Dig ore from the Hollow Mine."
+   },
+   {
+    "id": "smithing",
+    "name": "Smithing",
+    "icon": "",
+    "sort": 3,
+    "description": "Smelt ore and forge weapons and armour."
+   }
+  ]
+ }
+}

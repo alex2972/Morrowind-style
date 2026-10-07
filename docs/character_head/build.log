@@ -1,0 +1,83 @@
+INFO: PyNifly 28.3.0 registered
+00:03.657  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+Z:\godot\morrowind-style\tools\build_character.py:545: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+Z:\godot\morrowind-style\tools\build_character.py:567: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+Z:\godot\morrowind-style\tools\build_character.py:1053: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+BlenderMCP addon registered
+[INFO ] services.locationservice ...............: Not adding link to MakeHuman user data, since neither explicit path nor auto-discovery is set in preferences.
+[INFO ] mpfb.init ..............................: Build info 20260722
+[INFO ] mpfb.init ..............................: Online access preference is not enabled. Not checking if MakeHuman is online.
+[INFO ] mpfb.init ..............................: MPFB initialization has finished.
+CORNEA faces removed 490
+SLIVERS removed 0
+NECK rings 62 22 band 84 eye caps 2 eyes + 2 other open edges 0
+UV islands 11 head islands scaled 4
+LOW 2415 verts 4822 tris
+DIMS (0.913, 0.377, 1.851)
+LANDMARKS {'H': 1.850964069366455, 'crotch': 0.9476715326309204, 'eyes': [((0.03089118003845215, -0.13971447944641113, 1.7933039665222168), 0.020684777955140943), ((-0.030891062691807747, -0.13971471786499023, 1.7933038473129272), 0.020684866245257838)]}
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED EMIT ['body_hi', 'Human.high-poly']
+HIT coverage ('Human.high-poly', 'body_hi') 0.708
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED EMIT ['body_hi', 'Human.high-poly']
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED EMIT ['body_hi', 'Human.high-poly']
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED EMIT ['body_hi', 'Human.high-poly']
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED EMIT ['body_hi', 'Human.high-poly']
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED EMIT ['body_hi']
+HIT coverage ('body_hi',) 0.708
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED EMIT ['body_hi']
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED EMIT ['body_hi']
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED EMIT ['body_hi']
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED EMIT ['body_hi']
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED AO ['body_hi', 'Human.high-poly']
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED AO ['body_hi', 'Human.high-poly']
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED NORMAL ['body_hi', 'Human.high-poly']
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED NORMAL ['body_hi', 'Human.high-poly']
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED EMIT ['Human.male_muscle_13290', 'Human.high-poly']
+HIT coverage ('Human.high-poly', 'Human.male_muscle_13290') 0.708
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED AO ['Human.male_muscle_13290', 'Human.high-poly']
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED AO ['Human.male_muscle_13290', 'Human.high-poly']
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED NORMAL ['Human.male_muscle_13290', 'Human.high-poly']
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED NORMAL ['Human.male_muscle_13290', 'Human.high-poly']
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED EMIT []
+CARD Human.eyebrow009 texels 1315
+TEXTURE char_body.png 1024 1024
+INFO Draco is available, use library at Z:\godot\morrowind-style\Blender\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at Z:\godot\morrowind-style\Blender\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+23:18:26 | INFO: Starting glTF 2.0 export
+23:18:26 | INFO: Extracting primitive: base.002
+23:18:26 | INFO: Primitives created: 1
+23:18:26 | INFO: Finished glTF 2.0 export in 0.04205131530761719 s
+
+MODEL player_body 2415 verts 4822 tris
+Info: Saved as "player_body.blend"
+BlenderMCP addon unregistered
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+OBJ import of 'base.obj' took 11.52 ms
+OBJ import of 'high-poly.obj' took 1.58 ms
+OBJ import of 'eyebrow009.obj' took 0.28 ms
+OBJ import of 'male_muscle_13290.obj' took 5.58 ms
+OBJ import of 'male1591.obj' took 1.20 ms
+
+Blender quit

@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/textures/iron.png" id="1_wq0py"]
+
+[resource]
+resource_name = "iron_viewmodel"
+diffuse_mode = 1
+specular_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_wq0py")
+texture_filter = 5
+use_z_clip_scale = true
+z_clip_scale = 0.25
+use_fov_override = true
+fov_override = 70.0

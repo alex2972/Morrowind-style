@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://shaders/foliage.gdshader" id="1_a52mf"]
+[ext_resource type="Texture2D" path="res://assets/textures/grass_tuft.png" id="2_epx3t"]
+
+[resource]
+resource_name = "grass_tuft"
+render_priority = 0
+shader = ExtResource("1_a52mf")
+shader_parameter/albedo_tex = ExtResource("2_epx3t")
+shader_parameter/alpha_cut = null
+shader_parameter/sway = 2.2
+shader_parameter/tint = null
+shader_parameter/translucency = null

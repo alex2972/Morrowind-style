@@ -1,0 +1,30 @@
+INFO: PyNifly 28.3.0 registered
+00:01.016  blend            | Read blend: "Z:\godot\morrowind-style\docs\character_animation\player_body_rigged.blend"
+00:01.047  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+Z:\godot\morrowind-style\tools\preview_character_animation.py:17: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world.use_nodes=True
+00:02.516  render           | Saved: 'Z:\godot\morrowind-style\docs\character_animation\poses\walk\side\00.png'
+00:03.782  render           | Saved: 'Z:\godot\morrowind-style\docs\character_animation\poses\walk\side\01.png'
+00:05.047  render           | Saved: 'Z:\godot\morrowind-style\docs\character_animation\poses\walk\side\02.png'
+00:06.328  render           | Saved: 'Z:\godot\morrowind-style\docs\character_animation\poses\walk\side\03.png'
+00:07.610  render           | Saved: 'Z:\godot\morrowind-style\docs\character_animation\poses\walk\front\00.png'
+00:08.891  render           | Saved: 'Z:\godot\morrowind-style\docs\character_animation\poses\walk\front\01.png'
+00:10.282  render           | Saved: 'Z:\godot\morrowind-style\docs\character_animation\poses\walk\front\02.png'
+00:11.641  render           | Saved: 'Z:\godot\morrowind-style\docs\character_animation\poses\walk\front\03.png'
+00:12.938  render           | Saved: 'Z:\godot\morrowind-style\docs\character_animation\poses\run\side\00.png'
+00:14.203  render           | Saved: 'Z:\godot\morrowind-style\docs\character_animation\poses\run\side\01.png'
+00:15.469  render           | Saved: 'Z:\godot\morrowind-style\docs\character_animation\poses\run\side\02.png'
+00:16.750  render           | Saved: 'Z:\godot\morrowind-style\docs\character_animation\poses\run\side\03.png'
+00:18.063  render           | Saved: 'Z:\godot\morrowind-style\docs\character_animation\poses\run\front\00.png'
+00:19.344  render           | Saved: 'Z:\godot\morrowind-style\docs\character_animation\poses\run\front\01.png'
+00:20.625  render           | Saved: 'Z:\godot\morrowind-style\docs\character_animation\poses\run\front\02.png'
+00:21.907  render           | Saved: 'Z:\godot\morrowind-style\docs\character_animation\poses\run\front\03.png'
+BlenderMCP addon registered
+[INFO ] services.locationservice ...............: Not adding link to MakeHuman user data, since neither explicit path nor auto-discovery is set in preferences.
+[INFO ] mpfb.init ..............................: Build info 20260722
+[INFO ] mpfb.init ..............................: Online access preference is not enabled. Not checking if MakeHuman is online.
+[INFO ] mpfb.init ..............................: MPFB initialization has finished.
+BlenderMCP addon unregistered
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

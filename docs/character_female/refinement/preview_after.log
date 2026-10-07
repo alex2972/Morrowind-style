@@ -1,0 +1,42 @@
+00:00.469  blend            | Read blend: "Z:\godot\morrowind-style\docs\character_female\refinement\candidate.blend"
+00:00.781  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+Z:\godot\morrowind-style\tools\preview_female_refinement.py:15: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.cycles.device='GPU';scene.view_settings.view_transform='Standard';scene.world.use_nodes=True
+00:02.265  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\front.png'
+00:03.609  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\quarter.png'
+00:04.890  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\side.png'
+00:05.828  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\walk\00.png'
+00:06.765  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\walk\01.png'
+00:07.687  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\walk\02.png'
+00:08.640  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\walk\03.png'
+00:09.609  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\walk\04.png'
+00:10.547  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\walk\05.png'
+00:11.484  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\walk\06.png'
+00:12.422  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\walk\07.png'
+00:13.375  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\walk\08.png'
+00:14.344  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\walk\09.png'
+00:15.281  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\walk\10.png'
+00:16.219  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\walk\11.png'
+00:17.172  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\walk\12.png'
+00:18.109  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\walk\13.png'
+00:19.078  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\walk\14.png'
+00:20.015  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\walk\15.png'
+00:20.953  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\run\00.png'
+00:21.890  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\run\01.png'
+00:22.859  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\run\02.png'
+00:23.781  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\run\03.png'
+00:24.719  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\run\04.png'
+00:25.656  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\run\05.png'
+00:26.625  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\run\06.png'
+00:27.562  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\run\07.png'
+00:28.500  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\run\08.png'
+00:29.437  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\run\09.png'
+00:30.390  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\run\10.png'
+00:31.328  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\run\11.png'
+00:32.281  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\run\12.png'
+00:33.219  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\run\13.png'
+00:34.156  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\run\14.png'
+00:35.125  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\refinement\after\run\15.png'
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

@@ -1,0 +1,23 @@
+{
+  "export_vertices_including_uv_splits": 2866,
+  "bones": 53,
+  "unweighted_vertices": 0,
+  "max_influences": 4,
+  "max_weight_sum_error": 1.2898817658424377e-07,
+  "bind_shape_error_m_after_grounding": 4.883541464550945e-07,
+  "uvs_preserved": true,
+  "poses": {
+    "rest": {
+      "max_displacement_m": 1.908302454262508e-07,
+      "min_triangle_area_m2": 3.8940007129895093e-07
+    },
+    "knee_elbow": {
+      "max_displacement_m": 0.5746645251349428,
+      "min_triangle_area_m2": 3.893719906500337e-07
+    },
+    "reach": {
+      "max_displacement_m": 1.0257273057697536,
+      "min_triangle_area_m2": 3.8927979062464146e-07
+    }
+  }
+}

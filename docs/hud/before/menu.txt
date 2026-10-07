@@ -1,0 +1,77 @@
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	box.add_child(title)
+	var sub := _label('An island town in the style of the Elder Scrolls III', 14, GOLD_DIM)
+	sub.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	box.add_child(sub)
+	box.add_child(HSeparator.new())
+	for pair in [['Return to the journey', func() -> void: player.set_menu(false)],
+			['Wait one hour', func() -> void: weather.wait_hours(1.0)],
+			['Return to the harbour', func() -> void: player.return_to_spawn()]]:
+		var b := Button.new()
+		b.text = pair[0]
+		b.pressed.connect(pair[1])
+		_style_button(b)
+		box.add_child(b)
+	time_label = _label('Time of day', 16)
+	box.add_child(time_label)
+	time_slider = HSlider.new()
+	time_slider.min_value = 0.0
+	time_slider.max_value = 23.99
+	time_slider.step = 0.05
+	time_slider.value_changed.connect(_on_time_changed)
+	box.add_child(time_slider)
+	flow_check = CheckBox.new()
+	flow_check.text = 'Time passes'
+	_style_button(flow_check)
+	flow_check.toggled.connect(_on_flow_toggled)
+	box.add_child(flow_check)
+	box.add_child(_label('Weather', 16))
+	weather_select = OptionButton.new()
+	for w in weather.ORDER:
+		weather_select.add_item(w)
+	_style_button(weather_select)
+	weather_select.item_selected.connect(_on_weather_selected)
+	box.add_child(weather_select)
+	box.add_child(_label('Character', 16))
+	var model_select := OptionButton.new()
+	for m in ['Male', 'Female']:
+		model_select.add_item(m)
+	_style_button(model_select)
+	model_select.item_selected.connect(func(i: int) -> void: player.set_body_model(['male', 'female'][i]))
+	model_select.visibility_changed.connect(func() -> void: model_select.select(1 if player.body_model == 'female' else 0))
+	box.add_child(model_select)
+	box.add_child(_label('Mouse sensitivity', 16))
+	var sens := HSlider.new()
+	sens.min_value = 0.0006
+	sens.max_value = 0.005
+	sens.step = 0.0001
+	sens.value = player.mouse_sensitivity
+	sens.value_changed.connect(func(v: float) -> void: player.mouse_sensitivity = v)
+	box.add_child(sens)
+	box.add_child(HSeparator.new())
+	var keys := _label('WASD walk  -  Shift run  -  Caps Lock auto-run  -  Space / E jump  -  C sneak\nF ready sword  -  G torch  -  Tab third person  -  T wait  -  Y weather  -  F1 hide HUD', 13, GOLD_DIM)
+	keys.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	box.add_child(keys)
+	var quit := Button.new()
+	quit.text = 'Quit'
+	quit.pressed.connect(func() -> void: get_tree().quit())
+	_style_button(quit)
+	box.add_child(quit)
+
+func _on_time_changed(v: float) -> void:
+	if not _updating_menu:
+		weather.set_hour(v)
+
+func _on_flow_toggled(v: bool) -> void:
+	if not _updating_menu:
+		weather.time_flows = v
+
+func _on_weather_selected(i: int) -> void:
+	if not _updating_menu:
+		weather.set_weather(weather.ORDER[i])
+
+func set_menu(value: bool) -> void:
+	menu.visible = value
+	if value:
+		menu.reset_size()
+		menu.position = (root.size - menu.size) * 0.5

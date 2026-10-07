@@ -1,0 +1,246 @@
+extends CharacterBody3D
+## First-person explorer with Morrowind-flavoured controls and a sword/torch viewmodel.
+
+@export var walk_speed := 3.8
+@export var run_speed := 7.0
+@export var sneak_speed := 1.9
+@export var swim_speed := 2.8
+@export var jump_velocity := 5.0
+@export var gravity := 16.0
+@export var mouse_sensitivity := 0.0022
+@export var water_level := 0.0
+@export var footsteps_enabled := false  ## walking sounds are off for now
+
+var paused := false
+var auto_run := false
+var sneaking := false
+var weapon_out := true
+var torch_out := false
+var swimming := false
+var third_person := false
+
+var _spawn: Transform3D
+var _bob := 0.0
+var _foot := 0.0
+var _sway := Vector2.ZERO
+var _weapon_raise := 1.0
+var _torch_raise := 0.0
+var _time := 0.0
+var _eye := 1.62
+
+@onready var head: Node3D = $Head
+@onready var camera: Camera3D = $Head/Camera3D
+@onready var viewmodel: Node3D = $Head/Camera3D/Viewmodel
+@onready var sword_rig: Node3D = $Head/Camera3D/Viewmodel/SwordRig
+@onready var torch_rig: Node3D = $Head/Camera3D/Viewmodel/TorchRig
+@onready var torch_light: OmniLight3D = $Head/Camera3D/Viewmodel/TorchRig/TorchLight
+@onready var footsteps: AudioStreamPlayer = $Footsteps
+@onready var body: Node3D = get_node_or_null('Model')
+
+var _sword_home: Transform3D
+var _torch_home: Transform3D
+var _step_sounds := {}
+var _cam_dist := 0.0
+
+const ACTIONS := {
+	'move_forward': [KEY_W, KEY_UP], 'move_back': [KEY_S, KEY_DOWN], 'move_left': [KEY_A], 'move_right': [KEY_D],
+	'jump': [KEY_SPACE, KEY_E], 'run': [KEY_SHIFT], 'auto_run': [KEY_CAPSLOCK, KEY_Q], 'sneak': [KEY_C, KEY_CTRL],
+	'ready_weapon': [KEY_F], 'torch': [KEY_G], 'wait_hour': [KEY_T], 'cycle_weather': [KEY_Y], 'menu': [KEY_ESCAPE],
+	'toggle_hud': [KEY_F1], 'toggle_view': [KEY_TAB],
+}
+
+func _ready() -> void:
+	for action in ACTIONS:
+		if not InputMap.has_action(action):
+			InputMap.add_action(action)
+			for key in ACTIONS[action]:
+				var ev := InputEventKey.new()
+				ev.physical_keycode = key
+				InputMap.action_add_event(action, ev)
+	_spawn = global_transform
+	_sword_home = sword_rig.transform
+	_torch_home = torch_rig.transform
+	for k in ['soft', 'stone', 'wood']:
+		var path := 'res://assets/audio/step_%s.wav' % k
+		if ResourceLoader.exists(path):
+			_step_sounds[k] = load(path)
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	set_torch(false)
+
+func world() -> Node:
+	return get_parent()
+
+func set_weapon(value: bool, instant := false) -> void:
+	weapon_out = value
+	if instant:
+		_weapon_raise = 1.0 if value else 0.0
+
+func set_torch(value: bool) -> void:
+	torch_out = value
+	torch_light.visible = value
+	if value:
+		torch_rig.visible = true
+
+func set_third_person(value: bool) -> void:
+	## Morrowind's Tab view: show the body, pull the camera back, hide the first-person arms.
+	third_person = value
+	if body:
+		body.visible = value
+	if not value:
+		camera.position = Vector3.ZERO
+		_cam_dist = 0.0
+
+func set_menu(value: bool) -> void:
+	paused = value
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if paused else Input.MOUSE_MODE_CAPTURED
+	world().hud.set_menu(paused)
+
+func return_to_spawn() -> void:
+	global_transform = _spawn
+	velocity = Vector3.ZERO
+	head.rotation.x = 0.0
+	set_menu(false)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed('menu'):
+		set_menu(not paused)
+		return
+	if event.is_action_pressed('toggle_view') and not paused:
+		set_third_person(not third_person)
+	if event.is_action_pressed('toggle_hud'):
+		world().hud.visible = not world().hud.visible
+	if paused:
+		return
+	if event is InputEventMouseButton and event.pressed and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		rotate_y(-event.relative.x * mouse_sensitivity)
+		head.rotation.x = clampf(head.rotation.x - event.relative.y * mouse_sensitivity, -1.5, 1.5)
+		_sway += event.relative * 0.00035
+	if event.is_action_pressed('ready_weapon'):
+		set_weapon(not weapon_out)
+	if event.is_action_pressed('torch'):
+		set_torch(not torch_out)
+		world().hud.show_message('You light a torch.' if torch_out else 'You put out the torch.')
+	if event.is_action_pressed('auto_run'):
+		auto_run = not auto_run
+	if event.is_action_pressed('wait_hour'):
+		world().weather.wait_hours(1.0)
+		var h := fposmod(world().weather.hour + 1.0, 24.0)
+		world().hud.show_message('You wait for an hour.  It is now %02d:%02d.' % [int(h), int((h - int(h)) * 60.0)])
+	if event.is_action_pressed('cycle_weather'):
+		world().weather.next_weather()
+
+func _physics_process(delta: float) -> void:
+	if paused:
+		return
+	var input := Input.get_vector('move_left', 'move_right', 'move_forward', 'move_back')
+	var dir := (transform.basis * Vector3(input.x, 0.0, input.y))
+	dir.y = 0.0
+	dir = dir.normalized() * minf(1.0, input.length())
+	sneaking = Input.is_action_pressed('sneak')
+	var running := Input.is_action_pressed('run') != auto_run
+	var speed := sneak_speed if sneaking else (run_speed if running else walk_speed)
+	swimming = global_position.y < water_level - 1.25
+	if swimming:
+		speed = swim_speed * (1.4 if running else 1.0)
+	var accel := 30.0 if is_on_floor() or swimming else 6.0
+	velocity.x = move_toward(velocity.x, dir.x * speed, accel * delta * speed)
+	velocity.z = move_toward(velocity.z, dir.z * speed, accel * delta * speed)
+	if swimming:
+		var target_y := water_level - 1.35
+		velocity.y = move_toward(velocity.y, (target_y - global_position.y) * 3.0, 14.0 * delta)
+		if Input.is_action_pressed('jump'):
+			velocity.y = 2.5
+	elif not is_on_floor():
+		velocity.y -= gravity * delta
+	elif Input.is_action_just_pressed('jump'):
+		velocity.y = jump_velocity
+	_step_up(delta)
+	move_and_slide()
+	if global_position.y < -40.0:
+		return_to_spawn()
+	var horizontal := Vector2(velocity.x, velocity.z).length()
+	if footsteps_enabled and is_on_floor() and horizontal > 0.6:
+		_foot += delta * horizontal
+		if _foot > 1.55:
+			_foot = 0.0
+			_play_step()
+
+func _step_up(delta: float) -> void:
+	## Climb small ledges such as stairs and kerbs.
+	if not is_on_floor():
+		return
+	var motion := Vector3(velocity.x, 0.0, velocity.z) * delta
+	if motion.length_squared() < 1e-6 or not test_move(global_transform, motion):
+		return
+	for h in [0.2, 0.38]:
+		var raised := global_transform
+		raised.origin.y += h
+		if not test_move(global_transform, Vector3.UP * h) and not test_move(raised, motion):
+			global_position.y += h
+			return
+
+func _play_step() -> void:
+	var surface := 'soft'
+	var col := get_last_slide_collision()
+	if col:
+		var body := col.get_collider()
+		if body and body.has_meta('surface'):
+			surface = body.get_meta('surface')
+		elif body and body.has_meta('terrain'):
+			surface = world().surface_at(global_position)
+	if _step_sounds.has(surface):
+		footsteps.stream = _step_sounds[surface]
+	footsteps.pitch_scale = randf_range(0.88, 1.1)
+	footsteps.volume_db = -14.0 if sneaking else -8.0
+	footsteps.play()
+
+func _process(delta: float) -> void:
+	_time += delta
+	var target_eye := 1.12 if sneaking else 1.62
+	if swimming:
+		target_eye = 1.55
+	_eye = lerpf(_eye, target_eye, clampf(delta * 8.0, 0.0, 1.0))
+	head.position.y = _eye
+	var horizontal := Vector2(velocity.x, velocity.z).length()
+	var moving := is_on_floor() and horizontal > 0.5 and not paused
+	if moving:
+		_bob += delta * horizontal * 1.7
+	var amount := clampf(horizontal / run_speed, 0.0, 1.0) if moving else 0.0
+	_sway = _sway.lerp(Vector2.ZERO, clampf(delta * 7.0, 0.0, 1.0))
+	_sway = _sway.limit_length(0.08)
+	var bob := Vector3(sin(_bob) * 0.016, -absf(cos(_bob)) * 0.02, 0.0) * amount
+	var idle := Vector3(sin(_time * 0.9) * 0.002, sin(_time * 1.4) * 0.004, 0.0)
+	viewmodel.position = bob + idle + Vector3(-_sway.x, _sway.y, 0.0)
+	viewmodel.rotation = Vector3(_sway.y * 0.6, -_sway.x * 0.6, 0.0)
+	_weapon_raise = move_toward(_weapon_raise, 1.0 if weapon_out else 0.0, delta * 2.8)
+	_torch_raise = move_toward(_torch_raise, 1.0 if torch_out else 0.0, delta * 2.8)
+	var e := smoothstep(0.0, 1.0, _weapon_raise)
+	sword_rig.visible = _weapon_raise > 0.01 and not third_person
+	sword_rig.transform = _sword_home.translated_local(Vector3(0.1, -0.55, 0.15) * (1.0 - e)).rotated_local(Vector3.RIGHT, -0.9 * (1.0 - e))
+	var te := smoothstep(0.0, 1.0, _torch_raise)
+	torch_rig.visible = _torch_raise > 0.01
+	for c in torch_rig.get_children():
+		if c is GeometryInstance3D:
+			c.visible = not third_person
+	torch_rig.transform = _torch_home.translated_local(Vector3(-0.05, -0.55, 0.1) * (1.0 - te))
+	if torch_out:
+		torch_light.light_energy = 1.7 + sin(_time * 13.0) * 0.12 + sin(_time * 7.3) * 0.15
+	camera.fov = lerpf(camera.fov, 75.0 + (3.0 if Input.is_action_pressed('run') != auto_run and moving else 0.0), delta * 4.0)
+	if third_person:
+		_place_third_person_camera(delta)
+
+func _place_third_person_camera(delta: float) -> void:
+	## Orbit behind the shoulders with the head's pitch; pull in when a wall is in the way.
+	var offset := Vector3(0.0, 0.3, 2.9)
+	var from := head.global_position
+	var to := head.to_global(offset)
+	var q := PhysicsRayQueryParameters3D.create(from, to)
+	q.exclude = [get_rid()]
+	var hit := get_world_3d().direct_space_state.intersect_ray(q)
+	var dist := offset.length()
+	if not hit.is_empty():
+		dist = maxf(0.35, from.distance_to(hit.position) - 0.3)
+	_cam_dist = dist if dist < _cam_dist else lerpf(_cam_dist, dist, clampf(delta * 4.0, 0.0, 1.0))
+	camera.position = offset.normalized() * _cam_dist

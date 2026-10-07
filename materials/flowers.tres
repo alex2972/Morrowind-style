@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://shaders/foliage.gdshader" id="1_pvvs8"]
+[ext_resource type="Texture2D" path="res://assets/textures/flowers.png" id="2_g50w3"]
+
+[resource]
+resource_name = "flowers"
+render_priority = 0
+shader = ExtResource("1_pvvs8")
+shader_parameter/albedo_tex = ExtResource("2_g50w3")
+shader_parameter/alpha_cut = null
+shader_parameter/sway = 2.2
+shader_parameter/tint = null
+shader_parameter/translucency = null

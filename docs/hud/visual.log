@@ -1,0 +1,10 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.325 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 3060
+
+CAPTURE preview
+CLICK @Button@19:<Button#167101078024> rect [P: (218.0, 682.0), S: (96.0, 30.0)] viewport [P: (0.0, 0.0), S: (1600.0, 900.0)] hover <Object#null>
+CLICK @Button@29:<Button#167990270513> rect [P: (1471.3, 769.5), S: (54.9, 54.9)] viewport [P: (0.0, 0.0), S: (1600.0, 900.0)] hover @Button@29:<Button#167990270513>
+CAPTURE chat-and-inventory
+CLICK @Button@32:<Button#168241928768> rect [P: (1471.3, 829.35), S: (54.9, 54.9)] viewport [P: (0.0, 0.0), S: (1600.0, 900.0)] hover @Button@32:<Button#168241928768>
+CAPTURE settings
+CAPTURE compact-female

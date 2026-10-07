@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://shaders/distant.gdshader" id="1_ywxev"]
+[ext_resource type="Texture2D" path="res://assets/textures/t_rock.png" id="2_s2siy"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ywxev")
+shader_parameter/albedo_tex = ExtResource("2_s2siy")
+shader_parameter/uv_scale = 0.02
+shader_parameter/tint = Color(0.7, 0.66, 0.62, 1)
+shader_parameter/haze_reach = null
+shader_parameter/min_haze = null
+shader_parameter/max_haze = 0.82

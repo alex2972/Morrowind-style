@@ -1,0 +1,57 @@
+[gd_scene format=4]
+
+[ext_resource type="Material" path="res://materials/crate.tres" id="1_tvfdr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fditq"]
+resource_name = "crate"
+cull_mode = 2
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_krlkg"]
+_surfaces = [{
+"aabb": AABB(-0.35, 0, -0.35, 0.7, 0.6, 0.7),
+"format": 34896613377,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAgADAAQAAAAFAAEABQADAAEABgAFAAAABAADAAcABAAHAAYABQAHAAMABgAHAAUA"),
+"name": "crate",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAD///////8AAP//AAD//wAA/////wAAAAD//wAAAAAAAAAA/////wAAAAAAAAAAAAAAAP//AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bit6r"]
+resource_name = "crate_small_crate_small"
+_surfaces = [{
+"aabb": AABB(-0.35, 0, -0.35, 0.7, 0.6, 0.7),
+"attribute_data": PackedByteArray("jIyM/wAA//+6urr///8AAIyMjP//////urq6/wAAAACMjIz/AAD//7q6uv///wAAjIyM//////+6urr/AAAAAIyMjP8AAP//urq6////AACMjIz//////7q6uv8AAAAAjIyM/wAA//+6urr///8AAIyMjP//////urq6/wAAAAC6urr/AAD//7q6uv///wAAurq6//////+6urr/AAAAAA=="),
+"format": 34896613407,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEA"),
+"material": SubResource("StandardMaterial3D_fditq"),
+"name": "crate",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AAAAAP//AID///////8AgP//AAD//wCAAAD/////AID//wAAAAD//wAA//8AAP//AAAAAAAA////////AAD//wAAAAAAAP+/AAD//////78AAAAA////vwAA//8AAP+///8AAP///7//////AAD/v///AAAAAP+//////////78AAP//////v/////8AAP+//////////78AAP//AAD/v/9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/AAD/fwAA/38AAP9/AAD///9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_krlkg")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_5jlcg"]
+data = PackedVector3Array(-0.35, 0, 0.35, 0.35, 0.59999996, 0.35, 0.35, 0, 0.35, -0.35, 0, 0.35, -0.35, 0.59999996, 0.35, 0.35, 0.59999996, 0.35, 0.35, 0, -0.35, -0.35, 0.59999996, -0.35, -0.35, 0, -0.35, 0.35, 0, -0.35, 0.35, 0.59999996, -0.35, -0.35, 0.59999996, -0.35, -0.35, 0, -0.35, -0.35, 0.59999996, 0.35, -0.35, 0, 0.35, -0.35, 0, -0.35, -0.35, 0.59999996, -0.35, -0.35, 0.59999996, 0.35, 0.35, 0, 0.35, 0.35, 0.59999996, -0.35, 0.35, 0, -0.35, 0.35, 0, 0.35, 0.35, 0.59999996, 0.35, 0.35, 0.59999996, -0.35, -0.35, 0.59999996, 0.35, 0.35, 0.59999996, -0.35, 0.35, 0.59999996, 0.35, -0.35, 0.59999996, 0.35, -0.35, 0.59999996, -0.35, 0.35, 0.59999996, -0.35, -0.35, 0, -0.35, 0.35, 0, 0.35, 0.35, 0, -0.35, -0.35, 0, -0.35, -0.35, 0, 0.35, 0.35, 0, 0.35)
+
+[node name="CrateSmall" type="Node3D" unique_id=771477141]
+
+[node name="Visual" type="MeshInstance3D" parent="." unique_id=1195983812]
+layers = 2
+mesh = SubResource("ArrayMesh_bit6r")
+surface_material_override/0 = ExtResource("1_tvfdr")
+
+[node name="Collision" type="StaticBody3D" parent="." unique_id=1389072538]
+metadata/surface = "wood"
+
+[node name="Shape" type="CollisionShape3D" parent="Collision" unique_id=431273526]
+shape = SubResource("ConcavePolygonShape3D_5jlcg")

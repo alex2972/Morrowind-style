@@ -1,0 +1,236 @@
+{
+  "_comment": "Shared material table. Blender assigns these names; Godot builds StandardMaterial3D resources from them. scale = metres per texture repeat for automatic UVs.",
+  "plaster": {
+    "tex": "imp_plaster",
+    "scale": 3.0
+  },
+  "timber": {
+    "tex": "imp_timber",
+    "scale": 1.6
+  },
+  "shingle": {
+    "tex": "imp_shingle",
+    "scale": 2.6
+  },
+  "planks": {
+    "tex": "wood_planks",
+    "scale": 2.0
+  },
+  "door": {
+    "tex": "door_planks",
+    "scale": 1.0
+  },
+  "fieldstone": {
+    "tex": "fieldstone",
+    "scale": 2.6
+  },
+  "window": {
+    "tex": "window_leaded",
+    "scale": 1.0,
+    "glow": "window_glow"
+  },
+  "shell": {
+    "tex": "shell",
+    "scale": 4.5
+  },
+  "shell_dark": {
+    "tex": "shell_dark",
+    "scale": 2.0
+  },
+  "adobe": {
+    "tex": "adobe",
+    "scale": 3.2
+  },
+  "temple_stone": {
+    "tex": "temple_stone",
+    "scale": 3.2
+  },
+  "copper": {
+    "tex": "copper_roof",
+    "scale": 3.0
+  },
+  "bubble_glass": {
+    "tex": "bubble_glass",
+    "scale": 1.0,
+    "glow": "window_glow"
+  },
+  "iron": {
+    "tex": "iron",
+    "scale": 1.0
+  },
+  "brass": {
+    "tex": "brass",
+    "scale": 1.0
+  },
+  "castle_stone": {
+    "tex": "castle_stone",
+    "scale": 4.0
+  },
+  "barrel": {
+    "tex": "barrel_wood",
+    "scale": 1.0
+  },
+  "crate": {
+    "tex": "crate_wood",
+    "scale": 1.0
+  },
+  "pottery": {
+    "tex": "pottery",
+    "scale": 1.0
+  },
+  "burlap": {
+    "tex": "burlap",
+    "scale": 1.0
+  },
+  "cloth": {
+    "tex": "cloth",
+    "scale": 2.0,
+    "double_sided": true
+  },
+  "rope": {
+    "tex": "rope",
+    "scale": 0.5
+  },
+  "bark": {
+    "tex": "bark",
+    "scale": 1.5
+  },
+  "bark_dark": {
+    "tex": "bark_dark",
+    "scale": 1.5
+  },
+  "leaves_broad": {
+    "tex": "leaves_broad",
+    "scale": 1.0,
+    "foliage": true
+  },
+  "leaves_clumps": {
+    "tex": "leaves_clumps",
+    "scale": 1.0,
+    "foliage": true
+  },
+  "leaves_swamp": {
+    "tex": "leaves_swamp",
+    "scale": 1.0,
+    "foliage": true
+  },
+  "leaves_autumn": {
+    "tex": "leaves_autumn",
+    "scale": 1.0,
+    "foliage": true
+  },
+  "fern": {
+    "tex": "fern",
+    "scale": 1.0,
+    "foliage": true
+  },
+  "grass_tuft": {
+    "tex": "grass_tuft",
+    "scale": 1.0,
+    "foliage": true
+  },
+  "flowers": {
+    "tex": "flowers",
+    "scale": 1.0,
+    "foliage": true
+  },
+  "hanging_moss": {
+    "tex": "hanging_moss",
+    "scale": 1.0,
+    "foliage": true
+  },
+  "rock": {
+    "tex": "t_rock",
+    "scale": 4.0,
+    "triplanar": true
+  },
+  "cave_rock": {
+    "tex": "cave_rock",
+    "scale": 4.0,
+    "triplanar": true
+  },
+  "mushroom_cap": {
+    "tex": "mushroom_cap",
+    "scale": 1.0
+  },
+  "mushroom_stalk": {
+    "tex": "mushroom_stalk",
+    "scale": 1.0
+  },
+  "cobble": {
+    "tex": "t_cobble",
+    "scale": 2.4
+  },
+  "soil": {
+    "tex": "t_mud",
+    "scale": 3.0
+  },
+  "sand": {
+    "tex": "t_sand",
+    "scale": 4.0
+  },
+  "flame": {
+    "tex": "flame",
+    "scale": 1.0,
+    "flame": true
+  },
+  "glow": {
+    "color": [
+      1.0,
+      0.72,
+      0.36
+    ],
+    "emission": [
+      1.0,
+      0.6,
+      0.25
+    ],
+    "energy": 2.5
+  },
+  "glow_blue": {
+    "color": [
+      0.5,
+      0.9,
+      0.8
+    ],
+    "emission": [
+      0.35,
+      0.85,
+      0.75
+    ],
+    "energy": 2.0
+  },
+  "dark": {
+    "color": [
+      0.05,
+      0.045,
+      0.04
+    ]
+  },
+  "collision": {
+    "color": [
+      1.0,
+      0.0,
+      1.0
+    ]
+  },
+  "steel": {
+    "tex": "steel",
+    "scale": 1.0,
+    "metal": true
+  },
+  "leather": {
+    "tex": "leather",
+    "scale": 0.6
+  },
+  "char_skin": {
+    "tex": "char_body",
+    "scale": 1.0,
+    "no_receive_shadows": true
+  },
+  "char_skin_female": {
+    "tex": "char_body_female",
+    "scale": 1.0,
+    "no_receive_shadows": true
+  }
+}

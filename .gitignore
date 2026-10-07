@@ -1,0 +1,10 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+Blender/
+
+tools/*.log
+
+tools/__pycache__/
+*.npz

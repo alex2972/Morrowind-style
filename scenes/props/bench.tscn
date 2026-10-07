@@ -1,0 +1,91 @@
+[gd_scene format=4]
+
+[ext_resource type="Material" path="res://materials/planks.tres" id="1_gmvbn"]
+[ext_resource type="Material" path="res://materials/timber.tres" id="2_opmxe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_earqt"]
+resource_name = "planks"
+cull_mode = 2
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5rr3c"]
+resource_name = "timber"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_86yso"]
+_surfaces = [{
+"aabb": AABB(-1.1, 0.42, -0.21, 2.2, 0.08000001, 0.42),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAgABAAQAAwAEAAEABQAAAAIABQADAAAAAgAEAAYABQACAAYAAwAHAAQABQAHAAMABgAEAAcABgAHAAUA"),
+"name": "planks",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAD///////8AAP//AAD//wAAAAD/////AAD/////AAAAAAAAAAAAAAAA//8AAAAAAAAAAP//AAAAAA==")
+}, {
+"aabb": AABB(-0.95, 0, -0.18, 1.9, 0.42, 0.36),
+"format": 34896613377,
+"index_count": 72,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAgABAAQAAwAEAAEABQAAAAIABQADAAAAAgAEAAYABQACAAYAAwAHAAQABQAHAAMABgAEAAcABgAHAAUACAAJAAoACAALAAkACgAJAAwACwAMAAkADQAIAAoADQALAAgACgAMAA4ADQAKAA4ACwAPAAwADQAPAAsADgAMAA8ADgAPAA0A"),
+"name": "timber",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("AAAAAP//AAB5Df////8AAHkNAAD//wAAAAD/////AAB5Df//AAAAAAAAAAAAAAAAeQ0AAAAAAAAAAP//AAAAAIXyAAD//wAA////////AAD//wAA//8AAIXy/////wAA/////wAAAACF8gAAAAAAAP//AAAAAAAAhfL//wAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_adovr"]
+resource_name = "bench_bench"
+_surfaces = [{
+"aabb": AABB(-1.1, 0.42, -0.21, 2.2, 0.08000001, 0.42),
+"attribute_data": PackedByteArray("pKSk/wAAgtutra3////f1qSkpP///4Lbra2t/wAA39akpKT/AACC262trf///9/WpKSk////gtutra3/AADf1qSkpP+PZ4Lbra2t/2+Y39akpKT/b5iC262trf+PZ9/WpKSk/49ngtutra3/b5jf1qSkpP9vmILbra2t/49n39atra3/AAD//62trf///6vnra2t//////+tra3/AACr56SkpP8AAKvnpKSk//////+kpKT///+r56SkpP8AAP//"),
+"format": 34896613407,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_earqt"),
+"name": "planks",
+"primitive": 3,
+"uv_scale": Vector4(1.1, 2.21, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//AID///////8AgP//AAD//wCAAAD/////AID//wAAAAD//wAA//8AAP//AAAAAAAA////////AAD//wAAAAAAAP+/AAD//////78AAAAA////vwAA//8AAP+///8AAP///7//////AAD/v///AAAAAP+//////////78AAP//////v/////8AAP+//////////78AAP//AAD/vwAAAAAAAP8///8AAP///z///wAAAAD/PwAAAAD///8//3////9/////f////3////9/////f////3////9/////f////3////9/////f////38AAP9/AAD/fwAA/38AAP///3////9/////f////38AAP9/AAD/fwAA/38AAP9/")
+}, {
+"aabb": AABB(-0.95, 0, -0.18, 1.9, 0.42, 0.36),
+"attribute_data": PackedByteArray("jIyM/wAADfOkpKT/eQ3Z1IyMjP95DQ3zpKSk/wAA2dSMjIz/hfIN86SkpP///9nUjIyM////DfOkpKT/hfLZ1IyMjP++Zw3zpKSk/0CY2dSMjIz/QJgN86SkpP++Z9nUjIyM/75nDfOkpKT/QJjZ1IyMjP9AmA3zpKSk/75n2dSkpKT/AAD//6SkpP95DRvmpKSk/3kN//+kpKT/AAAb5oyMjP8AABvmjIyM/3kN//+MjIz/eQ0b5oyMjP8AAP//jIyM/4XyDfOkpKT////Z1IyMjP///w3zpKSk/4Xy2dSMjIz/AAAN86SkpP95DdnUjIyM/3kNDfOkpKT/AADZ1IyMjP++Zw3zpKSk/0CY2dSMjIz/QJgN86SkpP++Z9nUjIyM/75nDfOkpKT/QJjZ1IyMjP9AmA3zpKSk/75n2dSkpKT/hfL//6SkpP///xvmpKSk//////+kpKT/hfIb5oyMjP+F8hvmjIyM//////+MjIz///8b5oyMjP+F8v//"),
+"format": 34896613407,
+"index_count": 72,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0A"),
+"material": SubResource("StandardMaterial3D_5rr3c"),
+"name": "timber",
+"primitive": 3,
+"uv_scale": Vector4(1.1875, 2.225, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("AAAAAP//AIB5Df////8AgHkNAAD//wCAAAD/////AIB5DQAAAAD//wAA//8AAP//AAAAAAAA//95Df//AAD//wAAAAAAAP+/AAD//////78AAAAA////vwAA//8AAP+/eQ0AAP///795Df//AAD/v3kNAAAAAP+/eQ3//////78AAP//////v3kN//8AAP+/eQ3//////78AAP//AAD/vwAAAAAAAP8/eQ0AAP///z95DQAAAAD/PwAAAAD///8/hfIAAP//AID///////8AgP//AAD//wCAhfL/////AID//wAAAAD//4Xy//8AAP//hfIAAAAA////////AAD//4XyAAAAAP+/hfL//////7+F8gAA////v4Xy//8AAP+///8AAP///7//////AAD/v///AAAAAP+//////////7+F8v//////v/////8AAP+//////////7+F8v//AAD/v4XyAAAAAP8///8AAP///z///wAAAAD/P4XyAAD///8//3////9/////f////3////9/////f////3////9/////f////3////9/////f////38AAP9/AAD/fwAA/38AAP///3////9/////f////38AAP9/AAD/fwAA/38AAP9//3////9/////f////3////9/////f////3////9/////f////3////9/////f////38AAP9/AAD/fwAA/38AAP///3////9/////f////38AAP9/AAD/fwAA/38AAP9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_86yso")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_lip8d"]
+data = PackedVector3Array(-1.1, 0, 0.21, 1.1, 0.5, 0.21, 1.1, 0, 0.21, -1.1, 0, 0.21, -1.1, 0.5, 0.21, 1.1, 0.5, 0.21, 1.1, 0, -0.21, -1.1, 0.5, -0.21, -1.1, 0, -0.21, 1.1, 0, -0.21, 1.1, 0.5, -0.21, -1.1, 0.5, -0.21, -1.1, 0, -0.21, -1.1, 0.5, 0.21, -1.1, 0, 0.21, -1.1, 0, -0.21, -1.1, 0.5, -0.21, -1.1, 0.5, 0.21, 1.1, 0, 0.21, 1.1, 0.5, -0.21, 1.1, 0, -0.21, 1.1, 0, 0.21, 1.1, 0.5, 0.21, 1.1, 0.5, -0.21, -1.1, 0.5, 0.21, 1.1, 0.5, -0.21, 1.1, 0.5, 0.21, -1.1, 0.5, 0.21, -1.1, 0.5, -0.21, 1.1, 0.5, -0.21, -1.1, 0, -0.21, 1.1, 0, 0.21, 1.1, 0, -0.21, -1.1, 0, -0.21, -1.1, 0, 0.21, 1.1, 0, 0.21)
+
+[node name="Bench" type="Node3D" unique_id=1880015582]
+
+[node name="Visual" type="MeshInstance3D" parent="." unique_id=1612393231]
+layers = 4
+visibility_range_end = 130.0
+visibility_range_end_margin = 10.4
+visibility_range_fade_mode = 1
+mesh = SubResource("ArrayMesh_adovr")
+surface_material_override/0 = ExtResource("1_gmvbn")
+surface_material_override/1 = ExtResource("2_opmxe")
+
+[node name="Collision" type="StaticBody3D" parent="." unique_id=1494259669]
+metadata/surface = "wood"
+
+[node name="Shape" type="CollisionShape3D" parent="Collision" unique_id=2139769871]
+shape = SubResource("ConcavePolygonShape3D_lip8d")

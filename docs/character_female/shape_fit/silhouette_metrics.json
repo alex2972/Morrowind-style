@@ -1,0 +1,12 @@
+[
+  {
+    "model": "before_shape_fit",
+    "front_outer_mean_error_px_at_638px_height": 4.202043291658891,
+    "inner_leg_mean_error_px_at_638px_height": 3.217453505007153
+  },
+  {
+    "model": "shape_fit",
+    "front_outer_mean_error_px_at_638px_height": 0.9310972196305294,
+    "inner_leg_mean_error_px_at_638px_height": 0.41112303290414837
+  }
+]

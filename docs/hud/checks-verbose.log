@@ -1,0 +1,825 @@
+WorkerThreadPool: 16 threads, 4 max low-priority.
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Using "default" pen tablet driver...
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+CORE API HASH: 3769296884
+EDITOR API HASH: 3146738256
+Loading resource: res://tools/verify_hud.gd remapped: res://tools/verify_hud.gd
+Completed load for: 'res://tools/verify_hud.gd' remapped 'res://tools/verify_hud.gd' at thread -1
+SceneTreeFTI: traversal method DEFAULT
+Loaded system CA certificates
+Loading resource: res://scenes/world/veyr.tscn remapped: res://scenes/world/veyr.tscn
+Loading resource: res://scripts/world/world.gd remapped: res://scripts/world/world.gd
+Completed load for: 'res://scripts/world/world.gd' remapped 'res://scripts/world/world.gd' at thread -1
+Loading resource: res://assets/terrain/splat_b.res remapped: res://assets/terrain/splat_b.res
+Completed load for: 'res://assets/terrain/splat_b.res' remapped 'res://assets/terrain/splat_b.res' at thread -1
+Loading resource: res://shaders/sky.gdshader remapped: res://shaders/sky.gdshader
+Completed load for: 'res://shaders/sky.gdshader' remapped 'res://shaders/sky.gdshader' at thread -1
+Loading resource: res://assets/textures/sky_clear.png remapped: res://assets/textures/sky_clear.png
+Loading resource: res://.godot/imported/sky_clear.png-28e4aaa86ff85fd8355519ad8357e133.s3tc.ctex remapped: res://.godot/imported/sky_clear.png-28e4aaa86ff85fd8355519ad8357e133.s3tc.ctex
+Completed load for: 'res://assets/textures/sky_clear.png' remapped 'res://assets/textures/sky_clear.png' at thread -1
+Loading resource: res://assets/textures/moon_large.png remapped: res://assets/textures/moon_large.png
+Loading resource: res://.godot/imported/moon_large.png-3ae7ad5add865e5e4ac72c61191f9066.s3tc.ctex remapped: res://.godot/imported/moon_large.png-3ae7ad5add865e5e4ac72c61191f9066.s3tc.ctex
+Completed load for: 'res://assets/textures/moon_large.png' remapped 'res://assets/textures/moon_large.png' at thread -1
+Loading resource: res://assets/textures/moon_small.png remapped: res://assets/textures/moon_small.png
+Loading resource: res://.godot/imported/moon_small.png-052afb41ffcab6ead0683a8e84b53159.s3tc.ctex remapped: res://.godot/imported/moon_small.png-052afb41ffcab6ead0683a8e84b53159.s3tc.ctex
+Completed load for: 'res://assets/textures/moon_small.png' remapped 'res://assets/textures/moon_small.png' at thread -1
+Loading resource: res://assets/textures/stars.png remapped: res://assets/textures/stars.png
+Loading resource: res://.godot/imported/stars.png-bf4d7ebf28fefd22c7b9a50f4ec887de.s3tc.ctex remapped: res://.godot/imported/stars.png-bf4d7ebf28fefd22c7b9a50f4ec887de.s3tc.ctex
+Completed load for: 'res://assets/textures/stars.png' remapped 'res://assets/textures/stars.png' at thread -1
+Loading resource: res://scripts/world/weather.gd remapped: res://scripts/world/weather.gd
+Completed load for: 'res://scripts/world/weather.gd' remapped 'res://scripts/world/weather.gd' at thread -1
+Loading resource: res://assets/terrain/terrain_material.tres remapped: res://assets/terrain/terrain_material.tres
+Loading resource: res://shaders/terrain.gdshader remapped: res://shaders/terrain.gdshader
+Completed load for: 'res://shaders/terrain.gdshader' remapped 'res://shaders/terrain.gdshader' at thread -1
+Loading resource: res://assets/textures/t_macro.png remapped: res://assets/textures/t_macro.png
+Loading resource: res://.godot/imported/t_macro.png-0422f81d78f97d91fb6520e6da2c8b17.s3tc.ctex remapped: res://.godot/imported/t_macro.png-0422f81d78f97d91fb6520e6da2c8b17.s3tc.ctex
+Completed load for: 'res://assets/textures/t_macro.png' remapped 'res://assets/textures/t_macro.png' at thread -1
+Loading resource: res://assets/terrain/splat_a.res remapped: res://assets/terrain/splat_a.res
+Completed load for: 'res://assets/terrain/splat_a.res' remapped 'res://assets/terrain/splat_a.res' at thread -1
+Loading resource: res://assets/textures/t_ash.png remapped: res://assets/textures/t_ash.png
+Loading resource: res://.godot/imported/t_ash.png-4a226525cfbb49ed99153a1a35428a4b.s3tc.ctex remapped: res://.godot/imported/t_ash.png-4a226525cfbb49ed99153a1a35428a4b.s3tc.ctex
+Completed load for: 'res://assets/textures/t_ash.png' remapped 'res://assets/textures/t_ash.png' at thread -1
+Loading resource: res://assets/textures/t_cobble.png remapped: res://assets/textures/t_cobble.png
+Loading resource: res://.godot/imported/t_cobble.png-8981a50f08928194e485417e2412250d.s3tc.ctex remapped: res://.godot/imported/t_cobble.png-8981a50f08928194e485417e2412250d.s3tc.ctex
+Completed load for: 'res://assets/textures/t_cobble.png' remapped 'res://assets/textures/t_cobble.png' at thread -1
+Loading resource: res://assets/textures/t_dirt.png remapped: res://assets/textures/t_dirt.png
+Loading resource: res://.godot/imported/t_dirt.png-71f9beae03cef1cbf75ea64a33da6d74.s3tc.ctex remapped: res://.godot/imported/t_dirt.png-71f9beae03cef1cbf75ea64a33da6d74.s3tc.ctex
+Completed load for: 'res://assets/textures/t_dirt.png' remapped 'res://assets/textures/t_dirt.png' at thread -1
+Loading resource: res://assets/textures/t_grass.png remapped: res://assets/textures/t_grass.png
+Loading resource: res://.godot/imported/t_grass.png-730c64ef40f6803486455d52310bffcf.s3tc.ctex remapped: res://.godot/imported/t_grass.png-730c64ef40f6803486455d52310bffcf.s3tc.ctex
+Completed load for: 'res://assets/textures/t_grass.png' remapped 'res://assets/textures/t_grass.png' at thread -1
+Loading resource: res://assets/textures/t_mud.png remapped: res://assets/textures/t_mud.png
+Loading resource: res://.godot/imported/t_mud.png-7fdce7503bdf24bab4dc848b73a177d5.s3tc.ctex remapped: res://.godot/imported/t_mud.png-7fdce7503bdf24bab4dc848b73a177d5.s3tc.ctex
+Completed load for: 'res://assets/textures/t_mud.png' remapped 'res://assets/textures/t_mud.png' at thread -1
+Loading resource: res://assets/textures/t_road.png remapped: res://assets/textures/t_road.png
+Loading resource: res://.godot/imported/t_road.png-50f663fcac72f94491b67c3b3810b7dc.s3tc.ctex remapped: res://.godot/imported/t_road.png-50f663fcac72f94491b67c3b3810b7dc.s3tc.ctex
+Completed load for: 'res://assets/textures/t_road.png' remapped 'res://assets/textures/t_road.png' at thread -1
+Loading resource: res://assets/textures/t_rock.png remapped: res://assets/textures/t_rock.png
+Loading resource: res://.godot/imported/t_rock.png-973f00661ed34a7149165dea56d5e7e6.s3tc.ctex remapped: res://.godot/imported/t_rock.png-973f00661ed34a7149165dea56d5e7e6.s3tc.ctex
+Completed load for: 'res://assets/textures/t_rock.png' remapped 'res://assets/textures/t_rock.png' at thread -1
+Loading resource: res://assets/textures/t_sand.png remapped: res://assets/textures/t_sand.png
+Loading resource: res://.godot/imported/t_sand.png-f41bfbf9cb321b05a8a33ccd9b3fee63.s3tc.ctex remapped: res://.godot/imported/t_sand.png-f41bfbf9cb321b05a8a33ccd9b3fee63.s3tc.ctex
+Completed load for: 'res://assets/textures/t_sand.png' remapped 'res://assets/textures/t_sand.png' at thread -1
+Loading resource: res://assets/terrain/tint.res remapped: res://assets/terrain/tint.res
+Completed load for: 'res://assets/terrain/tint.res' remapped 'res://assets/terrain/tint.res' at thread -1
+Completed load for: 'res://assets/terrain/terrain_material.tres' remapped 'res://assets/terrain/terrain_material.tres' at thread -1
+Loading resource: res://assets/terrain/chunk_0_0.res remapped: res://assets/terrain/chunk_0_0.res
+Completed load for: 'res://assets/terrain/chunk_0_0.res' remapped 'res://assets/terrain/chunk_0_0.res' at thread -1
+Loading resource: res://assets/terrain/collision_0_0.res remapped: res://assets/terrain/collision_0_0.res
+Completed load for: 'res://assets/terrain/collision_0_0.res' remapped 'res://assets/terrain/collision_0_0.res' at thread -1
+Loading resource: res://assets/terrain/chunk_1_0.res remapped: res://assets/terrain/chunk_1_0.res
+Completed load for: 'res://assets/terrain/chunk_1_0.res' remapped 'res://assets/terrain/chunk_1_0.res' at thread -1
+Loading resource: res://assets/terrain/collision_1_0.res remapped: res://assets/terrain/collision_1_0.res
+Completed load for: 'res://assets/terrain/collision_1_0.res' remapped 'res://assets/terrain/collision_1_0.res' at thread -1
+Loading resource: res://assets/terrain/chunk_2_0.res remapped: res://assets/terrain/chunk_2_0.res
+Completed load for: 'res://assets/terrain/chunk_2_0.res' remapped 'res://assets/terrain/chunk_2_0.res' at thread -1
+Loading resource: res://assets/terrain/collision_2_0.res remapped: res://assets/terrain/collision_2_0.res
+Completed load for: 'res://assets/terrain/collision_2_0.res' remapped 'res://assets/terrain/collision_2_0.res' at thread -1
+Loading resource: res://assets/terrain/chunk_3_0.res remapped: res://assets/terrain/chunk_3_0.res
+Completed load for: 'res://assets/terrain/chunk_3_0.res' remapped 'res://assets/terrain/chunk_3_0.res' at thread -1
+Loading resource: res://assets/terrain/collision_3_0.res remapped: res://assets/terrain/collision_3_0.res
+Completed load for: 'res://assets/terrain/collision_3_0.res' remapped 'res://assets/terrain/collision_3_0.res' at thread -1
+Loading resource: res://assets/terrain/chunk_4_0.res remapped: res://assets/terrain/chunk_4_0.res
+Completed load for: 'res://assets/terrain/chunk_4_0.res' remapped 'res://assets/terrain/chunk_4_0.res' at thread -1
+Loading resource: res://assets/terrain/collision_4_0.res remapped: res://assets/terrain/collision_4_0.res
+Completed load for: 'res://assets/terrain/collision_4_0.res' remapped 'res://assets/terrain/collision_4_0.res' at thread -1
+Loading resource: res://assets/terrain/chunk_5_0.res remapped: res://assets/terrain/chunk_5_0.res
+Completed load for: 'res://assets/terrain/chunk_5_0.res' remapped 'res://assets/terrain/chunk_5_0.res' at thread -1
+Loading resource: res://assets/terrain/collision_5_0.res remapped: res://assets/terrain/collision_5_0.res
+Completed load for: 'res://assets/terrain/collision_5_0.res' remapped 'res://assets/terrain/collision_5_0.res' at thread -1
+Loading resource: res://assets/terrain/chunk_6_0.res remapped: res://assets/terrain/chunk_6_0.res
+Completed load for: 'res://assets/terrain/chunk_6_0.res' remapped 'res://assets/terrain/chunk_6_0.res' at thread -1
+Loading resource: res://assets/terrain/collision_6_0.res remapped: res://assets/terrain/collision_6_0.res
+Completed load for: 'res://assets/terrain/collision_6_0.res' remapped 'res://assets/terrain/collision_6_0.res' at thread -1
+Loading resource: res://assets/terrain/chunk_7_0.res remapped: res://assets/terrain/chunk_7_0.res
+Completed load for: 'res://assets/terrain/chunk_7_0.res' remapped 'res://assets/terrain/chunk_7_0.res' at thread -1
+Loading resource: res://assets/terrain/collision_7_0.res remapped: res://assets/terrain/collision_7_0.res
+Completed load for: 'res://assets/terrain/collision_7_0.res' remapped 'res://assets/terrain/collision_7_0.res' at thread -1
+Loading resource: res://assets/terrain/chunk_0_1.res remapped: res://assets/terrain/chunk_0_1.res
+Completed load for: 'res://assets/terrain/chunk_0_1.res' remapped 'res://assets/terrain/chunk_0_1.res' at thread -1
+Loading resource: res://assets/terrain/collision_0_1.res remapped: res://assets/terrain/collision_0_1.res
+Completed load for: 'res://assets/terrain/collision_0_1.res' remapped 'res://assets/terrain/collision_0_1.res' at thread -1
+Loading resource: res://assets/terrain/chunk_1_1.res remapped: res://assets/terrain/chunk_1_1.res
+Completed load for: 'res://assets/terrain/chunk_1_1.res' remapped 'res://assets/terrain/chunk_1_1.res' at thread -1
+Loading resource: res://assets/terrain/collision_1_1.res remapped: res://assets/terrain/collision_1_1.res
+Completed load for: 'res://assets/terrain/collision_1_1.res' remapped 'res://assets/terrain/collision_1_1.res' at thread -1
+Loading resource: res://assets/terrain/chunk_2_1.res remapped: res://assets/terrain/chunk_2_1.res
+Completed load for: 'res://assets/terrain/chunk_2_1.res' remapped 'res://assets/terrain/chunk_2_1.res' at thread -1
+Loading resource: res://assets/terrain/collision_2_1.res remapped: res://assets/terrain/collision_2_1.res
+Completed load for: 'res://assets/terrain/collision_2_1.res' remapped 'res://assets/terrain/collision_2_1.res' at thread -1
+Loading resource: res://assets/terrain/chunk_3_1.res remapped: res://assets/terrain/chunk_3_1.res
+Completed load for: 'res://assets/terrain/chunk_3_1.res' remapped 'res://assets/terrain/chunk_3_1.res' at thread -1
+Loading resource: res://assets/terrain/collision_3_1.res remapped: res://assets/terrain/collision_3_1.res
+Completed load for: 'res://assets/terrain/collision_3_1.res' remapped 'res://assets/terrain/collision_3_1.res' at thread -1
+Loading resource: res://assets/terrain/chunk_4_1.res remapped: res://assets/terrain/chunk_4_1.res
+Completed load for: 'res://assets/terrain/chunk_4_1.res' remapped 'res://assets/terrain/chunk_4_1.res' at thread -1
+Loading resource: res://assets/terrain/collision_4_1.res remapped: res://assets/terrain/collision_4_1.res
+Completed load for: 'res://assets/terrain/collision_4_1.res' remapped 'res://assets/terrain/collision_4_1.res' at thread -1
+Loading resource: res://assets/terrain/chunk_5_1.res remapped: res://assets/terrain/chunk_5_1.res
+Completed load for: 'res://assets/terrain/chunk_5_1.res' remapped 'res://assets/terrain/chunk_5_1.res' at thread -1
+Loading resource: res://assets/terrain/collision_5_1.res remapped: res://assets/terrain/collision_5_1.res
+Completed load for: 'res://assets/terrain/collision_5_1.res' remapped 'res://assets/terrain/collision_5_1.res' at thread -1
+Loading resource: res://assets/terrain/chunk_6_1.res remapped: res://assets/terrain/chunk_6_1.res
+Completed load for: 'res://assets/terrain/chunk_6_1.res' remapped 'res://assets/terrain/chunk_6_1.res' at thread -1
+Loading resource: res://assets/terrain/collision_6_1.res remapped: res://assets/terrain/collision_6_1.res
+Completed load for: 'res://assets/terrain/collision_6_1.res' remapped 'res://assets/terrain/collision_6_1.res' at thread -1
+Loading resource: res://assets/terrain/chunk_7_1.res remapped: res://assets/terrain/chunk_7_1.res
+Completed load for: 'res://assets/terrain/chunk_7_1.res' remapped 'res://assets/terrain/chunk_7_1.res' at thread -1
+Loading resource: res://assets/terrain/collision_7_1.res remapped: res://assets/terrain/collision_7_1.res
+Completed load for: 'res://assets/terrain/collision_7_1.res' remapped 'res://assets/terrain/collision_7_1.res' at thread -1
+Loading resource: res://assets/terrain/chunk_0_2.res remapped: res://assets/terrain/chunk_0_2.res
+Completed load for: 'res://assets/terrain/chunk_0_2.res' remapped 'res://assets/terrain/chunk_0_2.res' at thread -1
+Loading resource: res://assets/terrain/collision_0_2.res remapped: res://assets/terrain/collision_0_2.res
+Completed load for: 'res://assets/terrain/collision_0_2.res' remapped 'res://assets/terrain/collision_0_2.res' at thread -1
+Loading resource: res://assets/terrain/chunk_1_2.res remapped: res://assets/terrain/chunk_1_2.res
+Completed load for: 'res://assets/terrain/chunk_1_2.res' remapped 'res://assets/terrain/chunk_1_2.res' at thread -1
+Loading resource: res://assets/terrain/collision_1_2.res remapped: res://assets/terrain/collision_1_2.res
+Completed load for: 'res://assets/terrain/collision_1_2.res' remapped 'res://assets/terrain/collision_1_2.res' at thread -1
+Loading resource: res://assets/terrain/chunk_2_2.res remapped: res://assets/terrain/chunk_2_2.res
+Completed load for: 'res://assets/terrain/chunk_2_2.res' remapped 'res://assets/terrain/chunk_2_2.res' at thread -1
+Loading resource: res://assets/terrain/collision_2_2.res remapped: res://assets/terrain/collision_2_2.res
+Completed load for: 'res://assets/terrain/collision_2_2.res' remapped 'res://assets/terrain/collision_2_2.res' at thread -1
+Loading resource: res://assets/terrain/chunk_3_2.res remapped: res://assets/terrain/chunk_3_2.res
+Completed load for: 'res://assets/terrain/chunk_3_2.res' remapped 'res://assets/terrain/chunk_3_2.res' at thread -1
+Loading resource: res://assets/terrain/collision_3_2.res remapped: res://assets/terrain/collision_3_2.res
+Completed load for: 'res://assets/terrain/collision_3_2.res' remapped 'res://assets/terrain/collision_3_2.res' at thread -1
+Loading resource: res://assets/terrain/chunk_4_2.res remapped: res://assets/terrain/chunk_4_2.res
+Completed load for: 'res://assets/terrain/chunk_4_2.res' remapped 'res://assets/terrain/chunk_4_2.res' at thread -1
+Loading resource: res://assets/terrain/collision_4_2.res remapped: res://assets/terrain/collision_4_2.res
+Completed load for: 'res://assets/terrain/collision_4_2.res' remapped 'res://assets/terrain/collision_4_2.res' at thread -1
+Loading resource: res://assets/terrain/chunk_5_2.res remapped: res://assets/terrain/chunk_5_2.res
+Completed load for: 'res://assets/terrain/chunk_5_2.res' remapped 'res://assets/terrain/chunk_5_2.res' at thread -1
+Loading resource: res://assets/terrain/collision_5_2.res remapped: res://assets/terrain/collision_5_2.res
+Completed load for: 'res://assets/terrain/collision_5_2.res' remapped 'res://assets/terrain/collision_5_2.res' at thread -1
+Loading resource: res://assets/terrain/chunk_6_2.res remapped: res://assets/terrain/chunk_6_2.res
+Completed load for: 'res://assets/terrain/chunk_6_2.res' remapped 'res://assets/terrain/chunk_6_2.res' at thread -1
+Loading resource: res://assets/terrain/collision_6_2.res remapped: res://assets/terrain/collision_6_2.res
+Completed load for: 'res://assets/terrain/collision_6_2.res' remapped 'res://assets/terrain/collision_6_2.res' at thread -1
+Loading resource: res://assets/terrain/chunk_7_2.res remapped: res://assets/terrain/chunk_7_2.res
+Completed load for: 'res://assets/terrain/chunk_7_2.res' remapped 'res://assets/terrain/chunk_7_2.res' at thread -1
+Loading resource: res://assets/terrain/collision_7_2.res remapped: res://assets/terrain/collision_7_2.res
+Completed load for: 'res://assets/terrain/collision_7_2.res' remapped 'res://assets/terrain/collision_7_2.res' at thread -1
+Loading resource: res://assets/terrain/chunk_0_3.res remapped: res://assets/terrain/chunk_0_3.res
+Completed load for: 'res://assets/terrain/chunk_0_3.res' remapped 'res://assets/terrain/chunk_0_3.res' at thread -1
+Loading resource: res://assets/terrain/collision_0_3.res remapped: res://assets/terrain/collision_0_3.res
+Completed load for: 'res://assets/terrain/collision_0_3.res' remapped 'res://assets/terrain/collision_0_3.res' at thread -1
+Loading resource: res://assets/terrain/chunk_1_3.res remapped: res://assets/terrain/chunk_1_3.res
+Completed load for: 'res://assets/terrain/chunk_1_3.res' remapped 'res://assets/terrain/chunk_1_3.res' at thread -1
+Loading resource: res://assets/terrain/collision_1_3.res remapped: res://assets/terrain/collision_1_3.res
+Completed load for: 'res://assets/terrain/collision_1_3.res' remapped 'res://assets/terrain/collision_1_3.res' at thread -1
+Loading resource: res://assets/terrain/chunk_2_3.res remapped: res://assets/terrain/chunk_2_3.res
+Completed load for: 'res://assets/terrain/chunk_2_3.res' remapped 'res://assets/terrain/chunk_2_3.res' at thread -1
+Loading resource: res://assets/terrain/collision_2_3.res remapped: res://assets/terrain/collision_2_3.res
+Completed load for: 'res://assets/terrain/collision_2_3.res' remapped 'res://assets/terrain/collision_2_3.res' at thread -1
+Loading resource: res://assets/terrain/chunk_3_3.res remapped: res://assets/terrain/chunk_3_3.res
+Completed load for: 'res://assets/terrain/chunk_3_3.res' remapped 'res://assets/terrain/chunk_3_3.res' at thread -1
+Loading resource: res://assets/terrain/collision_3_3.res remapped: res://assets/terrain/collision_3_3.res
+Completed load for: 'res://assets/terrain/collision_3_3.res' remapped 'res://assets/terrain/collision_3_3.res' at thread -1
+Loading resource: res://assets/terrain/chunk_4_3.res remapped: res://assets/terrain/chunk_4_3.res
+Completed load for: 'res://assets/terrain/chunk_4_3.res' remapped 'res://assets/terrain/chunk_4_3.res' at thread -1
+Loading resource: res://assets/terrain/collision_4_3.res remapped: res://assets/terrain/collision_4_3.res
+Completed load for: 'res://assets/terrain/collision_4_3.res' remapped 'res://assets/terrain/collision_4_3.res' at thread -1
+Loading resource: res://assets/terrain/chunk_5_3.res remapped: res://assets/terrain/chunk_5_3.res
+Completed load for: 'res://assets/terrain/chunk_5_3.res' remapped 'res://assets/terrain/chunk_5_3.res' at thread -1
+Loading resource: res://assets/terrain/collision_5_3.res remapped: res://assets/terrain/collision_5_3.res
+Completed load for: 'res://assets/terrain/collision_5_3.res' remapped 'res://assets/terrain/collision_5_3.res' at thread -1
+Loading resource: res://assets/terrain/chunk_6_3.res remapped: res://assets/terrain/chunk_6_3.res
+Completed load for: 'res://assets/terrain/chunk_6_3.res' remapped 'res://assets/terrain/chunk_6_3.res' at thread -1
+Loading resource: res://assets/terrain/collision_6_3.res remapped: res://assets/terrain/collision_6_3.res
+Completed load for: 'res://assets/terrain/collision_6_3.res' remapped 'res://assets/terrain/collision_6_3.res' at thread -1
+Loading resource: res://assets/terrain/chunk_7_3.res remapped: res://assets/terrain/chunk_7_3.res
+Completed load for: 'res://assets/terrain/chunk_7_3.res' remapped 'res://assets/terrain/chunk_7_3.res' at thread -1
+Loading resource: res://assets/terrain/collision_7_3.res remapped: res://assets/terrain/collision_7_3.res
+Completed load for: 'res://assets/terrain/collision_7_3.res' remapped 'res://assets/terrain/collision_7_3.res' at thread -1
+Loading resource: res://assets/terrain/chunk_0_4.res remapped: res://assets/terrain/chunk_0_4.res
+Completed load for: 'res://assets/terrain/chunk_0_4.res' remapped 'res://assets/terrain/chunk_0_4.res' at thread -1
+Loading resource: res://assets/terrain/collision_0_4.res remapped: res://assets/terrain/collision_0_4.res
+Completed load for: 'res://assets/terrain/collision_0_4.res' remapped 'res://assets/terrain/collision_0_4.res' at thread -1
+Loading resource: res://assets/terrain/chunk_1_4.res remapped: res://assets/terrain/chunk_1_4.res
+Completed load for: 'res://assets/terrain/chunk_1_4.res' remapped 'res://assets/terrain/chunk_1_4.res' at thread -1
+Loading resource: res://assets/terrain/collision_1_4.res remapped: res://assets/terrain/collision_1_4.res
+Completed load for: 'res://assets/terrain/collision_1_4.res' remapped 'res://assets/terrain/collision_1_4.res' at thread -1
+Loading resource: res://assets/terrain/chunk_2_4.res remapped: res://assets/terrain/chunk_2_4.res
+Completed load for: 'res://assets/terrain/chunk_2_4.res' remapped 'res://assets/terrain/chunk_2_4.res' at thread -1
+Loading resource: res://assets/terrain/collision_2_4.res remapped: res://assets/terrain/collision_2_4.res
+Completed load for: 'res://assets/terrain/collision_2_4.res' remapped 'res://assets/terrain/collision_2_4.res' at thread -1
+Loading resource: res://assets/terrain/chunk_3_4.res remapped: res://assets/terrain/chunk_3_4.res
+Completed load for: 'res://assets/terrain/chunk_3_4.res' remapped 'res://assets/terrain/chunk_3_4.res' at thread -1
+Loading resource: res://assets/terrain/collision_3_4.res remapped: res://assets/terrain/collision_3_4.res
+Completed load for: 'res://assets/terrain/collision_3_4.res' remapped 'res://assets/terrain/collision_3_4.res' at thread -1
+Loading resource: res://assets/terrain/chunk_4_4.res remapped: res://assets/terrain/chunk_4_4.res
+Completed load for: 'res://assets/terrain/chunk_4_4.res' remapped 'res://assets/terrain/chunk_4_4.res' at thread -1
+Loading resource: res://assets/terrain/collision_4_4.res remapped: res://assets/terrain/collision_4_4.res
+Completed load for: 'res://assets/terrain/collision_4_4.res' remapped 'res://assets/terrain/collision_4_4.res' at thread -1
+Loading resource: res://assets/terrain/chunk_5_4.res remapped: res://assets/terrain/chunk_5_4.res
+Completed load for: 'res://assets/terrain/chunk_5_4.res' remapped 'res://assets/terrain/chunk_5_4.res' at thread -1
+Loading resource: res://assets/terrain/collision_5_4.res remapped: res://assets/terrain/collision_5_4.res
+Completed load for: 'res://assets/terrain/collision_5_4.res' remapped 'res://assets/terrain/collision_5_4.res' at thread -1
+Loading resource: res://assets/terrain/chunk_6_4.res remapped: res://assets/terrain/chunk_6_4.res
+Completed load for: 'res://assets/terrain/chunk_6_4.res' remapped 'res://assets/terrain/chunk_6_4.res' at thread -1
+Loading resource: res://assets/terrain/collision_6_4.res remapped: res://assets/terrain/collision_6_4.res
+Completed load for: 'res://assets/terrain/collision_6_4.res' remapped 'res://assets/terrain/collision_6_4.res' at thread -1
+Loading resource: res://assets/terrain/chunk_7_4.res remapped: res://assets/terrain/chunk_7_4.res
+Completed load for: 'res://assets/terrain/chunk_7_4.res' remapped 'res://assets/terrain/chunk_7_4.res' at thread -1
+Loading resource: res://assets/terrain/collision_7_4.res remapped: res://assets/terrain/collision_7_4.res
+Completed load for: 'res://assets/terrain/collision_7_4.res' remapped 'res://assets/terrain/collision_7_4.res' at thread -1
+Loading resource: res://assets/terrain/chunk_0_5.res remapped: res://assets/terrain/chunk_0_5.res
+Completed load for: 'res://assets/terrain/chunk_0_5.res' remapped 'res://assets/terrain/chunk_0_5.res' at thread -1
+Loading resource: res://assets/terrain/collision_0_5.res remapped: res://assets/terrain/collision_0_5.res
+Completed load for: 'res://assets/terrain/collision_0_5.res' remapped 'res://assets/terrain/collision_0_5.res' at thread -1
+Loading resource: res://assets/terrain/chunk_1_5.res remapped: res://assets/terrain/chunk_1_5.res
+Completed load for: 'res://assets/terrain/chunk_1_5.res' remapped 'res://assets/terrain/chunk_1_5.res' at thread -1
+Loading resource: res://assets/terrain/collision_1_5.res remapped: res://assets/terrain/collision_1_5.res
+Completed load for: 'res://assets/terrain/collision_1_5.res' remapped 'res://assets/terrain/collision_1_5.res' at thread -1
+Loading resource: res://assets/terrain/chunk_2_5.res remapped: res://assets/terrain/chunk_2_5.res
+Completed load for: 'res://assets/terrain/chunk_2_5.res' remapped 'res://assets/terrain/chunk_2_5.res' at thread -1
+Loading resource: res://assets/terrain/collision_2_5.res remapped: res://assets/terrain/collision_2_5.res
+Completed load for: 'res://assets/terrain/collision_2_5.res' remapped 'res://assets/terrain/collision_2_5.res' at thread -1
+Loading resource: res://assets/terrain/chunk_3_5.res remapped: res://assets/terrain/chunk_3_5.res
+Completed load for: 'res://assets/terrain/chunk_3_5.res' remapped 'res://assets/terrain/chunk_3_5.res' at thread -1
+Loading resource: res://assets/terrain/collision_3_5.res remapped: res://assets/terrain/collision_3_5.res
+Completed load for: 'res://assets/terrain/collision_3_5.res' remapped 'res://assets/terrain/collision_3_5.res' at thread -1
+Loading resource: res://assets/terrain/chunk_4_5.res remapped: res://assets/terrain/chunk_4_5.res
+Completed load for: 'res://assets/terrain/chunk_4_5.res' remapped 'res://assets/terrain/chunk_4_5.res' at thread -1
+Loading resource: res://assets/terrain/collision_4_5.res remapped: res://assets/terrain/collision_4_5.res
+Completed load for: 'res://assets/terrain/collision_4_5.res' remapped 'res://assets/terrain/collision_4_5.res' at thread -1
+Loading resource: res://assets/terrain/chunk_5_5.res remapped: res://assets/terrain/chunk_5_5.res
+Completed load for: 'res://assets/terrain/chunk_5_5.res' remapped 'res://assets/terrain/chunk_5_5.res' at thread -1
+Loading resource: res://assets/terrain/collision_5_5.res remapped: res://assets/terrain/collision_5_5.res
+Completed load for: 'res://assets/terrain/collision_5_5.res' remapped 'res://assets/terrain/collision_5_5.res' at thread -1
+Loading resource: res://assets/terrain/chunk_6_5.res remapped: res://assets/terrain/chunk_6_5.res
+Completed load for: 'res://assets/terrain/chunk_6_5.res' remapped 'res://assets/terrain/chunk_6_5.res' at thread -1
+Loading resource: res://assets/terrain/collision_6_5.res remapped: res://assets/terrain/collision_6_5.res
+Completed load for: 'res://assets/terrain/collision_6_5.res' remapped 'res://assets/terrain/collision_6_5.res' at thread -1
+Loading resource: res://assets/terrain/chunk_7_5.res remapped: res://assets/terrain/chunk_7_5.res
+Completed load for: 'res://assets/terrain/chunk_7_5.res' remapped 'res://assets/terrain/chunk_7_5.res' at thread -1
+Loading resource: res://assets/terrain/collision_7_5.res remapped: res://assets/terrain/collision_7_5.res
+Completed load for: 'res://assets/terrain/collision_7_5.res' remapped 'res://assets/terrain/collision_7_5.res' at thread -1
+Loading resource: res://assets/terrain/chunk_0_6.res remapped: res://assets/terrain/chunk_0_6.res
+Completed load for: 'res://assets/terrain/chunk_0_6.res' remapped 'res://assets/terrain/chunk_0_6.res' at thread -1
+Loading resource: res://assets/terrain/collision_0_6.res remapped: res://assets/terrain/collision_0_6.res
+Completed load for: 'res://assets/terrain/collision_0_6.res' remapped 'res://assets/terrain/collision_0_6.res' at thread -1
+Loading resource: res://assets/terrain/chunk_1_6.res remapped: res://assets/terrain/chunk_1_6.res
+Completed load for: 'res://assets/terrain/chunk_1_6.res' remapped 'res://assets/terrain/chunk_1_6.res' at thread -1
+Loading resource: res://assets/terrain/collision_1_6.res remapped: res://assets/terrain/collision_1_6.res
+Completed load for: 'res://assets/terrain/collision_1_6.res' remapped 'res://assets/terrain/collision_1_6.res' at thread -1
+Loading resource: res://assets/terrain/chunk_2_6.res remapped: res://assets/terrain/chunk_2_6.res
+Completed load for: 'res://assets/terrain/chunk_2_6.res' remapped 'res://assets/terrain/chunk_2_6.res' at thread -1
+Loading resource: res://assets/terrain/collision_2_6.res remapped: res://assets/terrain/collision_2_6.res
+Completed load for: 'res://assets/terrain/collision_2_6.res' remapped 'res://assets/terrain/collision_2_6.res' at thread -1
+Loading resource: res://assets/terrain/chunk_3_6.res remapped: res://assets/terrain/chunk_3_6.res
+Completed load for: 'res://assets/terrain/chunk_3_6.res' remapped 'res://assets/terrain/chunk_3_6.res' at thread -1
+Loading resource: res://assets/terrain/collision_3_6.res remapped: res://assets/terrain/collision_3_6.res
+Completed load for: 'res://assets/terrain/collision_3_6.res' remapped 'res://assets/terrain/collision_3_6.res' at thread -1
+Loading resource: res://assets/terrain/chunk_4_6.res remapped: res://assets/terrain/chunk_4_6.res
+Completed load for: 'res://assets/terrain/chunk_4_6.res' remapped 'res://assets/terrain/chunk_4_6.res' at thread -1
+Loading resource: res://assets/terrain/collision_4_6.res remapped: res://assets/terrain/collision_4_6.res
+Completed load for: 'res://assets/terrain/collision_4_6.res' remapped 'res://assets/terrain/collision_4_6.res' at thread -1
+Loading resource: res://assets/terrain/chunk_5_6.res remapped: res://assets/terrain/chunk_5_6.res
+Completed load for: 'res://assets/terrain/chunk_5_6.res' remapped 'res://assets/terrain/chunk_5_6.res' at thread -1
+Loading resource: res://assets/terrain/collision_5_6.res remapped: res://assets/terrain/collision_5_6.res
+Completed load for: 'res://assets/terrain/collision_5_6.res' remapped 'res://assets/terrain/collision_5_6.res' at thread -1
+Loading resource: res://assets/terrain/chunk_6_6.res remapped: res://assets/terrain/chunk_6_6.res
+Completed load for: 'res://assets/terrain/chunk_6_6.res' remapped 'res://assets/terrain/chunk_6_6.res' at thread -1
+Loading resource: res://assets/terrain/collision_6_6.res remapped: res://assets/terrain/collision_6_6.res
+Completed load for: 'res://assets/terrain/collision_6_6.res' remapped 'res://assets/terrain/collision_6_6.res' at thread -1
+Loading resource: res://assets/terrain/chunk_7_6.res remapped: res://assets/terrain/chunk_7_6.res
+Completed load for: 'res://assets/terrain/chunk_7_6.res' remapped 'res://assets/terrain/chunk_7_6.res' at thread -1
+Loading resource: res://assets/terrain/collision_7_6.res remapped: res://assets/terrain/collision_7_6.res
+Completed load for: 'res://assets/terrain/collision_7_6.res' remapped 'res://assets/terrain/collision_7_6.res' at thread -1
+Loading resource: res://assets/terrain/chunk_0_7.res remapped: res://assets/terrain/chunk_0_7.res
+Completed load for: 'res://assets/terrain/chunk_0_7.res' remapped 'res://assets/terrain/chunk_0_7.res' at thread -1
+Loading resource: res://assets/terrain/collision_0_7.res remapped: res://assets/terrain/collision_0_7.res
+Completed load for: 'res://assets/terrain/collision_0_7.res' remapped 'res://assets/terrain/collision_0_7.res' at thread -1
+Loading resource: res://assets/terrain/chunk_1_7.res remapped: res://assets/terrain/chunk_1_7.res
+Completed load for: 'res://assets/terrain/chunk_1_7.res' remapped 'res://assets/terrain/chunk_1_7.res' at thread -1
+Loading resource: res://assets/terrain/collision_1_7.res remapped: res://assets/terrain/collision_1_7.res
+Completed load for: 'res://assets/terrain/collision_1_7.res' remapped 'res://assets/terrain/collision_1_7.res' at thread -1
+Loading resource: res://assets/terrain/chunk_2_7.res remapped: res://assets/terrain/chunk_2_7.res
+Completed load for: 'res://assets/terrain/chunk_2_7.res' remapped 'res://assets/terrain/chunk_2_7.res' at thread -1
+Loading resource: res://assets/terrain/collision_2_7.res remapped: res://assets/terrain/collision_2_7.res
+Completed load for: 'res://assets/terrain/collision_2_7.res' remapped 'res://assets/terrain/collision_2_7.res' at thread -1
+Loading resource: res://assets/terrain/chunk_3_7.res remapped: res://assets/terrain/chunk_3_7.res
+Completed load for: 'res://assets/terrain/chunk_3_7.res' remapped 'res://assets/terrain/chunk_3_7.res' at thread -1
+Loading resource: res://assets/terrain/collision_3_7.res remapped: res://assets/terrain/collision_3_7.res
+Completed load for: 'res://assets/terrain/collision_3_7.res' remapped 'res://assets/terrain/collision_3_7.res' at thread -1
+Loading resource: res://assets/terrain/chunk_4_7.res remapped: res://assets/terrain/chunk_4_7.res
+Completed load for: 'res://assets/terrain/chunk_4_7.res' remapped 'res://assets/terrain/chunk_4_7.res' at thread -1
+Loading resource: res://assets/terrain/collision_4_7.res remapped: res://assets/terrain/collision_4_7.res
+Completed load for: 'res://assets/terrain/collision_4_7.res' remapped 'res://assets/terrain/collision_4_7.res' at thread -1
+Loading resource: res://assets/terrain/chunk_5_7.res remapped: res://assets/terrain/chunk_5_7.res
+Completed load for: 'res://assets/terrain/chunk_5_7.res' remapped 'res://assets/terrain/chunk_5_7.res' at thread -1
+Loading resource: res://assets/terrain/collision_5_7.res remapped: res://assets/terrain/collision_5_7.res
+Completed load for: 'res://assets/terrain/collision_5_7.res' remapped 'res://assets/terrain/collision_5_7.res' at thread -1
+Loading resource: res://assets/terrain/chunk_6_7.res remapped: res://assets/terrain/chunk_6_7.res
+Completed load for: 'res://assets/terrain/chunk_6_7.res' remapped 'res://assets/terrain/chunk_6_7.res' at thread -1
+Loading resource: res://assets/terrain/collision_6_7.res remapped: res://assets/terrain/collision_6_7.res
+Completed load for: 'res://assets/terrain/collision_6_7.res' remapped 'res://assets/terrain/collision_6_7.res' at thread -1
+Loading resource: res://assets/terrain/chunk_7_7.res remapped: res://assets/terrain/chunk_7_7.res
+Completed load for: 'res://assets/terrain/chunk_7_7.res' remapped 'res://assets/terrain/chunk_7_7.res' at thread -1
+Loading resource: res://assets/terrain/collision_7_7.res remapped: res://assets/terrain/collision_7_7.res
+Completed load for: 'res://assets/terrain/collision_7_7.res' remapped 'res://assets/terrain/collision_7_7.res' at thread -1
+Loading resource: res://shaders/water.gdshader remapped: res://shaders/water.gdshader
+Completed load for: 'res://shaders/water.gdshader' remapped 'res://shaders/water.gdshader' at thread -1
+Loading resource: res://assets/textures/water_normal.png remapped: res://assets/textures/water_normal.png
+Loading resource: res://.godot/imported/water_normal.png-5672b49765ef7b0141a955795ea5fa8f.s3tc.ctex remapped: res://.godot/imported/water_normal.png-5672b49765ef7b0141a955795ea5fa8f.s3tc.ctex
+Completed load for: 'res://assets/textures/water_normal.png' remapped 'res://assets/textures/water_normal.png' at thread -1
+Loading resource: res://scripts/world/water_reflection.gd remapped: res://scripts/world/water_reflection.gd
+Completed load for: 'res://scripts/world/water_reflection.gd' remapped 'res://scripts/world/water_reflection.gd' at thread -1
+Loading resource: res://assets/terrain/distant_material.tres remapped: res://assets/terrain/distant_material.tres
+Loading resource: res://shaders/distant.gdshader remapped: res://shaders/distant.gdshader
+Completed load for: 'res://shaders/distant.gdshader' remapped 'res://shaders/distant.gdshader' at thread -1
+Completed load for: 'res://assets/terrain/distant_material.tres' remapped 'res://assets/terrain/distant_material.tres' at thread -1
+Loading resource: res://assets/terrain/distant_land.res remapped: res://assets/terrain/distant_land.res
+Completed load for: 'res://assets/terrain/distant_land.res' remapped 'res://assets/terrain/distant_land.res' at thread -1
+Loading resource: res://materials/distant_castle.tres remapped: res://materials/distant_castle.tres
+Loading resource: res://assets/textures/castle_stone.png remapped: res://assets/textures/castle_stone.png
+Loading resource: res://.godot/imported/castle_stone.png-c28ca6a85cf36c019c1b0256fab1c34e.s3tc.ctex remapped: res://.godot/imported/castle_stone.png-c28ca6a85cf36c019c1b0256fab1c34e.s3tc.ctex
+Completed load for: 'res://assets/textures/castle_stone.png' remapped 'res://assets/textures/castle_stone.png' at thread -1
+Completed load for: 'res://materials/distant_castle.tres' remapped 'res://materials/distant_castle.tres' at thread -1
+Loading resource: res://scenes/props/rock_cliff.tscn remapped: res://scenes/props/rock_cliff.tscn
+Loading resource: res://materials/rock.tres remapped: res://materials/rock.tres
+Completed load for: 'res://materials/rock.tres' remapped 'res://materials/rock.tres' at thread -1
+Completed load for: 'res://scenes/props/rock_cliff.tscn' remapped 'res://scenes/props/rock_cliff.tscn' at thread -1
+Loading resource: res://scenes/props/rock_cliff_b.tscn remapped: res://scenes/props/rock_cliff_b.tscn
+Completed load for: 'res://scenes/props/rock_cliff_b.tscn' remapped 'res://scenes/props/rock_cliff_b.tscn' at thread -1
+Loading resource: res://scenes/props/rock_b.tscn remapped: res://scenes/props/rock_b.tscn
+Completed load for: 'res://scenes/props/rock_b.tscn' remapped 'res://scenes/props/rock_b.tscn' at thread -1
+Loading resource: res://scenes/props/imp_house_c.tscn remapped: res://scenes/props/imp_house_c.tscn
+Loading resource: res://materials/door.tres remapped: res://materials/door.tres
+Loading resource: res://assets/textures/door_planks.png remapped: res://assets/textures/door_planks.png
+Loading resource: res://.godot/imported/door_planks.png-ed14d55a834ab798a90338f886b5de2d.s3tc.ctex remapped: res://.godot/imported/door_planks.png-ed14d55a834ab798a90338f886b5de2d.s3tc.ctex
+Completed load for: 'res://assets/textures/door_planks.png' remapped 'res://assets/textures/door_planks.png' at thread -1
+Completed load for: 'res://materials/door.tres' remapped 'res://materials/door.tres' at thread -1
+Loading resource: res://materials/fieldstone.tres remapped: res://materials/fieldstone.tres
+Loading resource: res://assets/textures/fieldstone.png remapped: res://assets/textures/fieldstone.png
+Loading resource: res://.godot/imported/fieldstone.png-3f206b3c17c9620617a055d5ab5882b9.s3tc.ctex remapped: res://.godot/imported/fieldstone.png-3f206b3c17c9620617a055d5ab5882b9.s3tc.ctex
+Completed load for: 'res://assets/textures/fieldstone.png' remapped 'res://assets/textures/fieldstone.png' at thread -1
+Completed load for: 'res://materials/fieldstone.tres' remapped 'res://materials/fieldstone.tres' at thread -1
+Loading resource: res://materials/iron.tres remapped: res://materials/iron.tres
+Loading resource: res://assets/textures/iron.png remapped: res://assets/textures/iron.png
+Loading resource: res://.godot/imported/iron.png-1a3b088008222525d8002f4268175921.s3tc.ctex remapped: res://.godot/imported/iron.png-1a3b088008222525d8002f4268175921.s3tc.ctex
+Completed load for: 'res://assets/textures/iron.png' remapped 'res://assets/textures/iron.png' at thread -1
+Completed load for: 'res://materials/iron.tres' remapped 'res://materials/iron.tres' at thread -1
+Loading resource: res://materials/planks.tres remapped: res://materials/planks.tres
+Loading resource: res://assets/textures/wood_planks.png remapped: res://assets/textures/wood_planks.png
+Loading resource: res://.godot/imported/wood_planks.png-00b83a5686d3ce4c145392468ab02de7.s3tc.ctex remapped: res://.godot/imported/wood_planks.png-00b83a5686d3ce4c145392468ab02de7.s3tc.ctex
+Completed load for: 'res://assets/textures/wood_planks.png' remapped 'res://assets/textures/wood_planks.png' at thread -1
+Completed load for: 'res://materials/planks.tres' remapped 'res://materials/planks.tres' at thread -1
+Loading resource: res://materials/plaster.tres remapped: res://materials/plaster.tres
+Loading resource: res://assets/textures/imp_plaster.png remapped: res://assets/textures/imp_plaster.png
+Loading resource: res://.godot/imported/imp_plaster.png-0cbb1035db628288293f91a1b26ac40c.s3tc.ctex remapped: res://.godot/imported/imp_plaster.png-0cbb1035db628288293f91a1b26ac40c.s3tc.ctex
+Completed load for: 'res://assets/textures/imp_plaster.png' remapped 'res://assets/textures/imp_plaster.png' at thread -1
+Completed load for: 'res://materials/plaster.tres' remapped 'res://materials/plaster.tres' at thread -1
+Loading resource: res://materials/shingle.tres remapped: res://materials/shingle.tres
+Loading resource: res://assets/textures/imp_shingle.png remapped: res://assets/textures/imp_shingle.png
+Loading resource: res://.godot/imported/imp_shingle.png-4c74f03516fc4dfab9172db40372a8b8.s3tc.ctex remapped: res://.godot/imported/imp_shingle.png-4c74f03516fc4dfab9172db40372a8b8.s3tc.ctex
+Completed load for: 'res://assets/textures/imp_shingle.png' remapped 'res://assets/textures/imp_shingle.png' at thread -1
+Completed load for: 'res://materials/shingle.tres' remapped 'res://materials/shingle.tres' at thread -1
+Loading resource: res://materials/timber.tres remapped: res://materials/timber.tres
+Loading resource: res://assets/textures/imp_timber.png remapped: res://assets/textures/imp_timber.png
+Loading resource: res://.godot/imported/imp_timber.png-7c943896255004944667b0e3ddb145ed.s3tc.ctex remapped: res://.godot/imported/imp_timber.png-7c943896255004944667b0e3ddb145ed.s3tc.ctex
+Completed load for: 'res://assets/textures/imp_timber.png' remapped 'res://assets/textures/imp_timber.png' at thread -1
+Completed load for: 'res://materials/timber.tres' remapped 'res://materials/timber.tres' at thread -1
+Loading resource: res://materials/window.tres remapped: res://materials/window.tres
+Loading resource: res://assets/textures/window_leaded.png remapped: res://assets/textures/window_leaded.png
+Loading resource: res://.godot/imported/window_leaded.png-30ff34ef75bdd7544fac1d2383b07c2f.s3tc.ctex remapped: res://.godot/imported/window_leaded.png-30ff34ef75bdd7544fac1d2383b07c2f.s3tc.ctex
+Completed load for: 'res://assets/textures/window_leaded.png' remapped 'res://assets/textures/window_leaded.png' at thread -1
+Loading resource: res://assets/textures/window_glow.png remapped: res://assets/textures/window_glow.png
+Loading resource: res://.godot/imported/window_glow.png-288d844bac47df4c4447964d8df97add.s3tc.ctex remapped: res://.godot/imported/window_glow.png-288d844bac47df4c4447964d8df97add.s3tc.ctex
+Completed load for: 'res://assets/textures/window_glow.png' remapped 'res://assets/textures/window_glow.png' at thread -1
+Completed load for: 'res://materials/window.tres' remapped 'res://materials/window.tres' at thread -1
+Completed load for: 'res://scenes/props/imp_house_c.tscn' remapped 'res://scenes/props/imp_house_c.tscn' at thread -1
+Loading resource: res://scenes/props/imp_house_a.tscn remapped: res://scenes/props/imp_house_a.tscn
+Completed load for: 'res://scenes/props/imp_house_a.tscn' remapped 'res://scenes/props/imp_house_a.tscn' at thread -1
+Loading resource: res://scenes/props/imp_house_b.tscn remapped: res://scenes/props/imp_house_b.tscn
+Completed load for: 'res://scenes/props/imp_house_b.tscn' remapped 'res://scenes/props/imp_house_b.tscn' at thread -1
+Loading resource: res://scenes/props/temple.tscn remapped: res://scenes/props/temple.tscn
+Loading resource: res://materials/brass.tres remapped: res://materials/brass.tres
+Loading resource: res://assets/textures/brass.png remapped: res://assets/textures/brass.png
+Loading resource: res://.godot/imported/brass.png-1c05f87c95b5abf175ce74d2522ae524.s3tc.ctex remapped: res://.godot/imported/brass.png-1c05f87c95b5abf175ce74d2522ae524.s3tc.ctex
+Completed load for: 'res://assets/textures/brass.png' remapped 'res://assets/textures/brass.png' at thread -1
+Completed load for: 'res://materials/brass.tres' remapped 'res://materials/brass.tres' at thread -1
+Loading resource: res://materials/bubble_glass.tres remapped: res://materials/bubble_glass.tres
+Loading resource: res://assets/textures/bubble_glass.png remapped: res://assets/textures/bubble_glass.png
+Loading resource: res://.godot/imported/bubble_glass.png-101e0adf5859b97cd492787c213df04c.s3tc.ctex remapped: res://.godot/imported/bubble_glass.png-101e0adf5859b97cd492787c213df04c.s3tc.ctex
+Completed load for: 'res://assets/textures/bubble_glass.png' remapped 'res://assets/textures/bubble_glass.png' at thread -1
+Completed load for: 'res://materials/bubble_glass.tres' remapped 'res://materials/bubble_glass.tres' at thread -1
+Loading resource: res://materials/castle_stone.tres remapped: res://materials/castle_stone.tres
+Completed load for: 'res://materials/castle_stone.tres' remapped 'res://materials/castle_stone.tres' at thread -1
+Loading resource: res://materials/copper.tres remapped: res://materials/copper.tres
+Loading resource: res://assets/textures/copper_roof.png remapped: res://assets/textures/copper_roof.png
+Loading resource: res://.godot/imported/copper_roof.png-dd25426614f317ba64a7d22525cdc9b0.s3tc.ctex remapped: res://.godot/imported/copper_roof.png-dd25426614f317ba64a7d22525cdc9b0.s3tc.ctex
+Completed load for: 'res://assets/textures/copper_roof.png' remapped 'res://assets/textures/copper_roof.png' at thread -1
+Completed load for: 'res://materials/copper.tres' remapped 'res://materials/copper.tres' at thread -1
+Loading resource: res://materials/temple_stone.tres remapped: res://materials/temple_stone.tres
+Loading resource: res://assets/textures/temple_stone.png remapped: res://assets/textures/temple_stone.png
+Loading resource: res://.godot/imported/temple_stone.png-3475b2d5f5366887af6fb661efaa38a6.s3tc.ctex remapped: res://.godot/imported/temple_stone.png-3475b2d5f5366887af6fb661efaa38a6.s3tc.ctex
+Completed load for: 'res://assets/textures/temple_stone.png' remapped 'res://assets/textures/temple_stone.png' at thread -1
+Completed load for: 'res://materials/temple_stone.tres' remapped 'res://materials/temple_stone.tres' at thread -1
+Completed load for: 'res://scenes/props/temple.tscn' remapped 'res://scenes/props/temple.tscn' at thread -1
+Loading resource: res://scenes/props/redoran_hall.tscn remapped: res://scenes/props/redoran_hall.tscn
+Loading resource: res://materials/dark.tres remapped: res://materials/dark.tres
+Completed load for: 'res://materials/dark.tres' remapped 'res://materials/dark.tres' at thread -1
+Loading resource: res://materials/shell.tres remapped: res://materials/shell.tres
+Loading resource: res://assets/textures/shell.png remapped: res://assets/textures/shell.png
+Loading resource: res://.godot/imported/shell.png-c555a51ab8413224b7ca222de6193333.s3tc.ctex remapped: res://.godot/imported/shell.png-c555a51ab8413224b7ca222de6193333.s3tc.ctex
+Completed load for: 'res://assets/textures/shell.png' remapped 'res://assets/textures/shell.png' at thread -1
+Completed load for: 'res://materials/shell.tres' remapped 'res://materials/shell.tres' at thread -1
+Loading resource: res://materials/shell_dark.tres remapped: res://materials/shell_dark.tres
+Loading resource: res://assets/textures/shell_dark.png remapped: res://assets/textures/shell_dark.png
+Loading resource: res://.godot/imported/shell_dark.png-96976cdd58a1f5d978119bc1b50e3b39.s3tc.ctex remapped: res://.godot/imported/shell_dark.png-96976cdd58a1f5d978119bc1b50e3b39.s3tc.ctex
+Completed load for: 'res://assets/textures/shell_dark.png' remapped 'res://assets/textures/shell_dark.png' at thread -1
+Completed load for: 'res://materials/shell_dark.tres' remapped 'res://materials/shell_dark.tres' at thread -1
+Completed load for: 'res://scenes/props/redoran_hall.tscn' remapped 'res://scenes/props/redoran_hall.tscn' at thread -1
+Loading resource: res://scenes/props/redoran_dome.tscn remapped: res://scenes/props/redoran_dome.tscn
+Completed load for: 'res://scenes/props/redoran_dome.tscn' remapped 'res://scenes/props/redoran_dome.tscn' at thread -1
+Loading resource: res://scenes/props/velothi_hut.tscn remapped: res://scenes/props/velothi_hut.tscn
+Loading resource: res://materials/adobe.tres remapped: res://materials/adobe.tres
+Loading resource: res://assets/textures/adobe.png remapped: res://assets/textures/adobe.png
+Loading resource: res://.godot/imported/adobe.png-f6e3145f2aa116a829123e0aa681b51a.s3tc.ctex remapped: res://.godot/imported/adobe.png-f6e3145f2aa116a829123e0aa681b51a.s3tc.ctex
+Completed load for: 'res://assets/textures/adobe.png' remapped 'res://assets/textures/adobe.png' at thread -1
+Completed load for: 'res://materials/adobe.tres' remapped 'res://materials/adobe.tres' at thread -1
+Completed load for: 'res://scenes/props/velothi_hut.tscn' remapped 'res://scenes/props/velothi_hut.tscn' at thread -1
+Loading resource: res://scenes/props/velothi_hut_small.tscn remapped: res://scenes/props/velothi_hut_small.tscn
+Completed load for: 'res://scenes/props/velothi_hut_small.tscn' remapped 'res://scenes/props/velothi_hut_small.tscn' at thread -1
+Loading resource: res://scenes/props/lighthouse.tscn remapped: res://scenes/props/lighthouse.tscn
+Completed load for: 'res://scenes/props/lighthouse.tscn' remapped 'res://scenes/props/lighthouse.tscn' at thread -1
+Loading resource: res://scenes/props/shell_spire.tscn remapped: res://scenes/props/shell_spire.tscn
+Completed load for: 'res://scenes/props/shell_spire.tscn' remapped 'res://scenes/props/shell_spire.tscn' at thread -1
+Loading resource: res://scenes/props/rock_a.tscn remapped: res://scenes/props/rock_a.tscn
+Completed load for: 'res://scenes/props/rock_a.tscn' remapped 'res://scenes/props/rock_a.tscn' at thread -1
+Loading resource: res://scenes/props/rock_c.tscn remapped: res://scenes/props/rock_c.tscn
+Completed load for: 'res://scenes/props/rock_c.tscn' remapped 'res://scenes/props/rock_c.tscn' at thread -1
+Loading resource: res://scenes/props/rock_small.tscn remapped: res://scenes/props/rock_small.tscn
+Completed load for: 'res://scenes/props/rock_small.tscn' remapped 'res://scenes/props/rock_small.tscn' at thread -1
+Loading resource: res://scenes/props/dock.tscn remapped: res://scenes/props/dock.tscn
+Completed load for: 'res://scenes/props/dock.tscn' remapped 'res://scenes/props/dock.tscn' at thread -1
+Loading resource: res://scenes/props/quay_wall.tscn remapped: res://scenes/props/quay_wall.tscn
+Completed load for: 'res://scenes/props/quay_wall.tscn' remapped 'res://scenes/props/quay_wall.tscn' at thread -1
+Loading resource: res://scenes/props/rowboat.tscn remapped: res://scenes/props/rowboat.tscn
+Completed load for: 'res://scenes/props/rowboat.tscn' remapped 'res://scenes/props/rowboat.tscn' at thread -1
+Loading resource: res://scenes/props/stone_wall_low.tscn remapped: res://scenes/props/stone_wall_low.tscn
+Completed load for: 'res://scenes/props/stone_wall_low.tscn' remapped 'res://scenes/props/stone_wall_low.tscn' at thread -1
+Loading resource: res://scenes/props/crate.tscn remapped: res://scenes/props/crate.tscn
+Loading resource: res://materials/crate.tres remapped: res://materials/crate.tres
+Loading resource: res://assets/textures/crate_wood.png remapped: res://assets/textures/crate_wood.png
+Loading resource: res://.godot/imported/crate_wood.png-12f9750fdae15f0665b4bded1db12ba8.s3tc.ctex remapped: res://.godot/imported/crate_wood.png-12f9750fdae15f0665b4bded1db12ba8.s3tc.ctex
+Completed load for: 'res://assets/textures/crate_wood.png' remapped 'res://assets/textures/crate_wood.png' at thread -1
+Completed load for: 'res://materials/crate.tres' remapped 'res://materials/crate.tres' at thread -1
+Completed load for: 'res://scenes/props/crate.tscn' remapped 'res://scenes/props/crate.tscn' at thread -1
+Loading resource: res://scenes/props/crate_small.tscn remapped: res://scenes/props/crate_small.tscn
+Completed load for: 'res://scenes/props/crate_small.tscn' remapped 'res://scenes/props/crate_small.tscn' at thread -1
+Loading resource: res://scenes/props/barrel.tscn remapped: res://scenes/props/barrel.tscn
+Loading resource: res://materials/barrel.tres remapped: res://materials/barrel.tres
+Loading resource: res://assets/textures/barrel_wood.png remapped: res://assets/textures/barrel_wood.png
+Loading resource: res://.godot/imported/barrel_wood.png-deabb54dec91f6ecfe2193dfec3879a2.s3tc.ctex remapped: res://.godot/imported/barrel_wood.png-deabb54dec91f6ecfe2193dfec3879a2.s3tc.ctex
+Completed load for: 'res://assets/textures/barrel_wood.png' remapped 'res://assets/textures/barrel_wood.png' at thread -1
+Completed load for: 'res://materials/barrel.tres' remapped 'res://materials/barrel.tres' at thread -1
+Completed load for: 'res://scenes/props/barrel.tscn' remapped 'res://scenes/props/barrel.tscn' at thread -1
+Loading resource: res://scenes/props/sack.tscn remapped: res://scenes/props/sack.tscn
+Loading resource: res://materials/burlap.tres remapped: res://materials/burlap.tres
+Loading resource: res://assets/textures/burlap.png remapped: res://assets/textures/burlap.png
+Loading resource: res://.godot/imported/burlap.png-fb58cec9008389f8bbc28b27f061e7ec.s3tc.ctex remapped: res://.godot/imported/burlap.png-fb58cec9008389f8bbc28b27f061e7ec.s3tc.ctex
+Completed load for: 'res://assets/textures/burlap.png' remapped 'res://assets/textures/burlap.png' at thread -1
+Completed load for: 'res://materials/burlap.tres' remapped 'res://materials/burlap.tres' at thread -1
+Loading resource: res://materials/rope.tres remapped: res://materials/rope.tres
+Loading resource: res://assets/textures/rope.png remapped: res://assets/textures/rope.png
+Loading resource: res://.godot/imported/rope.png-be3e218da8f65b32c68bdb96c06a9fd2.s3tc.ctex remapped: res://.godot/imported/rope.png-be3e218da8f65b32c68bdb96c06a9fd2.s3tc.ctex
+Completed load for: 'res://assets/textures/rope.png' remapped 'res://assets/textures/rope.png' at thread -1
+Completed load for: 'res://materials/rope.tres' remapped 'res://materials/rope.tres' at thread -1
+Completed load for: 'res://scenes/props/sack.tscn' remapped 'res://scenes/props/sack.tscn' at thread -1
+Loading resource: res://scenes/props/crate_long.tscn remapped: res://scenes/props/crate_long.tscn
+Completed load for: 'res://scenes/props/crate_long.tscn' remapped 'res://scenes/props/crate_long.tscn' at thread -1
+Loading resource: res://scenes/props/torch_post.tscn remapped: res://scenes/props/torch_post.tscn
+Loading resource: res://shaders/flame.gdshader remapped: res://shaders/flame.gdshader
+Completed load for: 'res://shaders/flame.gdshader' remapped 'res://shaders/flame.gdshader' at thread -1
+Loading resource: res://assets/textures/flame.png remapped: res://assets/textures/flame.png
+Loading resource: res://.godot/imported/flame.png-00d71eb42d4789eace74f1227ec6a700.s3tc.ctex remapped: res://.godot/imported/flame.png-00d71eb42d4789eace74f1227ec6a700.s3tc.ctex
+Completed load for: 'res://assets/textures/flame.png' remapped 'res://assets/textures/flame.png' at thread -1
+Completed load for: 'res://scenes/props/torch_post.tscn' remapped 'res://scenes/props/torch_post.tscn' at thread -1
+Loading resource: res://scenes/props/lamp_post.tscn remapped: res://scenes/props/lamp_post.tscn
+Loading resource: res://materials/glow.tres remapped: res://materials/glow.tres
+Completed load for: 'res://materials/glow.tres' remapped 'res://materials/glow.tres' at thread -1
+Completed load for: 'res://scenes/props/lamp_post.tscn' remapped 'res://scenes/props/lamp_post.tscn' at thread -1
+Loading resource: res://scenes/props/well.tscn remapped: res://scenes/props/well.tscn
+Completed load for: 'res://scenes/props/well.tscn' remapped 'res://scenes/props/well.tscn' at thread -1
+Loading resource: res://scenes/props/market_stall.tscn remapped: res://scenes/props/market_stall.tscn
+Loading resource: res://materials/cloth.tres remapped: res://materials/cloth.tres
+Loading resource: res://assets/textures/cloth.png remapped: res://assets/textures/cloth.png
+Loading resource: res://.godot/imported/cloth.png-a022da6196cb0ffd35dccab04d2db681.s3tc.ctex remapped: res://.godot/imported/cloth.png-a022da6196cb0ffd35dccab04d2db681.s3tc.ctex
+Completed load for: 'res://assets/textures/cloth.png' remapped 'res://assets/textures/cloth.png' at thread -1
+Completed load for: 'res://materials/cloth.tres' remapped 'res://materials/cloth.tres' at thread -1
+Completed load for: 'res://scenes/props/market_stall.tscn' remapped 'res://scenes/props/market_stall.tscn' at thread -1
+Loading resource: res://scenes/props/basket.tscn remapped: res://scenes/props/basket.tscn
+Completed load for: 'res://scenes/props/basket.tscn' remapped 'res://scenes/props/basket.tscn' at thread -1
+Loading resource: res://scenes/props/urn.tscn remapped: res://scenes/props/urn.tscn
+Loading resource: res://materials/pottery.tres remapped: res://materials/pottery.tres
+Loading resource: res://assets/textures/pottery.png remapped: res://assets/textures/pottery.png
+Loading resource: res://.godot/imported/pottery.png-ef0d95badec7233ef650c08c2bea04c3.s3tc.ctex remapped: res://.godot/imported/pottery.png-ef0d95badec7233ef650c08c2bea04c3.s3tc.ctex
+Completed load for: 'res://assets/textures/pottery.png' remapped 'res://assets/textures/pottery.png' at thread -1
+Completed load for: 'res://materials/pottery.tres' remapped 'res://materials/pottery.tres' at thread -1
+Completed load for: 'res://scenes/props/urn.tscn' remapped 'res://scenes/props/urn.tscn' at thread -1
+Loading resource: res://scenes/props/urn_tall.tscn remapped: res://scenes/props/urn_tall.tscn
+Completed load for: 'res://scenes/props/urn_tall.tscn' remapped 'res://scenes/props/urn_tall.tscn' at thread -1
+Loading resource: res://scenes/props/signpost.tscn remapped: res://scenes/props/signpost.tscn
+Completed load for: 'res://scenes/props/signpost.tscn' remapped 'res://scenes/props/signpost.tscn' at thread -1
+Loading resource: res://scenes/props/stone_wall.tscn remapped: res://scenes/props/stone_wall.tscn
+Completed load for: 'res://scenes/props/stone_wall.tscn' remapped 'res://scenes/props/stone_wall.tscn' at thread -1
+Loading resource: res://scenes/props/stone_pillar.tscn remapped: res://scenes/props/stone_pillar.tscn
+Completed load for: 'res://scenes/props/stone_pillar.tscn' remapped 'res://scenes/props/stone_pillar.tscn' at thread -1
+Loading resource: res://scenes/props/planter.tscn remapped: res://scenes/props/planter.tscn
+Loading resource: res://materials/soil.tres remapped: res://materials/soil.tres
+Completed load for: 'res://materials/soil.tres' remapped 'res://materials/soil.tres' at thread -1
+Completed load for: 'res://scenes/props/planter.tscn' remapped 'res://scenes/props/planter.tscn' at thread -1
+Loading resource: res://scenes/props/tree_broad.tscn remapped: res://scenes/props/tree_broad.tscn
+Loading resource: res://materials/bark.tres remapped: res://materials/bark.tres
+Loading resource: res://assets/textures/bark.png remapped: res://assets/textures/bark.png
+Loading resource: res://.godot/imported/bark.png-a0f7faf5e7dedc59ce221772f48a5d04.s3tc.ctex remapped: res://.godot/imported/bark.png-a0f7faf5e7dedc59ce221772f48a5d04.s3tc.ctex
+Completed load for: 'res://assets/textures/bark.png' remapped 'res://assets/textures/bark.png' at thread -1
+Completed load for: 'res://materials/bark.tres' remapped 'res://materials/bark.tres' at thread -1
+Loading resource: res://materials/leaves_broad.tres remapped: res://materials/leaves_broad.tres
+Loading resource: res://shaders/foliage.gdshader remapped: res://shaders/foliage.gdshader
+Completed load for: 'res://shaders/foliage.gdshader' remapped 'res://shaders/foliage.gdshader' at thread -1
+Loading resource: res://assets/textures/leaves_broad.png remapped: res://assets/textures/leaves_broad.png
+Loading resource: res://.godot/imported/leaves_broad.png-2a9a1452eac67f7b09cb0fe933cb0c7c.s3tc.ctex remapped: res://.godot/imported/leaves_broad.png-2a9a1452eac67f7b09cb0fe933cb0c7c.s3tc.ctex
+Completed load for: 'res://assets/textures/leaves_broad.png' remapped 'res://assets/textures/leaves_broad.png' at thread -1
+Completed load for: 'res://materials/leaves_broad.tres' remapped 'res://materials/leaves_broad.tres' at thread -1
+Completed load for: 'res://scenes/props/tree_broad.tscn' remapped 'res://scenes/props/tree_broad.tscn' at thread -1
+Loading resource: res://scenes/props/tree_broad_b.tscn remapped: res://scenes/props/tree_broad_b.tscn
+Completed load for: 'res://scenes/props/tree_broad_b.tscn' remapped 'res://scenes/props/tree_broad_b.tscn' at thread -1
+Loading resource: res://scenes/props/bench.tscn remapped: res://scenes/props/bench.tscn
+Completed load for: 'res://scenes/props/bench.tscn' remapped 'res://scenes/props/bench.tscn' at thread -1
+Loading resource: res://scenes/props/mine_cart.tscn remapped: res://scenes/props/mine_cart.tscn
+Completed load for: 'res://scenes/props/mine_cart.tscn' remapped 'res://scenes/props/mine_cart.tscn' at thread -1
+Loading resource: res://scenes/props/mine_support.tscn remapped: res://scenes/props/mine_support.tscn
+Completed load for: 'res://scenes/props/mine_support.tscn' remapped 'res://scenes/props/mine_support.tscn' at thread -1
+Loading resource: res://scenes/props/rail_segment_interior.tscn remapped: res://scenes/props/rail_segment_interior.tscn
+Completed load for: 'res://scenes/props/rail_segment_interior.tscn' remapped 'res://scenes/props/rail_segment_interior.tscn' at thread -1
+Loading resource: res://scenes/props/mine_support_interior.tscn remapped: res://scenes/props/mine_support_interior.tscn
+Completed load for: 'res://scenes/props/mine_support_interior.tscn' remapped 'res://scenes/props/mine_support_interior.tscn' at thread -1
+Loading resource: res://scenes/props/lantern_hanging_interior.tscn remapped: res://scenes/props/lantern_hanging_interior.tscn
+Completed load for: 'res://scenes/props/lantern_hanging_interior.tscn' remapped 'res://scenes/props/lantern_hanging_interior.tscn' at thread -1
+Loading resource: res://scenes/props/rail_trestle_interior.tscn remapped: res://scenes/props/rail_trestle_interior.tscn
+Completed load for: 'res://scenes/props/rail_trestle_interior.tscn' remapped 'res://scenes/props/rail_trestle_interior.tscn' at thread -1
+Loading resource: res://scenes/props/mine_cart_interior.tscn remapped: res://scenes/props/mine_cart_interior.tscn
+Completed load for: 'res://scenes/props/mine_cart_interior.tscn' remapped 'res://scenes/props/mine_cart_interior.tscn' at thread -1
+Loading resource: res://scenes/props/ore_crystals_interior.tscn remapped: res://scenes/props/ore_crystals_interior.tscn
+Loading resource: res://materials/glow_blue.tres remapped: res://materials/glow_blue.tres
+Completed load for: 'res://materials/glow_blue.tres' remapped 'res://materials/glow_blue.tres' at thread -1
+Completed load for: 'res://scenes/props/ore_crystals_interior.tscn' remapped 'res://scenes/props/ore_crystals_interior.tscn' at thread -1
+Loading resource: res://scenes/props/crate_interior.tscn remapped: res://scenes/props/crate_interior.tscn
+Completed load for: 'res://scenes/props/crate_interior.tscn' remapped 'res://scenes/props/crate_interior.tscn' at thread -1
+Loading resource: res://scenes/props/crate_small_interior.tscn remapped: res://scenes/props/crate_small_interior.tscn
+Completed load for: 'res://scenes/props/crate_small_interior.tscn' remapped 'res://scenes/props/crate_small_interior.tscn' at thread -1
+Loading resource: res://scenes/props/barrel_interior.tscn remapped: res://scenes/props/barrel_interior.tscn
+Completed load for: 'res://scenes/props/barrel_interior.tscn' remapped 'res://scenes/props/barrel_interior.tscn' at thread -1
+Loading resource: res://scenes/props/table_interior.tscn remapped: res://scenes/props/table_interior.tscn
+Completed load for: 'res://scenes/props/table_interior.tscn' remapped 'res://scenes/props/table_interior.tscn' at thread -1
+Loading resource: res://scenes/props/sack_interior.tscn remapped: res://scenes/props/sack_interior.tscn
+Completed load for: 'res://scenes/props/sack_interior.tscn' remapped 'res://scenes/props/sack_interior.tscn' at thread -1
+Loading resource: res://scenes/props/mine_tunnel.tscn remapped: res://scenes/props/mine_tunnel.tscn
+Loading resource: res://materials/cave_rock.tres remapped: res://materials/cave_rock.tres
+Loading resource: res://assets/textures/cave_rock.png remapped: res://assets/textures/cave_rock.png
+Loading resource: res://.godot/imported/cave_rock.png-c7e11326515a95dda37d6a660d1a6e51.s3tc.ctex remapped: res://.godot/imported/cave_rock.png-c7e11326515a95dda37d6a660d1a6e51.s3tc.ctex
+Completed load for: 'res://assets/textures/cave_rock.png' remapped 'res://assets/textures/cave_rock.png' at thread -1
+Completed load for: 'res://materials/cave_rock.tres' remapped 'res://materials/cave_rock.tres' at thread -1
+Completed load for: 'res://scenes/props/mine_tunnel.tscn' remapped 'res://scenes/props/mine_tunnel.tscn' at thread -1
+Loading resource: res://scenes/props/tree_sapling.tscn remapped: res://scenes/props/tree_sapling.tscn
+Loading resource: res://materials/leaves_autumn.tres remapped: res://materials/leaves_autumn.tres
+Loading resource: res://assets/textures/leaves_autumn.png remapped: res://assets/textures/leaves_autumn.png
+Loading resource: res://.godot/imported/leaves_autumn.png-83ff565e754ad9f81ef6f831c60b39d7.s3tc.ctex remapped: res://.godot/imported/leaves_autumn.png-83ff565e754ad9f81ef6f831c60b39d7.s3tc.ctex
+Completed load for: 'res://assets/textures/leaves_autumn.png' remapped 'res://assets/textures/leaves_autumn.png' at thread -1
+Completed load for: 'res://materials/leaves_autumn.tres' remapped 'res://materials/leaves_autumn.tres' at thread -1
+Completed load for: 'res://scenes/props/tree_sapling.tscn' remapped 'res://scenes/props/tree_sapling.tscn' at thread -1
+Loading resource: res://scenes/props/tree_coastal_b.tscn remapped: res://scenes/props/tree_coastal_b.tscn
+Loading resource: res://materials/leaves_clumps.tres remapped: res://materials/leaves_clumps.tres
+Loading resource: res://assets/textures/leaves_clumps.png remapped: res://assets/textures/leaves_clumps.png
+Loading resource: res://.godot/imported/leaves_clumps.png-bd3a268c6d503f62ecdcfd3bd0ae7164.s3tc.ctex remapped: res://.godot/imported/leaves_clumps.png-bd3a268c6d503f62ecdcfd3bd0ae7164.s3tc.ctex
+Completed load for: 'res://assets/textures/leaves_clumps.png' remapped 'res://assets/textures/leaves_clumps.png' at thread -1
+Completed load for: 'res://materials/leaves_clumps.tres' remapped 'res://materials/leaves_clumps.tres' at thread -1
+Completed load for: 'res://scenes/props/tree_coastal_b.tscn' remapped 'res://scenes/props/tree_coastal_b.tscn' at thread -1
+Loading resource: res://scenes/props/tree_coastal.tscn remapped: res://scenes/props/tree_coastal.tscn
+Completed load for: 'res://scenes/props/tree_coastal.tscn' remapped 'res://scenes/props/tree_coastal.tscn' at thread -1
+Loading resource: res://scenes/props/tree_dead_b.tscn remapped: res://scenes/props/tree_dead_b.tscn
+Loading resource: res://materials/bark_dark.tres remapped: res://materials/bark_dark.tres
+Loading resource: res://assets/textures/bark_dark.png remapped: res://assets/textures/bark_dark.png
+Loading resource: res://.godot/imported/bark_dark.png-0cd7bc080dd6ec373180bb36de755d7b.s3tc.ctex remapped: res://.godot/imported/bark_dark.png-0cd7bc080dd6ec373180bb36de755d7b.s3tc.ctex
+Completed load for: 'res://assets/textures/bark_dark.png' remapped 'res://assets/textures/bark_dark.png' at thread -1
+Completed load for: 'res://materials/bark_dark.tres' remapped 'res://materials/bark_dark.tres' at thread -1
+Completed load for: 'res://scenes/props/tree_dead_b.tscn' remapped 'res://scenes/props/tree_dead_b.tscn' at thread -1
+Loading resource: res://scenes/props/tree_dead.tscn remapped: res://scenes/props/tree_dead.tscn
+Completed load for: 'res://scenes/props/tree_dead.tscn' remapped 'res://scenes/props/tree_dead.tscn' at thread -1
+Loading resource: res://scenes/props/tree_swamp.tscn remapped: res://scenes/props/tree_swamp.tscn
+Loading resource: res://materials/hanging_moss.tres remapped: res://materials/hanging_moss.tres
+Loading resource: res://assets/textures/hanging_moss.png remapped: res://assets/textures/hanging_moss.png
+Loading resource: res://.godot/imported/hanging_moss.png-552c29de5645f71884f90d71a782dfc2.s3tc.ctex remapped: res://.godot/imported/hanging_moss.png-552c29de5645f71884f90d71a782dfc2.s3tc.ctex
+Completed load for: 'res://assets/textures/hanging_moss.png' remapped 'res://assets/textures/hanging_moss.png' at thread -1
+Completed load for: 'res://materials/hanging_moss.tres' remapped 'res://materials/hanging_moss.tres' at thread -1
+Loading resource: res://materials/leaves_swamp.tres remapped: res://materials/leaves_swamp.tres
+Loading resource: res://assets/textures/leaves_swamp.png remapped: res://assets/textures/leaves_swamp.png
+Loading resource: res://.godot/imported/leaves_swamp.png-fa25cc6b357b676c62c4274640533df9.s3tc.ctex remapped: res://.godot/imported/leaves_swamp.png-fa25cc6b357b676c62c4274640533df9.s3tc.ctex
+Completed load for: 'res://assets/textures/leaves_swamp.png' remapped 'res://assets/textures/leaves_swamp.png' at thread -1
+Completed load for: 'res://materials/leaves_swamp.tres' remapped 'res://materials/leaves_swamp.tres' at thread -1
+Completed load for: 'res://scenes/props/tree_swamp.tscn' remapped 'res://scenes/props/tree_swamp.tscn' at thread -1
+Loading resource: res://scenes/props/mushroom_giant.tscn remapped: res://scenes/props/mushroom_giant.tscn
+Loading resource: res://materials/mushroom_cap.tres remapped: res://materials/mushroom_cap.tres
+Loading resource: res://assets/textures/mushroom_cap.png remapped: res://assets/textures/mushroom_cap.png
+Loading resource: res://.godot/imported/mushroom_cap.png-5f9783c2e702d55666c5cc1ca12c5ee6.s3tc.ctex remapped: res://.godot/imported/mushroom_cap.png-5f9783c2e702d55666c5cc1ca12c5ee6.s3tc.ctex
+Completed load for: 'res://assets/textures/mushroom_cap.png' remapped 'res://assets/textures/mushroom_cap.png' at thread -1
+Completed load for: 'res://materials/mushroom_cap.tres' remapped 'res://materials/mushroom_cap.tres' at thread -1
+Loading resource: res://materials/mushroom_stalk.tres remapped: res://materials/mushroom_stalk.tres
+Loading resource: res://assets/textures/mushroom_stalk.png remapped: res://assets/textures/mushroom_stalk.png
+Loading resource: res://.godot/imported/mushroom_stalk.png-904964366219b56f79ade83a655083f8.s3tc.ctex remapped: res://.godot/imported/mushroom_stalk.png-904964366219b56f79ade83a655083f8.s3tc.ctex
+Completed load for: 'res://assets/textures/mushroom_stalk.png' remapped 'res://assets/textures/mushroom_stalk.png' at thread -1
+Completed load for: 'res://materials/mushroom_stalk.tres' remapped 'res://materials/mushroom_stalk.tres' at thread -1
+Completed load for: 'res://scenes/props/mushroom_giant.tscn' remapped 'res://scenes/props/mushroom_giant.tscn' at thread -1
+Loading resource: res://scenes/props/rock_spire.tscn remapped: res://scenes/props/rock_spire.tscn
+Completed load for: 'res://scenes/props/rock_spire.tscn' remapped 'res://scenes/props/rock_spire.tscn' at thread -1
+Loading resource: res://assets/generated/flora_flower_plant.res remapped: res://assets/generated/flora_flower_plant.res
+Loading resource: res://materials/flowers.tres remapped: res://materials/flowers.tres
+Loading resource: res://assets/textures/flowers.png remapped: res://assets/textures/flowers.png
+Loading resource: res://.godot/imported/flowers.png-9dbc8ae7e99119b68a3d580f77770ea1.s3tc.ctex remapped: res://.godot/imported/flowers.png-9dbc8ae7e99119b68a3d580f77770ea1.s3tc.ctex
+Completed load for: 'res://assets/textures/flowers.png' remapped 'res://assets/textures/flowers.png' at thread -1
+Completed load for: 'res://materials/flowers.tres' remapped 'res://materials/flowers.tres' at thread -1
+Completed load for: 'res://assets/generated/flora_flower_plant.res' remapped 'res://assets/generated/flora_flower_plant.res' at thread -1
+Loading resource: res://assets/generated/flora_grass_clump.res remapped: res://assets/generated/flora_grass_clump.res
+Loading resource: res://materials/grass_tuft.tres remapped: res://materials/grass_tuft.tres
+Loading resource: res://assets/textures/grass_tuft.png remapped: res://assets/textures/grass_tuft.png
+Loading resource: res://.godot/imported/grass_tuft.png-bf9df7d10562a49b82bb92a60364b193.s3tc.ctex remapped: res://.godot/imported/grass_tuft.png-bf9df7d10562a49b82bb92a60364b193.s3tc.ctex
+Completed load for: 'res://assets/textures/grass_tuft.png' remapped 'res://assets/textures/grass_tuft.png' at thread -1
+Completed load for: 'res://materials/grass_tuft.tres' remapped 'res://materials/grass_tuft.tres' at thread -1
+Completed load for: 'res://assets/generated/flora_grass_clump.res' remapped 'res://assets/generated/flora_grass_clump.res' at thread -1
+Loading resource: res://assets/generated/flora_fern_plant.res remapped: res://assets/generated/flora_fern_plant.res
+Loading resource: res://materials/fern.tres remapped: res://materials/fern.tres
+Loading resource: res://assets/textures/fern.png remapped: res://assets/textures/fern.png
+Loading resource: res://.godot/imported/fern.png-46ca263bcea0853ce91fb5ca62ee741a.s3tc.ctex remapped: res://.godot/imported/fern.png-46ca263bcea0853ce91fb5ca62ee741a.s3tc.ctex
+Completed load for: 'res://assets/textures/fern.png' remapped 'res://assets/textures/fern.png' at thread -1
+Completed load for: 'res://materials/fern.tres' remapped 'res://materials/fern.tres' at thread -1
+Completed load for: 'res://assets/generated/flora_fern_plant.res' remapped 'res://assets/generated/flora_fern_plant.res' at thread -1
+Loading resource: res://assets/generated/flora_bush.res remapped: res://assets/generated/flora_bush.res
+Completed load for: 'res://assets/generated/flora_bush.res' remapped 'res://assets/generated/flora_bush.res' at thread -1
+Loading resource: res://assets/generated/flora_reeds.res remapped: res://assets/generated/flora_reeds.res
+Completed load for: 'res://assets/generated/flora_reeds.res' remapped 'res://assets/generated/flora_reeds.res' at thread -1
+Loading resource: res://assets/generated/flora_mushrooms.res remapped: res://assets/generated/flora_mushrooms.res
+Completed load for: 'res://assets/generated/flora_mushrooms.res' remapped 'res://assets/generated/flora_mushrooms.res' at thread -1
+Loading resource: res://assets/generated/flora_bush_swamp.res remapped: res://assets/generated/flora_bush_swamp.res
+Completed load for: 'res://assets/generated/flora_bush_swamp.res' remapped 'res://assets/generated/flora_bush_swamp.res' at thread -1
+Loading resource: res://scripts/player/player.gd remapped: res://scripts/player/player.gd
+Completed load for: 'res://scripts/player/player.gd' remapped 'res://scripts/player/player.gd' at thread -1
+Loading resource: res://materials/brass_viewmodel.tres remapped: res://materials/brass_viewmodel.tres
+Completed load for: 'res://materials/brass_viewmodel.tres' remapped 'res://materials/brass_viewmodel.tres' at thread -1
+Loading resource: res://materials/leather_viewmodel.tres remapped: res://materials/leather_viewmodel.tres
+Loading resource: res://assets/textures/leather.png remapped: res://assets/textures/leather.png
+Loading resource: res://.godot/imported/leather.png-0094d0d84ebe0f1855071ead3f4d6dcc.s3tc.ctex remapped: res://.godot/imported/leather.png-0094d0d84ebe0f1855071ead3f4d6dcc.s3tc.ctex
+Completed load for: 'res://assets/textures/leather.png' remapped 'res://assets/textures/leather.png' at thread -1
+Completed load for: 'res://materials/leather_viewmodel.tres' remapped 'res://materials/leather_viewmodel.tres' at thread -1
+Loading resource: res://materials/steel_viewmodel.tres remapped: res://materials/steel_viewmodel.tres
+Loading resource: res://assets/textures/steel.png remapped: res://assets/textures/steel.png
+Loading resource: res://.godot/imported/steel.png-019676abd0c12a3a93156532637e8a95.s3tc.ctex remapped: res://.godot/imported/steel.png-019676abd0c12a3a93156532637e8a95.s3tc.ctex
+Completed load for: 'res://assets/textures/steel.png' remapped 'res://assets/textures/steel.png' at thread -1
+Completed load for: 'res://materials/steel_viewmodel.tres' remapped 'res://materials/steel_viewmodel.tres' at thread -1
+Loading resource: res://materials/burlap_viewmodel.tres remapped: res://materials/burlap_viewmodel.tres
+Completed load for: 'res://materials/burlap_viewmodel.tres' remapped 'res://materials/burlap_viewmodel.tres' at thread -1
+Loading resource: res://materials/iron_viewmodel.tres remapped: res://materials/iron_viewmodel.tres
+Completed load for: 'res://materials/iron_viewmodel.tres' remapped 'res://materials/iron_viewmodel.tres' at thread -1
+Loading resource: res://materials/dark_viewmodel.tres remapped: res://materials/dark_viewmodel.tres
+Completed load for: 'res://materials/dark_viewmodel.tres' remapped 'res://materials/dark_viewmodel.tres' at thread -1
+Loading resource: res://materials/timber_viewmodel.tres remapped: res://materials/timber_viewmodel.tres
+Completed load for: 'res://materials/timber_viewmodel.tres' remapped 'res://materials/timber_viewmodel.tres' at thread -1
+Loading resource: res://materials/flame.tres remapped: res://materials/flame.tres
+Completed load for: 'res://materials/flame.tres' remapped 'res://materials/flame.tres' at thread -1
+Loading resource: res://assets/textures/rain_streak.png remapped: res://assets/textures/rain_streak.png
+Loading resource: res://.godot/imported/rain_streak.png-7e88332bc4fbff830f3df66bba726e50.s3tc.ctex remapped: res://.godot/imported/rain_streak.png-7e88332bc4fbff830f3df66bba726e50.s3tc.ctex
+Completed load for: 'res://assets/textures/rain_streak.png' remapped 'res://assets/textures/rain_streak.png' at thread -1
+Loading resource: res://assets/textures/glow_dot.png remapped: res://assets/textures/glow_dot.png
+Loading resource: res://.godot/imported/glow_dot.png-cb4712aab459432b5ce9a1ddcaf42ff1.s3tc.ctex remapped: res://.godot/imported/glow_dot.png-cb4712aab459432b5ce9a1ddcaf42ff1.s3tc.ctex
+Completed load for: 'res://assets/textures/glow_dot.png' remapped 'res://assets/textures/glow_dot.png' at thread -1
+Loading resource: res://scenes/props/player_body.tscn remapped: res://scenes/props/player_body.tscn
+Loading resource: res://materials/char_skin.tres remapped: res://materials/char_skin.tres
+Loading resource: res://assets/textures/char_body.png remapped: res://assets/textures/char_body.png
+Loading resource: res://.godot/imported/char_body.png-92654e745ff6c140241c557fdd364b16.s3tc.ctex remapped: res://.godot/imported/char_body.png-92654e745ff6c140241c557fdd364b16.s3tc.ctex
+Completed load for: 'res://assets/textures/char_body.png' remapped 'res://assets/textures/char_body.png' at thread -1
+Completed load for: 'res://materials/char_skin.tres' remapped 'res://materials/char_skin.tres' at thread -1
+Completed load for: 'res://scenes/props/player_body.tscn' remapped 'res://scenes/props/player_body.tscn' at thread -1
+Loading resource: res://scripts/ui/hud.gd remapped: res://scripts/ui/hud.gd
+Completed load for: 'res://scripts/ui/hud.gd' remapped 'res://scripts/ui/hud.gd' at thread -1
+Loading resource: res://scripts/ui/sun_glare.gd remapped: res://scripts/ui/sun_glare.gd
+Completed load for: 'res://scripts/ui/sun_glare.gd' remapped 'res://scripts/ui/sun_glare.gd' at thread -1
+Completed load for: 'res://scenes/world/veyr.tscn' remapped 'res://scenes/world/veyr.tscn' at thread -1
+Loading resource: res://assets/textures/sky_cloudy.png remapped: res://assets/textures/sky_cloudy.png
+Loading resource: res://.godot/imported/sky_cloudy.png-c440554de79ba0761bbcb971c599c7d3.s3tc.ctex remapped: res://.godot/imported/sky_cloudy.png-c440554de79ba0761bbcb971c599c7d3.s3tc.ctex
+Completed load for: 'res://assets/textures/sky_cloudy.png' remapped 'res://assets/textures/sky_cloudy.png' at thread -1
+Loading resource: res://assets/textures/sky_overcast.png remapped: res://assets/textures/sky_overcast.png
+Loading resource: res://.godot/imported/sky_overcast.png-57c3f90702b9e1c82f8178f4287956b3.s3tc.ctex remapped: res://.godot/imported/sky_overcast.png-57c3f90702b9e1c82f8178f4287956b3.s3tc.ctex
+Completed load for: 'res://assets/textures/sky_overcast.png' remapped 'res://assets/textures/sky_overcast.png' at thread -1
+Loading resource: res://assets/textures/sky_storm.png remapped: res://assets/textures/sky_storm.png
+Loading resource: res://.godot/imported/sky_storm.png-4c90b5f572c6f81ef94f8ff70372480c.s3tc.ctex remapped: res://.godot/imported/sky_storm.png-4c90b5f572c6f81ef94f8ff70372480c.s3tc.ctex
+Completed load for: 'res://assets/textures/sky_storm.png' remapped 'res://assets/textures/sky_storm.png' at thread -1
+Loading resource: res://assets/textures/sky_ash.png remapped: res://assets/textures/sky_ash.png
+Loading resource: res://.godot/imported/sky_ash.png-3afd8f06a56a1563755b78ce3e549daf.s3tc.ctex remapped: res://.godot/imported/sky_ash.png-3afd8f06a56a1563755b78ce3e549daf.s3tc.ctex
+Completed load for: 'res://assets/textures/sky_ash.png' remapped 'res://assets/textures/sky_ash.png' at thread -1
+Loading resource: res://assets/audio/wind.wav remapped: res://assets/audio/wind.wav
+Loading resource: res://.godot/imported/wind.wav-26bd3f95e99896071b625821c2f0df7a.sample remapped: res://.godot/imported/wind.wav-26bd3f95e99896071b625821c2f0df7a.sample
+Completed load for: 'res://assets/audio/wind.wav' remapped 'res://assets/audio/wind.wav' at thread -1
+Loading resource: res://assets/audio/rain.wav remapped: res://assets/audio/rain.wav
+Loading resource: res://.godot/imported/rain.wav-0961eaecbc309373f89475380ffc583f.sample remapped: res://.godot/imported/rain.wav-0961eaecbc309373f89475380ffc583f.sample
+Completed load for: 'res://assets/audio/rain.wav' remapped 'res://assets/audio/rain.wav' at thread -1
+Loading resource: res://assets/audio/waves.wav remapped: res://assets/audio/waves.wav
+Loading resource: res://.godot/imported/waves.wav-7ea349938993459bbb05c6612bfa490c.sample remapped: res://.godot/imported/waves.wav-7ea349938993459bbb05c6612bfa490c.sample
+Completed load for: 'res://assets/audio/waves.wav' remapped 'res://assets/audio/waves.wav' at thread -1
+Loading resource: res://assets/audio/crickets.wav remapped: res://assets/audio/crickets.wav
+Loading resource: res://.godot/imported/crickets.wav-9da2c7b9b29523e2be87537f0ba88b3d.sample remapped: res://.godot/imported/crickets.wav-9da2c7b9b29523e2be87537f0ba88b3d.sample
+Completed load for: 'res://assets/audio/crickets.wav' remapped 'res://assets/audio/crickets.wav' at thread -1
+Loading resource: res://assets/audio/birds.wav remapped: res://assets/audio/birds.wav
+Loading resource: res://.godot/imported/birds.wav-b0649c75653f9dc6f532c1ce14d20f14.sample remapped: res://.godot/imported/birds.wav-b0649c75653f9dc6f532c1ce14d20f14.sample
+Completed load for: 'res://assets/audio/birds.wav' remapped 'res://assets/audio/birds.wav' at thread -1
+Loading resource: res://assets/audio/thunder.wav remapped: res://assets/audio/thunder.wav
+Loading resource: res://.godot/imported/thunder.wav-3bb35de97e14d00ec27ea177a5cad9a7.sample remapped: res://.godot/imported/thunder.wav-3bb35de97e14d00ec27ea177a5cad9a7.sample
+Completed load for: 'res://assets/audio/thunder.wav' remapped 'res://assets/audio/thunder.wav' at thread -1
+Loading resource: res://assets/audio/step_soft.wav remapped: res://assets/audio/step_soft.wav
+Loading resource: res://.godot/imported/step_soft.wav-da40b293335517a43731e731d45125e1.sample remapped: res://.godot/imported/step_soft.wav-da40b293335517a43731e731d45125e1.sample
+Completed load for: 'res://assets/audio/step_soft.wav' remapped 'res://assets/audio/step_soft.wav' at thread -1
+Loading resource: res://assets/audio/step_stone.wav remapped: res://assets/audio/step_stone.wav
+Loading resource: res://.godot/imported/step_stone.wav-ba32d28526a4ae9d5a96ccdbac13397f.sample remapped: res://.godot/imported/step_stone.wav-ba32d28526a4ae9d5a96ccdbac13397f.sample
+Completed load for: 'res://assets/audio/step_stone.wav' remapped 'res://assets/audio/step_stone.wav' at thread -1
+Loading resource: res://assets/audio/step_wood.wav remapped: res://assets/audio/step_wood.wav
+Loading resource: res://.godot/imported/step_wood.wav-47dce7280130029ac3fa193a67cf94b7.sample remapped: res://.godot/imported/step_wood.wav-47dce7280130029ac3fa193a67cf94b7.sample
+Completed load for: 'res://assets/audio/step_wood.wav' remapped 'res://assets/audio/step_wood.wav' at thread -1
+Loading resource: res://scenes/props/player_body.tscn remapped: res://scenes/props/player_body.tscn
+Completed load for: 'res://scenes/props/player_body.tscn' remapped 'res://scenes/props/player_body.tscn' at thread -1
+Loading resource: res://assets/ui/menu_reference.png remapped: res://assets/ui/menu_reference.png
+Loading resource: res://.godot/imported/menu_reference.png-55fb03ae823a160fab6ed913f404c7a9.s3tc.ctex remapped: res://.godot/imported/menu_reference.png-55fb03ae823a160fab6ed913f404c7a9.s3tc.ctex
+Completed load for: 'res://assets/ui/menu_reference.png' remapped 'res://assets/ui/menu_reference.png' at thread -1
+Loading resource: res://shaders/glare.gdshader remapped: res://shaders/glare.gdshader
+Completed load for: 'res://shaders/glare.gdshader' remapped 'res://shaders/glare.gdshader' at thread -1
+PASS All four chat tabs exist
+PASS Six reference menu icons are interactive; two slots remain empty
+PASS Game filter on All
+PASS Players filter on All
+PASS Combat filter on All
+PASS Game filter on Game
+PASS Players filter on Game
+PASS Combat filter on Game
+PASS Game filter on Players
+PASS Players filter on Players
+PASS Combat filter on Players
+PASS Game filter on Combat
+PASS Players filter on Combat
+PASS Combat filter on Combat
+PASS Player text cannot inject chat formatting
+PASS Enter focuses chat and blocks game input
+PASS Typing movement keys leaves the character stationary
+PASS Typing F does not toggle the sword
+PASS Submitting chat releases UI focus
+PASS Enter submits the player message
+PASS I releases the cursor for the HUD
+PASS Inventory opens with current travelling gear
+PASS Settings opens the existing menu and clears interface state
+PASS Pause menu blocks clicks to the HUD beneath it
+PASS Escape closes chat without opening the pause menu
+PASS Minimap zone label updates on region changes
+PASS Status bars consume exported player vitals
+PASS Bottom corners do not overlap at (800, 600)
+PASS Top corners do not overlap at (800, 600)
+PASS Dock stays inside viewport at (800, 600)
+PASS Bottom corners do not overlap at (1280, 720)
+PASS Top corners do not overlap at (1280, 720)
+PASS Dock stays inside viewport at (1280, 720)
+PASS Bottom corners do not overlap at (1600, 900)
+PASS Top corners do not overlap at (1600, 900)
+PASS Dock stays inside viewport at (1600, 900)
+PASS Bottom corners do not overlap at (2560, 1080)
+PASS Top corners do not overlap at (2560, 1080)
+PASS Dock stays inside viewport at (2560, 1080)
+PASS Chat history stays bounded at 200 messages
+HUD CHECKS COMPLETE: 0 failure(s)
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"
+Leaked instance: AudioStreamWAV:9223372195030370256 - Reference count: 1
+Leaked instance: AudioStreamPlaybackWAV:9223372195080701911 - Reference count: 1
+Leaked instance: AudioStreamWAV:9223372196104112296 - Reference count: 1
+Leaked instance: AudioStreamWAV:9223372195567241516 - Reference count: 1
+Leaked instance: AudioStreamWAV:9223372195298806071 - Reference count: 1
+Leaked instance: AudioStreamPlaybackWAV:9223372195886008648 - Reference count: 1
+Leaked instance: AudioStreamPlaybackWAV:9223372195617573199 - Reference count: 1
+Leaked instance: AudioStreamPlaybackWAV:9223372196154444128 - Reference count: 1
+Leaked instance: AudioStreamWAV:9223372195835677037 - Reference count: 1
+Leaked instance: AudioStreamPlaybackWAV:9223372195349137779 - Reference count: 1
+Hint: Leaked instances typically happen when nodes are removed from the scene tree (with `remove_child()`) but not freed (with `free()` or `queue_free()`).
+Resource still in use: res://assets/audio/wind.wav (AudioStreamWAV)
+Resource still in use: res://assets/audio/rain.wav (AudioStreamWAV)
+Resource still in use: res://assets/audio/waves.wav (AudioStreamWAV)
+Resource still in use: res://assets/audio/crickets.wav (AudioStreamWAV)
+Resource still in use: res://assets/audio/birds.wav (AudioStreamWAV)
+Orphan StringName: Master (static: 0, total: 10)
+StringName: 1 unclaimed string names at exit.
+WARNING: 10 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 5 resources still in use at exit.
+   at: clear (core/io/resource.cpp:817)

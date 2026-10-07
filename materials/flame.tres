@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://shaders/flame.gdshader" id="1_5h1yc"]
+[ext_resource type="Texture2D" path="res://assets/textures/flame.png" id="2_mxb13"]
+[ext_resource type="Texture2D" path="res://assets/textures/t_macro.png" id="3_xg6h7"]
+
+[resource]
+resource_name = "flame"
+render_priority = 0
+shader = ExtResource("1_5h1yc")
+shader_parameter/flame_tex = ExtResource("2_mxb13")
+shader_parameter/noise_tex = ExtResource("3_xg6h7")
+shader_parameter/intensity = null
+shader_parameter/seed = null

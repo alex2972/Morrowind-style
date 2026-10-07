@@ -1,0 +1,328 @@
+extends CanvasLayer
+## Morrowind-style HUD: health/magicka/fatigue bars, weapon and spell icons, a north-up local
+## map with the player arrow, a small crosshair, message boxes and the pause menu.
+
+const GOLD := Color(0.87, 0.79, 0.6)
+const GOLD_DIM := Color(0.62, 0.55, 0.4)
+const FRAME := Color(0.56, 0.45, 0.26)
+const FRAME_DARK := Color(0.16, 0.12, 0.07)
+const PANEL := Color(0.05, 0.045, 0.035, 0.86)
+
+var font := SystemFont.new()
+var player: CharacterBody3D
+var world: Node3D
+var root: Control
+var status: Control
+var map_box: Control
+var crosshair: Control
+var message_panel: PanelContainer
+var message_label: Label
+var region_label: Label
+var menu: PanelContainer
+var time_label: Label
+var time_slider: HSlider
+var weather_select: OptionButton
+var flow_check: CheckBox
+var map_texture: Texture2D
+var map_half := 256.0
+var icon_sword: Texture2D
+var icon_spell: Texture2D
+var _message_time := 0.0
+var _region_time := 0.0
+var _updating_menu := false
+var weather: Node
+
+func _ready() -> void:
+	layer = 10
+	world = get_parent()
+	player = world.get_node('Player')
+	weather = world.get_node('Weather')
+	font.font_names = PackedStringArray(['Palatino Linotype', 'Book Antiqua', 'Georgia', 'Times New Roman', 'serif'])
+	font.antialiasing = TextServer.FONT_ANTIALIASING_GRAY
+	icon_sword = load('res://assets/textures/icon_sword.png')
+	icon_spell = load('res://assets/textures/icon_spell.png')
+	root = Control.new()
+	root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(root)
+	status = Control.new()
+	status.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	status.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_LEFT)
+	status.position = Vector2(12, -64)
+	status.size = Vector2(170, 56)
+	status.draw.connect(_draw_status)
+	root.add_child(status)
+	map_box = Control.new()
+	map_box.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	map_box.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
+	map_box.position = Vector2(-108, -108)
+	map_box.size = Vector2(96, 96)
+	map_box.draw.connect(_draw_map)
+	root.add_child(map_box)
+	crosshair = Control.new()
+	crosshair.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	crosshair.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
+	crosshair.size = Vector2(16, 16)
+	crosshair.position -= Vector2(8, 8)
+	crosshair.draw.connect(_draw_crosshair)
+	root.add_child(crosshair)
+	_build_message()
+	_build_region()
+	_build_menu()
+	show_message('Welcome to Veyr.   WASD walk  -  Shift run  -  Caps Lock auto-run  -  Space jump  -  C sneak\nF ready sword  -  G torch  -  Tab third person  -  T wait an hour  -  Y weather  -  Esc menu', 9.0)
+
+func set_minimap(tex: Texture2D, half: float) -> void:
+	map_texture = tex
+	map_half = half
+
+# ---------------------------------------------------------------- styling helpers
+
+func _label(text: String, size: int, color := GOLD) -> Label:
+	var l := Label.new()
+	l.text = text
+	l.add_theme_font_override('font', font)
+	l.add_theme_font_size_override('font_size', size)
+	l.add_theme_color_override('font_color', color)
+	l.add_theme_color_override('font_shadow_color', Color(0, 0, 0, 0.9))
+	l.add_theme_constant_override('shadow_offset_x', 1)
+	l.add_theme_constant_override('shadow_offset_y', 1)
+	return l
+
+func _panel_style(alpha := 0.86) -> StyleBoxFlat:
+	var s := StyleBoxFlat.new()
+	s.bg_color = Color(PANEL, alpha)
+	s.border_color = FRAME
+	s.set_border_width_all(2)
+	s.shadow_color = Color(0, 0, 0, 0.45)
+	s.shadow_size = 4
+	s.content_margin_left = 14
+	s.content_margin_right = 14
+	s.content_margin_top = 8
+	s.content_margin_bottom = 8
+	return s
+
+func _style_button(b: BaseButton) -> void:
+	b.add_theme_font_override('font', font)
+	b.add_theme_font_size_override('font_size', 17)
+	b.add_theme_color_override('font_color', GOLD)
+	b.add_theme_color_override('font_hover_color', Color(1.0, 0.93, 0.72))
+	b.add_theme_color_override('font_pressed_color', Color(0.75, 0.6, 0.35))
+	var normal := StyleBoxFlat.new()
+	normal.bg_color = Color(0.11, 0.09, 0.06, 0.9)
+	normal.border_color = Color(0.36, 0.28, 0.16)
+	normal.set_border_width_all(1)
+	normal.content_margin_left = 10
+	normal.content_margin_right = 10
+	normal.content_margin_top = 4
+	normal.content_margin_bottom = 4
+	var hover := normal.duplicate()
+	hover.bg_color = Color(0.2, 0.15, 0.09, 0.95)
+	hover.border_color = FRAME
+	b.add_theme_stylebox_override('normal', normal)
+	b.add_theme_stylebox_override('hover', hover)
+	b.add_theme_stylebox_override('pressed', hover)
+	b.add_theme_stylebox_override('focus', StyleBoxEmpty.new())
+
+func _build_message() -> void:
+	message_panel = PanelContainer.new()
+	message_panel.add_theme_stylebox_override('panel', _panel_style(0.8))
+	message_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	message_label = _label('', 16)
+	message_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	message_panel.add_child(message_label)
+	root.add_child(message_panel)
+	message_panel.modulate.a = 0.0
+
+func _build_region() -> void:
+	region_label = _label('', 26, Color(0.9, 0.82, 0.62))
+	region_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	region_label.set_anchors_and_offsets_preset(Control.PRESET_CENTER_TOP)
+	region_label.position = Vector2(-300, 48)
+	region_label.size = Vector2(600, 40)
+	region_label.modulate.a = 0.0
+	root.add_child(region_label)
+
+func show_message(text: String, seconds := 3.5) -> void:
+	message_label.text = text
+	_message_time = seconds
+	message_panel.reset_size()
+
+func show_region(text: String) -> void:
+	region_label.text = text
+	_region_time = 4.0
+
+# ---------------------------------------------------------------- drawing
+
+func _bar(c: Control, pos: Vector2, size: Vector2, color: Color, fill: float) -> void:
+	c.draw_rect(Rect2(pos - Vector2(1, 1), size + Vector2(2, 2)), FRAME_DARK)
+	c.draw_rect(Rect2(pos, size), Color(0.08, 0.06, 0.05))
+	var inner := Rect2(pos, Vector2(size.x * fill, size.y))
+	c.draw_rect(inner, color)
+	c.draw_rect(Rect2(pos, Vector2(size.x * fill, size.y * 0.4)), color.lightened(0.25))
+	c.draw_rect(Rect2(pos - Vector2(2, 2), size + Vector2(4, 4)), FRAME, false, 1.0)
+
+func _icon_box(c: Control, pos: Vector2, tex: Texture2D, bar_color: Color) -> void:
+	var s := Vector2(36, 36)
+	c.draw_rect(Rect2(pos - Vector2(2, 2), s + Vector2(4, 4)), FRAME_DARK)
+	if tex:
+		c.draw_texture_rect(tex, Rect2(pos, s), false)
+	c.draw_rect(Rect2(pos - Vector2(2, 2), s + Vector2(4, 4)), FRAME, false, 1.5)
+	c.draw_rect(Rect2(pos + Vector2(0, s.y + 3), Vector2(s.x, 4)), Color(0.05, 0.04, 0.03))
+	c.draw_rect(Rect2(pos + Vector2(0, s.y + 3), Vector2(s.x, 4)), bar_color)
+
+func _draw_status() -> void:
+	var c := status
+	_bar(c, Vector2(2, 6), Vector2(64, 8), Color(0.72, 0.1, 0.08), 1.0)
+	_bar(c, Vector2(2, 20), Vector2(64, 8), Color(0.12, 0.26, 0.78), 1.0)
+	_bar(c, Vector2(2, 34), Vector2(64, 8), Color(0.1, 0.55, 0.16), 1.0 if not player.auto_run else 0.92)
+	var a := 1.0 if player.weapon_out else 0.45
+	_icon_box(c, Vector2(76, 4), icon_sword, Color(0.75, 0.62, 0.2, a))
+	_icon_box(c, Vector2(118, 4), icon_spell, Color(0.12, 0.26, 0.78))
+
+func _draw_map() -> void:
+	var c := map_box
+	var s := c.size
+	c.draw_rect(Rect2(Vector2(-3, -3), s + Vector2(6, 6)), FRAME_DARK)
+	if map_texture:
+		var p := player.global_position
+		var span := 64.0  # metres shown across the map box
+		var tex_size := Vector2(map_texture.get_width(), map_texture.get_height())
+		var center := (Vector2(p.x, p.z) + Vector2(map_half, map_half)) / (map_half * 2.0) * tex_size
+		var half := span / (map_half * 2.0) * tex_size * 0.5
+		c.draw_texture_rect_region(map_texture, Rect2(Vector2.ZERO, s), Rect2(center - half, half * 2.0), Color(1.0, 0.94, 0.82))
+	else:
+		c.draw_rect(Rect2(Vector2.ZERO, s), Color(0.1, 0.1, 0.08))
+	# player arrow (north up)
+	var yaw := player.rotation.y
+	var fwd := Vector2(-sin(yaw), -cos(yaw))
+	var right := Vector2(-fwd.y, fwd.x)
+	var m := s * 0.5
+	var pts := PackedVector2Array([m + fwd * 7.0, m - fwd * 4.0 + right * 4.5, m - fwd * 1.5, m - fwd * 4.0 - right * 4.5])
+	c.draw_colored_polygon(pts, Color(0.98, 0.86, 0.35))
+	c.draw_polyline(pts + PackedVector2Array([pts[0]]), Color(0.2, 0.12, 0.04), 1.0)
+	c.draw_rect(Rect2(Vector2(-3, -3), s + Vector2(6, 6)), FRAME, false, 2.0)
+	c.draw_string(font, Vector2(s.x * 0.5 - 4, -6), 'N', HORIZONTAL_ALIGNMENT_LEFT, -1, 11, GOLD_DIM)
+
+func _draw_crosshair() -> void:
+	var c := crosshair
+	var m := c.size * 0.5
+	var col := Color(0.9, 0.9, 0.85, 0.75)
+	c.draw_line(m + Vector2(-5, 0), m + Vector2(-1.5, 0), col, 1.0)
+	c.draw_line(m + Vector2(1.5, 0), m + Vector2(5, 0), col, 1.0)
+	c.draw_line(m + Vector2(0, -5), m + Vector2(0, -1.5), col, 1.0)
+	c.draw_line(m + Vector2(0, 1.5), m + Vector2(0, 5), col, 1.0)
+
+func _process(delta: float) -> void:
+	status.queue_redraw()
+	map_box.queue_redraw()
+	crosshair.visible = not player.paused
+	_message_time -= delta
+	message_panel.modulate.a = clampf(_message_time, 0.0, 1.0)
+	var vs := root.size
+	message_panel.position = Vector2((vs.x - message_panel.size.x) * 0.5, vs.y - message_panel.size.y - 86)
+	_region_time -= delta
+	region_label.modulate.a = clampf(_region_time, 0.0, 1.0) * clampf((4.0 - _region_time) * 2.0, 0.0, 1.0)
+	if menu.visible:
+		_updating_menu = true
+		time_label.text = 'Time of day:  ' + weather.clock_text()
+		time_slider.value = weather.hour
+		weather_select.select(weather.ORDER.find(weather.target))
+		flow_check.button_pressed = weather.time_flows
+		_updating_menu = false
+
+# ---------------------------------------------------------------- pause menu
+
+func _build_menu() -> void:
+	menu = PanelContainer.new()
+	var st := _panel_style(0.94)
+	st.content_margin_left = 30
+	st.content_margin_right = 30
+	st.content_margin_top = 22
+	st.content_margin_bottom = 22
+	st.set_border_width_all(3)
+	menu.add_theme_stylebox_override('panel', st)
+	menu.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
+	menu.custom_minimum_size = Vector2(470, 0)
+	root.add_child(menu)
+	menu.hide()
+	var box := VBoxContainer.new()
+	box.add_theme_constant_override('separation', 9)
+	menu.add_child(box)
+	var title := _label('V E Y R', 34, Color(0.92, 0.82, 0.58))
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	box.add_child(title)
+	var sub := _label('An island town in the style of the Elder Scrolls III', 14, GOLD_DIM)
+	sub.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	box.add_child(sub)
+	box.add_child(HSeparator.new())
+	for pair in [['Return to the journey', func() -> void: player.set_menu(false)],
+			['Wait one hour', func() -> void: weather.wait_hours(1.0)],
+			['Return to the harbour', func() -> void: player.return_to_spawn()]]:
+		var b := Button.new()
+		b.text = pair[0]
+		b.pressed.connect(pair[1])
+		_style_button(b)
+		box.add_child(b)
+	time_label = _label('Time of day', 16)
+	box.add_child(time_label)
+	time_slider = HSlider.new()
+	time_slider.min_value = 0.0
+	time_slider.max_value = 23.99
+	time_slider.step = 0.05
+	time_slider.value_changed.connect(_on_time_changed)
+	box.add_child(time_slider)
+	flow_check = CheckBox.new()
+	flow_check.text = 'Time passes'
+	_style_button(flow_check)
+	flow_check.toggled.connect(_on_flow_toggled)
+	box.add_child(flow_check)
+	box.add_child(_label('Weather', 16))
+	weather_select = OptionButton.new()
+	for w in weather.ORDER:
+		weather_select.add_item(w)
+	_style_button(weather_select)
+	weather_select.item_selected.connect(_on_weather_selected)
+	box.add_child(weather_select)
+	box.add_child(_label('Character', 16))
+	var model_select := OptionButton.new()
+	for m in ['Male', 'Female']:
+		model_select.add_item(m)
+	_style_button(model_select)
+	model_select.item_selected.connect(func(i: int) -> void: player.set_body_model(['male', 'female'][i]))
+	model_select.visibility_changed.connect(func() -> void: model_select.select(1 if player.body_model == 'female' else 0))
+	box.add_child(model_select)
+	box.add_child(_label('Mouse sensitivity', 16))
+	var sens := HSlider.new()
+	sens.min_value = 0.0006
+	sens.max_value = 0.005
+	sens.step = 0.0001
+	sens.value = player.mouse_sensitivity
+	sens.value_changed.connect(func(v: float) -> void: player.mouse_sensitivity = v)
+	box.add_child(sens)
+	box.add_child(HSeparator.new())
+	var keys := _label('WASD walk  -  Shift run  -  Caps Lock auto-run  -  Space / E jump  -  C sneak\nF ready sword  -  G torch  -  Tab third person  -  T wait  -  Y weather  -  F1 hide HUD', 13, GOLD_DIM)
+	keys.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	box.add_child(keys)
+	var quit := Button.new()
+	quit.text = 'Quit'
+	quit.pressed.connect(func() -> void: get_tree().quit())
+	_style_button(quit)
+	box.add_child(quit)
+
+func _on_time_changed(v: float) -> void:
+	if not _updating_menu:
+		weather.set_hour(v)
+
+func _on_flow_toggled(v: bool) -> void:
+	if not _updating_menu:
+		weather.time_flows = v
+
+func _on_weather_selected(i: int) -> void:
+	if not _updating_menu:
+		weather.set_weather(weather.ORDER[i])
+
+func set_menu(value: bool) -> void:
+	menu.visible = value
+	if value:
+		menu.reset_size()
+		menu.position = (root.size - menu.size) * 0.5

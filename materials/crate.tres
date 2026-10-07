@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/textures/crate_wood.png" id="1_d1x0d"]
+
+[resource]
+resource_name = "crate"
+diffuse_mode = 1
+specular_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_d1x0d")
+texture_filter = 5

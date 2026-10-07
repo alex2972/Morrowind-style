@@ -1,0 +1,62 @@
+[gd_scene format=4]
+
+[ext_resource type="Material" path="res://materials/fieldstone.tres" id="1_mo173"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m2idy"]
+resource_name = "fieldstone"
+cull_mode = 2
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_r1f5q"]
+_surfaces = [{
+"aabb": AABB(-0.6, -0.4, -0.6, 1.2, 3.0500002, 1.2),
+"format": 34896613377,
+"index_count": 132,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAgABAAQAAwAEAAEABQAAAAIABQADAAAAAgAEAAYABQACAAYAAwAHAAQABQAHAAMABgAEAAcABgAHAAUACAAJAAoACAALAAkACgAJAAwACwAMAAkADQAIAAoADQALAAgACgAMAA4ADQAKAA4ACwAPAAwADQAPAAsADgAMAA8ADgAPAA0AEAARABIAEgARABMAEgATABQAFAAQABIAEQAVABMAFAATABUAEAAWABEAFAAVABcAGAAWABAAGQAQABQAEAAZABgAGQAUABcAFwAVABoAFwAaABkAEQAbABUAGwARABYAFQAbABoAGAAbABYAGQAaABsAGQAbABgA"),
+"lods": [0.8544004, PackedByteArray("AAABAAIAAAADAAEAAgABAAQAAwAEAAEABQAAAAIABQADAAAAAgAEAAYABQACAAYAAwAHAAQABQAHAAMABgAEAAcABgAHAAUA")],
+"name": "fieldstone",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("VRUAAKnqAACp6tXRqeoAAKnqAACp6gAAVRXV0anqAACp6tXRVRUAAFUVAABVFQAAqeoAAFUVAABVFdXRVRUAAAAA1dH//wAA//+e4v//AAD//9XR//8AAAAAnuL//wAA//+e4gAAAAAAANXRAAAAAP//1dEAAAAAAACe4gAAAAD/f57i/z8AAMJ2//+qegAAk0ie4v9fAADCdv//VIUAAJNInuL/nwAA/3///6qKAAD/f///VHUAAP9/nuL/vwAAa7ee4v9fAABrt57i/58AADyJ//9UhQAAPIn//6p6AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vjerg"]
+resource_name = "stone_pillar_stone_pillar"
+_surfaces = [{
+"aabb": AABB(-0.6, -0.4, -0.6, 1.2, 3.0500002, 1.2),
+"attribute_data": PackedByteArray("jIyM/2Jn//f/////nJj/k4yMjP+cmP/3/////2Jn/5OMjIz/Ymf/9/////+cmP+TjIyM/5yY//f/////Ymf/k4yMjP9iZ//3/////5yY/5OMjIz/nJj/9/////9iZ/+TjIyM/2Jn//f/////nJj/k4yMjP+cmP/3/////2Jn/5P/////Ymf/+/////+cmP/T/////5yY//v/////Ymf/04yMjP9iZ//TjIyM/5yY//uMjIz/nJj/04yMjP9iZ//7/////3Vi/5P/////iZ3/i/////+Jnf+T/////3Vi/4v/////dWL/k/////+Jnf+L/////4md/5P/////dWL/i/////91Yv+T/////4md/4v/////iZ3/k/////91Yv+L/////3Vi/5P/////iZ3/i/////+Jnf+T/////3Vi/4v/////dWL///////+Jnf/P/////4md////////dWL/z/////91Yv/P/////4md////////iZ3/z/////91Yv////////9//+f/////VJX/2f////9Ulf/n//////9//9n/////VJX/5/////+qqv/Z/////6qq/+f/////VJX/2f////+qqv/n//////+//9n//////7//5/////+qqv/Z//////+//+f/////VNX/2f////9U1f/n//////+//9n/////VNX/5/////+p6v/Z/////6nq/+f/////VNX/2f////+p6v/n/////////9n/////////5/////+p6v/Z//////9//9v/////yYz/7f/////JjP/h/////zVz/+3/////NXP/4f//////f//z/////yGC/+b/////3X3/5v//////f//l//////9//+n/////IYL/6P/////dff/o"),
+"format": 34896613407,
+"index_count": 132,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUASABJAEoASQBIAEsASwBIAEwASQBLAE0ATgBPAFAATwBOAFEAUQBOAFIATwBRAFMA"),
+"lods": [0.8544004, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA")],
+"material": SubResource("StandardMaterial3D_m2idy"),
+"name": "fieldstone",
+"primitive": 3,
+"uv_scale": Vector4(2, 2.4615386, 0, 0),
+"vertex_count": 84,
+"vertex_data": PackedByteArray("VRUAAKnqAICp6tXRqeoAgKnqAACp6gCAVRXV0anqAICp6gAAVRX//1UV1dFVFf//VRUAAFUV//+p6tXRVRX//1UVAABVFf+/VRXV0anq/79VFQAAqer/v1UV1dFVFf+/qeoAAKnq/7+p6tXRVRX/v6nqAABVFf+/qerV0anq/79VFdXRqer/v6nq1dFVFf+/qerV0anq/79VFdXRVRX/v1UVAABVFf8/qeoAAKnq/z+p6gAAVRX/P1UVAACp6v8/AADV0f//AID//57i//8AgP//1dH//wCAAACe4v//AID//9XRAAD//wAAnuIAAP//AADV0QAA/////57iAAD//wAA1dEAAP+/AACe4v///78AANXR////vwAAnuIAAP+////V0f///7///57iAAD/v///1dEAAP+///+e4v///78AAJ7i////v///nuIAAP+///+e4v///78AAJ7iAAD/vwAA1dEAAP8////V0f///z///9XRAAD/PwAA1dH///8//3+e4v8/fuvCdv//qnp+65NInuL/X37r/3///1R1fuuTSJ7i/18Mw8J2//9UhQzDk0ie4v+fDMPCdv//qnoMw5NInuL/n92e/3///6qK3Z7/f57i/7/dnsJ2//9Uhd2e/3+e4v+/3Z48if//VIXdnmu3nuL/n92e/3///6qK3Z5rt57i/58MwzyJ//+qegzDa7ee4v9fDMM8if//VIUMw2u3nuL/X37r/3///1R1fuv/f57i/z9+6zyJ//+qen7r/3+e4v8//z9rt57i/5//P2u3nuL/X/8/k0ie4v+f/z+TSJ7i/1//P/9/nuL/v/8/PIn//6p6/7/Cdv//qnr/v/9///9Udf+//3///6qK/788if//VIX/v8J2//9Uhf+//3////9/////f////3////9/////f////3////9/////f////3////9/////f////38AAP9/AAD/fwAA/38AAP///3////9/////f////38AAP9/AAD/fwAA/38AAP9//3////9/////f////3////9/////f////3////9/////f////3////9/////f////38AAP9/AAD/fwAA/38AAP///3////9/////f////38AAP9/AAD/fwAA/38AAP9/KocU3iqHFN4qhxTeKocU3jKXmNEyl5jRMpeY0TKXmNHnuZK257mStue5krbnuZK2bMnoOWzJ6Dlsyeg5bMnoOWWuMxdlrjMXZa4zF2WuMxfqoSoH6qEqB+qhKgfqoSoHAAD/fwAA/38AAP9/AAD/fwAA/38AAP9//v//f/7//3////9/////f/7//3/+//9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_r1f5q")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_82rx0"]
+data = PackedVector3Array(-0.5, 0, 0.5, 0.5, 2.1, 0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 2.1, 0.5, 0.5, 2.1, 0.5, 0.5, 0, -0.5, -0.5, 2.1, -0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 2.1, -0.5, -0.5, 2.1, -0.5, -0.5, 0, -0.5, -0.5, 2.1, 0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, -0.5, 2.1, -0.5, -0.5, 2.1, 0.5, 0.5, 0, 0.5, 0.5, 2.1, -0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 2.1, 0.5, 0.5, 2.1, -0.5, -0.5, 2.1, 0.5, 0.5, 2.1, -0.5, 0.5, 2.1, 0.5, -0.5, 2.1, 0.5, -0.5, 2.1, -0.5, 0.5, 2.1, -0.5, -0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5)
+
+[node name="StonePillar" type="Node3D" unique_id=1701479487]
+
+[node name="Visual" type="MeshInstance3D" parent="." unique_id=112302521]
+layers = 4
+visibility_range_end = 130.0
+visibility_range_end_margin = 10.4
+visibility_range_fade_mode = 1
+mesh = SubResource("ArrayMesh_vjerg")
+surface_material_override/0 = ExtResource("1_mo173")
+
+[node name="Collision" type="StaticBody3D" parent="." unique_id=1523012084]
+metadata/surface = "stone"
+
+[node name="Shape" type="CollisionShape3D" parent="Collision" unique_id=1734499398]
+shape = SubResource("ConcavePolygonShape3D_82rx0")

@@ -1,0 +1,29 @@
+INFO: PyNifly 28.3.0 registered
+BlenderMCP addon registered
+[INFO ] services.locationservice ...............: Not adding link to MakeHuman user data, since neither explicit path nor auto-discovery is set in preferences.
+[INFO ] mpfb.init ..............................: Build info 20260722
+[INFO ] mpfb.init ..............................: Online access preference is not enabled. Not checking if MakeHuman is online.
+[INFO ] mpfb.init ..............................: MPFB initialization has finished.
+01:14:12 | INFO: Data are loaded, start creating Blender stuff
+01:14:12 | INFO: Blender create Mesh node base.002
+01:14:12 | INFO: glTF import finished in 0.12s
+Z:\godot\morrowind-style\tools\rig_character.py:90: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new('char_skin');mat.use_nodes=True
+BOUND 2415 vertices 53 bones
+CLIP idle seconds 2.0 reference speed 0.0
+CLIP walk seconds 1.0666666666666667 reference speed 1.45
+CLIP run seconds 0.7333333333333333 reference speed 3.6
+INFO Draco is available, use library at Z:\godot\morrowind-style\Blender\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at Z:\godot\morrowind-style\Blender\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+01:14:14 | INFO: Starting glTF 2.0 export
+01:14:14 | INFO: Extracting primitive: base.002
+01:14:14 | INFO: Primitives created: 1
+01:14:15 | INFO: Finished glTF 2.0 export in 0.4285404682159424 s
+
+Info: Saved as "player_body_rigged.blend"
+RIGGED CHARACTER EXPORTED
+BlenderMCP addon unregistered
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+OBJ import of 'base.obj' took 8.96 ms
+
+Blender quit

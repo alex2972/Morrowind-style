@@ -1,0 +1,35 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://shaders/terrain.gdshader" id="1_tvn1p"]
+[ext_resource type="Texture2D" path="res://assets/textures/t_macro.png" id="2_irib5"]
+[ext_resource type="Texture2D" path="res://assets/terrain/splat_a.res" id="3_p17ye"]
+[ext_resource type="Texture2D" path="res://assets/terrain/splat_b.res" id="4_0gukj"]
+[ext_resource type="Texture2D" path="res://assets/textures/t_ash.png" id="5_qpvsk"]
+[ext_resource type="Texture2D" path="res://assets/textures/t_cobble.png" id="6_fs63b"]
+[ext_resource type="Texture2D" path="res://assets/textures/t_dirt.png" id="7_ivp18"]
+[ext_resource type="Texture2D" path="res://assets/textures/t_grass.png" id="8_bsve8"]
+[ext_resource type="Texture2D" path="res://assets/textures/t_mud.png" id="9_pa64q"]
+[ext_resource type="Texture2D" path="res://assets/textures/t_road.png" id="10_dp3im"]
+[ext_resource type="Texture2D" path="res://assets/textures/t_rock.png" id="11_2rfdu"]
+[ext_resource type="Texture2D" path="res://assets/textures/t_sand.png" id="12_f8iq1"]
+[ext_resource type="Texture2D" path="res://assets/terrain/tint.res" id="13_a8wjj"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_tvn1p")
+shader_parameter/splat_a = ExtResource("3_p17ye")
+shader_parameter/splat_b = ExtResource("4_0gukj")
+shader_parameter/tint_map = ExtResource("13_a8wjj")
+shader_parameter/macro_tex = ExtResource("2_irib5")
+shader_parameter/tex_grass = ExtResource("8_bsve8")
+shader_parameter/tex_dirt = ExtResource("7_ivp18")
+shader_parameter/tex_rock = ExtResource("11_2rfdu")
+shader_parameter/tex_mud = ExtResource("9_pa64q")
+shader_parameter/tex_ash = ExtResource("5_qpvsk")
+shader_parameter/tex_sand = ExtResource("12_f8iq1")
+shader_parameter/tex_cobble = ExtResource("6_fs63b")
+shader_parameter/tex_road = ExtResource("10_dp3im")
+shader_parameter/map_half = 256.0
+shader_parameter/scale_a = null
+shader_parameter/scale_b = null
+shader_parameter/blend_depth = null

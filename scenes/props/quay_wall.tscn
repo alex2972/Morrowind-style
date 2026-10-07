@@ -1,0 +1,89 @@
+[gd_scene format=4]
+
+[ext_resource type="Material" path="res://materials/castle_stone.tres" id="1_uaym5"]
+[ext_resource type="Material" path="res://materials/fieldstone.tres" id="2_v04vu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_36va0"]
+resource_name = "castle_stone"
+cull_mode = 2
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7erb8"]
+resource_name = "fieldstone"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_q3rs8"]
+_surfaces = [{
+"aabb": AABB(-4, -7, -1.4, 8, 7, 1.78),
+"format": 34896613377,
+"index_count": 102,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAgADAAQAAAAFAAEABQADAAEABgAFAAAABAADAAcABAAHAAYABQAHAAMABgAHAAUACAAJAAoACAALAAkACgAJAAwACwAMAAkADQAIAAoADQALAAgACgAMAA4ADQAKAA4ACwAPAAwADQAPAAsADgAMAA8ADgAPAA0AEAARABIAEAATABEAEgARABQAEwAUABEAFQAQABIAFQATABAAEgAUABYAFQASABYAEwAXABQAFQAXABMAFgAUABcAFgAXABUA"),
+"lods": [3.0269623, PackedByteArray("AAABAAIAAgABAAMAAgADAAQAAAAFAAEABQADAAEABgAFAAAABAADAAcABAAHAAYABQAHAAMABgAHAAUA")],
+"name": "castle_stone",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAFjJAAD/////WMkAAP//AABYyQAA/////wAAAAD//wAAAAAAAAAA//9YyQAAAAAAAAAAAAAAAP//AAAAAP8HkiT//wAAZh7/////AABmHpIk//8AAP8H/////wAAZh7//3jGAAD/B5IkeMYAAGYekiR4xgAA/wf//3jGAACY4ZIk//8AAP/3/////wAA//eSJP//AACY4f////8AAP/3//94xgAAmOGSJHjGAAD/95IkeMYAAJjh//94xgAA")
+}, {
+"aabb": AABB(-4, -0.01, -1.47, 8, 0.22, 1.7),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAgABAAQAAwAEAAEABQAAAAIABQADAAAAAgAEAAYABQACAAYAAwAHAAQABQAHAAMABgAEAAcABgAHAAUA"),
+"name": "fieldstone",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAD///////8AAP//AAD//wAAAAD/////AAD/////AAAAAAAAAAAAAAAA//8AAAAAAAAAAP//AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7g0ph"]
+resource_name = "quay_wall_quay_wall"
+_surfaces = [{
+"aabb": AABB(-4, -7, -1.4, 8, 7, 1.78),
+"attribute_data": PackedByteArray("/////wAA//////////+Krv///////////////wAAiq7/////AAD//////////4qu////////////////AACKrv////8yU/////////9/iq7//////3////////8yU4qu//////9/////////zKyKrv/////MrP////////9/iq7/////AACKrv///////0Ce////////iq7/////AABAnv//////B1z0/////2Yeiq7/////Zh5c9P//////B4qu/////5jhXPT///////eKrv//////91z0/////5jhiq7/////W39c9P////8ojIqu/////yiMXPT/////W3+Krv/////Wc1z0/////6OAiq7/////o4Bc9P/////Wc4qu//////8H9rL/////Zh5Prv////9mHvay//////8HT67//////wdPrv////9mHvay/////2YeT67//////wf2sv////+Y4Vz0///////3iq7///////dc9P////+Y4Yqu//////8HXPT/////Zh6Krv////9mHlz0//////8Hiq7/////W39c9P////8ojIqu/////yiMXPT/////W3+Krv/////Wc1z0/////6OAiq7/////o4Bc9P/////Wc4qu/////5jh9rL///////dPrv//////9/ay/////5jhT67/////mOFPrv//////9/ay///////3T67/////mOH2sg=="),
+"format": 34896613407,
+"index_count": 102,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0AQABBAEIAQABDAEEA"),
+"lods": [3.0269623, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEA")],
+"material": SubResource("StandardMaterial3D_36va0"),
+"name": "castle_stone",
+"primitive": 3,
+"uv_scale": Vector4(2, 5.5, 0, 0),
+"vertex_count": 68,
+"vertex_data": PackedByteArray("AAAAAFjJAID/////WMkAgP//AABYyQCAAAD//1jJAID//wAAAAD//wAA//8AAP//AAAAAAAA////////AAD//wAAAAAAAP+/AAD//1jJ/78AAAAAWMn/vwAA//8AAP+///8AAFjJ/7//////AAD/v///AAAAAP+//////1jJ/78AAP//WMn/v/////8AAP+//////1jJ/78AAP//AAD/v/8HkiT//wCAZh7/////AIBmHpIk//8AgP8H/////wCAZh6SJHjG////B///eMb///8HkiR4xv//Zh7//3jG////B5IkeMb/v/8H//////+//weSJP///7//B///eMb/v2YekiT///+/Zh7//3jG/79mHpIkeMb/v2Ye//////+//wf//////79mHv//eMb/v2Ye//////+//wf//3jG/7//B5IkeMb/P2YekiT///8/Zh6SJHjG/z//B5Ik////P5jhkiT//wCA//f/////AID/95Ik//8AgJjh/////wCA//eSJHjG//+Y4f//eMb//5jhkiR4xv////f//3jG//+Y4ZIkeMb/v5jh//////+/mOGSJP///7+Y4f//eMb/v//3kiT///+///f//3jG/7//95IkeMb/v//3//////+/mOH//////7//9///eMb/v//3//////+/mOH//3jG/7+Y4ZIkeMb/P//3kiT///8///eSJHjG/z+Y4ZIk////P/9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/AAD/fwAA/38AAP9/AAD///9/////f////3////9//3////9/////f////3////9/////f////3////9/////f////3////9/////f////38AAP9/AAD/fwAA/38AAP///3////9/////f////38AAP9/AAD/fwAA/38AAP9//3////9/////f////3////9/////f////3////9/////f////3////9/////f////38AAP9/AAD/fwAA/38AAP///3////9/////f////38AAP9/AAD/fwAA/38AAP9/")
+}, {
+"aabb": AABB(-4, -0.01, -1.47, 8, 0.22, 1.7),
+"attribute_data": PackedByteArray("/////wAAC/b///////8Y7P///////wv2/////wAAGOz/////AAAL9v///////xjs////////C/b/////AAAY7P/////1UAv2/////1uHGOz/////W4cL9v/////1UBjs/////6N4C/b/////Ca8Y7P////8Jrwv2/////6N4GOz/////AAD//////////xuz////////////////AAAbs/////8AABuz//////////////////8bs/////8AAP//"),
+"format": 34896613407,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_7erb8"),
+"name": "fieldstone",
+"primitive": 3,
+"uv_scale": Vector4(3.0769231, 2.176923, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//AID///////8AgP//AAD//wCAAAD/////AID//wAAAAD//wAA//8AAP//AAAAAAAA////////AAD//wAAAAAAAP+/AAD//////78AAAAA////vwAA//8AAP+///8AAP///7//////AAD/v///AAAAAP+//////////78AAP//////v/////8AAP+//////////78AAP//AAD/vwAAAAAAAP8///8AAP///z///wAAAAD/PwAAAAD///8//3////9/////f////3////9/////f////3////9/////f////3////9/////f////38AAP9/AAD/fwAA/38AAP///3////9/////f////38AAP9/AAD/fwAA/38AAP9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_q3rs8")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_udoot"]
+data = PackedVector3Array(-4, -7, 0, 4, 0, 0, 4, -7, 0, -4, -7, 0, -4, 0, 0, 4, 0, 0, 4, -7, -1.4, -4, 0, -1.4, -4, -7, -1.4, 4, -7, -1.4, 4, 0, -1.4, -4, 0, -1.4, -4, -7, -1.4, -4, 0, 0, -4, -7, 0, -4, -7, -1.4, -4, 0, -1.4, -4, 0, 0, 4, -7, 0, 4, 0, -1.4, 4, -7, -1.4, 4, -7, 0, 4, 0, 0, 4, 0, -1.4, -4, 0, 0, 4, 0, -1.4, 4, 0, 0, -4, 0, 0, -4, 0, -1.4, 4, 0, -1.4, -4, -7, -1.4, 4, -7, 0, 4, -7, -1.4, -4, -7, -1.4, -4, -7, 0, 4, -7, 0)
+
+[node name="QuayWall" type="Node3D" unique_id=1670201552]
+
+[node name="Visual" type="MeshInstance3D" parent="." unique_id=1686637818]
+mesh = SubResource("ArrayMesh_7g0ph")
+surface_material_override/0 = ExtResource("1_uaym5")
+surface_material_override/1 = ExtResource("2_v04vu")
+
+[node name="Collision" type="StaticBody3D" parent="." unique_id=1807310647]
+metadata/surface = "stone"
+
+[node name="Shape" type="CollisionShape3D" parent="Collision" unique_id=1205082170]
+shape = SubResource("ConcavePolygonShape3D_udoot")

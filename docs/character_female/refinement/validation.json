@@ -1,0 +1,23 @@
+{
+  "clips_preserved": 73,
+  "changed_clips": [
+    "run_loop",
+    "walk_loop"
+  ],
+  "untouched_clips": 71,
+  "same_53_bone_names": true,
+  "topology_uvs_weights_unchanged": true,
+  "height_reduction_m": 0.04499995708465576,
+  "max_foot_target_error_m": {
+    "walk": 6.091714254086011e-07,
+    "run": 6.565965668271612e-07
+  },
+  "old_loop_seams_m": {
+    "walk": 0.0,
+    "run": 0.0038919871324330146
+  },
+  "new_loop_seams_m": {
+    "walk": 0.0,
+    "run": 0.003892082544664854
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "preset": {
+    "id": "high_elf",
+    "sex": "male",
+    "source": "docs/character_animation/player_body_rigged.blend",
+    "body_width": 0.92,
+    "head_width": 0.89,
+    "chin_drop": 0.02,
+    "cheek_projection": 0.01,
+    "eye_slant": 0.0045,
+    "ear_length": 0.037,
+    "ear_rise": 0.033,
+    "skin_grade": [
+      0.96,
+      1.03,
+      0.79
+    ],
+    "notes": "Exact human bind skeleton and clips; height comes from Catalog.race_scale (1.06), applied once at runtime.",
+    "chin_projection": 0.01,
+    "chin_width": 1.1,
+    "jaw_width": 0.006,
+    "cheek_width": 0.01
+  },
+  "source_sha256": "bb08246a3af5288341c770056b82769ce4cbb169ad1baac0c7b792c60b688956",
+  "source_unmodified": true,
+  "shared_bones": 53,
+  "shared_clips": 73,
+  "identical_bind_matrices": true,
+  "identical_weights": true,
+  "identical_body_topology": true,
+  "identical_body_uvs": true,
+  "body_triangles": 4832,
+  "hair_triangles": 0,
+  "bald": true,
+  "max_sculpt_displacement_m": 0.043131159604160973,
+  "model": "assets\\models\\player_high_elf_male.glb",
+  "head_note": "Bald; human jaw retained and built up with a larger chin and stronger cheeks."
+}

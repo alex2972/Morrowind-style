@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://shaders/distant.gdshader" id="1_lhajj"]
+[ext_resource type="Texture2D" path="res://assets/textures/castle_stone.png" id="2_3opa1"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_lhajj")
+shader_parameter/albedo_tex = ExtResource("2_3opa1")
+shader_parameter/uv_scale = 0.08
+shader_parameter/tint = Color(0.55, 0.52, 0.5, 1)
+shader_parameter/haze_reach = 4.0
+shader_parameter/min_haze = 0.2
+shader_parameter/max_haze = 0.8

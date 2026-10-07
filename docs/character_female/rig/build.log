@@ -1,0 +1,36 @@
+INFO: PyNifly 28.3.0 registered
+BlenderMCP addon registered
+[INFO ] services.locationservice ...............: Not adding link to MakeHuman user data, since neither explicit path nor auto-discovery is set in preferences.
+[INFO ] mpfb.init ..............................: Build info 20260722
+[INFO ] mpfb.init ..............................: Online access preference is not enabled. Not checking if MakeHuman is online.
+[INFO ] mpfb.init ..............................: MPFB initialization has finished.
+19:47:38 | INFO: Data are loaded, start creating Blender stuff
+19:47:38 | INFO: Blender create Mesh node base.002
+19:47:38 | INFO: glTF import finished in 0.01s
+Z:\godot\morrowind-style\tools\rig_character.py:100: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(source.MATERIAL_NAME);mat.use_nodes=True
+CORNEA faces removed 490
+SLIVERS removed 4
+RINGS 1 15 9 band 24
+RINGS -1 17 9 band 26
+RINGS 0 45 18 band 63
+NECK band 63 eye caps 2 eyes + 2 other open edges 0
+UV islands 17 head islands scaled 3
+BOUND 2429 vertices 53 bones
+INFO Draco is available, use library at Z:\godot\morrowind-style\Blender\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at Z:\godot\morrowind-style\Blender\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+19:47:40 | INFO: Starting glTF 2.0 export
+19:47:40 | INFO: Extracting primitive: base.002
+19:47:40 | INFO: Primitives created: 1
+19:47:40 | INFO: Finished glTF 2.0 export in 0.030391454696655273 s
+
+Info: Saved as "player_body_female_rigged.blend"
+RIGGED CHARACTER EXPORTED
+BlenderMCP addon unregistered
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+OBJ import of 'base.obj' took 8.97 ms
+OBJ import of 'high-poly.obj' took 1.16 ms
+OBJ import of 'female1605.obj' took 1.18 ms
+OBJ import of 'female1605.obj' took 1.21 ms
+
+Blender quit

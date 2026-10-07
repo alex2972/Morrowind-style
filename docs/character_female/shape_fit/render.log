@@ -1,0 +1,15 @@
+19:31:40 | INFO: Data are loaded, start creating Blender stuff
+19:31:40 | INFO: Blender create Mesh node base.002
+19:31:40 | INFO: glTF import finished in 0.01s
+Z:\godot\morrowind-style\tools\preview_character_female.py:15: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new('FemalePreview');mat.use_nodes=True;bs=mat.node_tree.nodes.get('Principled BSDF');bs.inputs['Roughness'].default_value=.95;bs.inputs['Specular IOR Level'].default_value=0.0
+00:00.672  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+Z:\godot\morrowind-style\tools\preview_character_female.py:25: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world.use_nodes=True;bg=scene.world.node_tree.nodes.get('Background');bg.inputs[0].default_value=(.42,.3,.2,1);bg.inputs[1].default_value=1.05
+00:02.593  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\shape_fit\renders\front.png'
+00:04.328  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\shape_fit\renders\side.png'
+00:06.031  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\shape_fit\renders\back.png'
+00:07.500  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\shape_fit\renders\face.png'
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

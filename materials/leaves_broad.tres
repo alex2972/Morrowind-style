@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://shaders/foliage.gdshader" id="1_6h7g1"]
+[ext_resource type="Texture2D" path="res://assets/textures/leaves_broad.png" id="2_t6alo"]
+
+[resource]
+resource_name = "leaves_broad"
+render_priority = 0
+shader = ExtResource("1_6h7g1")
+shader_parameter/albedo_tex = ExtResource("2_t6alo")
+shader_parameter/alpha_cut = null
+shader_parameter/sway = null
+shader_parameter/tint = null
+shader_parameter/translucency = null

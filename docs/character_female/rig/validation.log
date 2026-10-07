@@ -1,0 +1,19 @@
+19:49:08 | INFO: Data are loaded, start creating Blender stuff
+19:49:08 | INFO: Blender create Mesh node base.002
+19:49:08 | INFO: glTF import finished in 0.02s
+19:49:08 | INFO: Data are loaded, start creating Blender stuff
+19:49:08 | INFO: Blender create Mesh node base.002
+19:49:08 | INFO: glTF import finished in 0.01s
+00:00.688  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+Z:\godot\morrowind-style\tools\validate_female_rig.py:31: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.view_settings.view_transform='Standard';scene.world.use_nodes=True
+Z:\godot\morrowind-style\tools\validate_female_rig.py:33: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new('FemaleSkinPreview');mat.use_nodes=True;bs=mat.node_tree.nodes.get('Principled BSDF');bs.inputs['Roughness'].default_value=.95;bs.inputs['Specular IOR Level'].default_value=0
+00:02.688  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\rig\rest.png'
+00:04.500  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\rig\knee_elbow.png'
+00:06.313  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\rig\reach.png'
+00:08.110  render           | Saved: 'Z:\godot\morrowind-style\docs\character_female\rig\bones_base.png'
+VALIDATION {'export_vertices_including_uv_splits': 2866, 'bones': 53, 'unweighted_vertices': 0, 'max_influences': 4, 'max_weight_sum_error': 1.2898817658424377e-07, 'bind_shape_error_m_after_grounding': 4.883541464550945e-07, 'uvs_preserved': True, 'poses': {'rest': {'max_displacement_m': 1.908302454262508e-07, 'min_triangle_area_m2': 3.8940007129895093e-07}, 'knee_elbow': {'max_displacement_m': 0.5746645251349428, 'min_triangle_area_m2': 3.893719906500337e-07}, 'reach': {'max_displacement_m': 1.0257273057697536, 'min_triangle_area_m2': 3.8927979062464146e-07}}}
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

@@ -1,0 +1,35 @@
+INFO: PyNifly 28.3.0 registered
+BlenderMCP addon registered
+[INFO ] services.locationservice ...............: Not adding link to MakeHuman user data, since neither explicit path nor auto-discovery is set in preferences.
+[INFO ] mpfb.init ..............................: Build info 20260722
+[INFO ] mpfb.init ..............................: Online access preference is not enabled. Not checking if MakeHuman is online.
+[INFO ] mpfb.init ..............................: MPFB initialization has finished.
+23:22:16 | INFO: Data are loaded, start creating Blender stuff
+23:22:16 | INFO: Blender create Mesh node base.002
+23:22:16 | INFO: glTF import finished in 0.03s
+Z:\godot\morrowind-style\tools\preview_character_head.py:16: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new('PreviewSkin');mat.use_nodes=True;bs=mat.node_tree.nodes.get('Principled BSDF');bs.inputs['Roughness'].default_value=.9;bs.inputs['Specular IOR Level'].default_value=.05
+00:01.281  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+Z:\godot\morrowind-style\tools\preview_character_head.py:25: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world.use_nodes=True;bg=scene.world.node_tree.nodes.get('Background');bg.inputs[0].default_value=(.15,.105,.06,1);bg.inputs[1].default_value=.65
+00:03.843  render           | Saved: 'Z:\godot\morrowind-style\docs\character_head\after\front.png'
+00:06.343  render           | Saved: 'Z:\godot\morrowind-style\docs\character_head\after\profile.png'
+00:08.875  render           | Saved: 'Z:\godot\morrowind-style\docs\character_head\after\threequarter.png'
+00:12.265  render           | Saved: 'Z:\godot\morrowind-style\docs\character_head\after\body.png'
+OBJECT player_body DIMS (0.9134261608123779, 0.3768821358680725, 1.850964069366455) bounds [(-0.45671308040618896, 0.45671308040618896), (-0.2676975131034851, 0.10918460786342621), (0.05111943185329437, 1.9020835161209106)] vertices 14394 faces 4822
+SLICE 1.4 [(-0.1794, 0.1794), (-0.1611, 0.1056), (1.4018, 1.4463)]
+SLICE 1.45 [(-0.1771, 0.1771), (-0.1623, 0.1069), (1.4529, 1.4991)]
+SLICE 1.5 [(-0.1722, 0.1722), (-0.1469, 0.1048), (1.5035, 1.5474)]
+SLICE 1.55 [(-0.1637, 0.1701), (-0.1193, 0.0807), (1.5503, 1.5883)]
+SLICE 1.6 [(-0.1706, 0.1765), (-0.086, 0.0611), (1.6003, 1.6419)]
+SLICE 1.65 [(-0.0723, 0.0723), (-0.161, 0.0223), (1.6503, 1.6988)]
+SLICE 1.7 [(-0.0752, 0.0752), (-0.1787, 0.0211), (1.7009, 1.7499)]
+SLICE 1.75 [(-0.0898, 0.0898), (-0.1796, 0.0493), (1.7506, 1.7988)]
+SLICE 1.8 [(-0.08, 0.08), (-0.1601, 0.051), (1.8002, 1.8476)]
+SLICE 1.85 [(-0.0675, 0.0675), (-0.1415, 0.0398), (1.8531, 1.8981)]
+SLICE 1.9 [(0.0, 0.0), (-0.0693, -0.0104), (1.9005, 1.9021)]
+HEIGHT 1.9020835161209106
+BlenderMCP addon unregistered
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit
