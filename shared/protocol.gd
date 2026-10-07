@@ -10,7 +10,7 @@ extends RefCounted
 ##   realm -> client   s_msg(type, data)                                reliable, one of S_* below
 ##                     s_state(packed, size)                            unreliable, zstd [me, actors]
 
-const VERSION := 2
+const VERSION := 3
 const PORT := 27840
 const TICK_RATE := 20                ## realm simulation ticks per second
 const SNAPSHOT_EVERY := 2            ## ticks between state packets (10 Hz)
@@ -30,6 +30,7 @@ const C_INTERACT := 'interact'                   ## {id}
 const C_DIALOGUE := 'dialogue'                   ## {npc, choice}
 const C_RELEASE := 'release'                     ## {}
 const C_UNSTUCK := 'unstuck'                     ## {}
+const C_USE_DOOR := 'use_door'                   ## {door}  (shared/doors.gd)
 const C_ABANDON_QUEST := 'abandon_quest'         ## {quest}
 const C_CHAT := 'chat'                           ## {text}  (slash commands are parsed by the realm)
 const C_PARTY_RESPOND := 'party_respond'         ## {accept}

@@ -1,6 +1,6 @@
 extends Node3D
 ## Root of the Veyr scene. Wires the player, weather and HUD together, tracks when the player
-## is inside the mine (interior lighting), names regions, renders the local map once, and
+## is inside the mine or an interior behind a door (interior lighting), names regions, renders the local map once, and
 ## offers a capture mode used to produce preview screenshots.
 ##
 ## Capture mode (user args after `--`):
@@ -21,14 +21,19 @@ const LAYER_VIEWMODEL := 8
 @onready var hud: CanvasLayer = $HUD
 
 var minimap_texture: Texture2D
+var doors: Node3D
 var _flicker: Array[OmniLight3D] = []
 var _night_lights: Array[OmniLight3D] = []
 var _time := 0.0
 var _splat_b: Image
 var _region := ''
 var _tunnel_len := PackedFloat32Array()
+var _indoors := false
 
 func _ready() -> void:
+	doors = Node3D.new()
+	doors.set_script(load('res://client/world/doors.gd'))
+	add_child(doors)
 	weather.rain = player.get_node_or_null('Precipitation/Rain')
 	weather.ash = player.get_node_or_null('Precipitation/Ash')
 	weather.dust = player.get_node_or_null('Precipitation/Dust')
@@ -74,8 +79,12 @@ func _process(delta: float) -> void:
 		l.light_energy = float(l.get_meta('night_only')) * nf
 		l.visible = nf > 0.02
 	var p := player.global_position
-	var depth := tunnel_depth(p)
-	weather.interior = move_toward(weather.interior, smoothstep(1.0, 9.0, depth), delta * 0.9)
+	var indoors := Doors.interior_at(p) != ''
+	if indoors != _indoors:   # stepping through a door: the light changes at once
+		_indoors = indoors
+		weather.interior = 1.0 if indoors else 0.0
+	var target := 1.0 if indoors else smoothstep(1.0, 9.0, tunnel_depth(p))
+	weather.interior = move_toward(weather.interior, target, delta * 0.9)
 	var r := region_at(p)
 	if r != _region:
 		_region = r
@@ -109,6 +118,9 @@ func tunnel_depth(p: Vector3) -> float:
 	return maxf(0.0, minf(along, into))
 
 func region_at(p: Vector3) -> String:
+	var inside := Doors.interior_at(p)
+	if inside != '':
+		return inside
 	if tunnel_depth(p) > 3.0:
 		return 'The Hollow Mine'
 	for r in regions:
@@ -184,7 +196,7 @@ func _run_shots(path: String) -> void:
 		if player.body:
 			player.body.rotation.y = PI + deg_to_rad(shot.get('model_yaw', 0.0))
 		hud.visible = shot.get('hud', true)
-		weather.interior = smoothstep(1.0, 9.0, tunnel_depth(player.global_position))
+		weather.interior = 1.0 if Doors.interior_at(player.global_position) != '' else smoothstep(1.0, 9.0, tunnel_depth(player.global_position))
 		for i in range(int(shot.get('frames', 40))):
 			await get_tree().process_frame
 		await RenderingServer.frame_post_draw

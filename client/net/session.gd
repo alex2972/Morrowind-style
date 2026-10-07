@@ -482,7 +482,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			cycle_target()
 			get_viewport().set_input_as_handled()
 		elif event.physical_keycode == KEY_E:
-			interact()
+			if not world().doors.use_focused():
+				interact()
 			get_viewport().set_input_as_handled()
 	elif event is InputEventMouseButton and event.pressed and event.button_index in [MOUSE_BUTTON_LEFT, MOUSE_BUTTON_RIGHT]:
 		var point: Vector2 = get_viewport().get_visible_rect().size * 0.5 if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED else event.position

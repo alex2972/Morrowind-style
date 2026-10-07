@@ -110,6 +110,37 @@ func run() -> void:
 	player.return_to_spawn()
 	check(not player.paused and player.global_position.distance_to(start) < 1.0, 'Return to the harbour')
 
+	# the tavern door by the quay: prompt up close, E goes inside, the inside door leads back out
+	var doors: Node = scene.doors
+	var hud: CanvasLayer = scene.hud
+	ok = await walk([[-12, 72], [-12, 64.5], [-3, 60], [-4, 48.6]], 'to the tavern', 1500)
+	ok = ok and await walk([[-11.3, 48.6]], 'tavern door', 600, 0.4)
+	player.rotation.y = PI / 2
+	player.head.rotation.x = 0.0
+	await frames(10)
+	check(ok and doors.focused == 'tavern_enter' and hud.prompt.visible, 'Looking at the tavern door shows "E Enter" (focused=%s)' % doors.focused)
+	player.rotation.y = 0.0
+	await frames(5)
+	check(doors.focused == '' and not hud.prompt.visible, 'Looking away hides the prompt')
+	player.rotation.y = PI / 2
+	await frames(5)
+	check(doors.use_focused(), 'E uses the door')
+	await frames(60)
+	check(Doors.interior_at(player.global_position) == Doors.TAVERN_NAME, 'Inside the tavern (%s)' % player.global_position)
+	check(scene.region_at(player.global_position) == Doors.TAVERN_NAME and weather.interior > 0.99, 'Region and interior lighting switch to the tavern')
+	check(player.is_on_floor(), 'The tavern floor holds the player')
+	ok = await walk([[Doors.TAVERN_ORIGIN.x + 2.0, Doors.TAVERN_ORIGIN.z - 1.5], [Doors.TAVERN_ORIGIN.x - 3.5, Doors.TAVERN_ORIGIN.z - 1.5]], 'tavern floor', 900, 0.5)
+	check(ok and player.is_on_floor(), 'Walk across the taproom to the hearth')
+	await teleport(Doors.TAVERN_ORIGIN + Vector3(4.6, 0.05, 0.0), -PI / 2)
+	await frames(5)
+	check(doors.focused == 'tavern_exit', 'The inside door offers "E Exit"')
+	doors.use_focused()
+	await frames(60)
+	check(Doors.interior_at(player.global_position) == '' and player.global_position.distance_to(Vector3(-11.4, 4.3, 48.6)) < 1.5,
+			'Exit puts the player back on the street at the door (%s)' % player.global_position)
+	await frames(100)
+	check(weather.interior < 0.01, 'Daylight again outside')
+
 	scene.queue_free()
 	for i in 5:
 		await process_frame

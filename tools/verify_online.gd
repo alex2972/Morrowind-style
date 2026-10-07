@@ -202,6 +202,22 @@ func run() -> void:
 	await frames(20)
 	check(not session.me.dead and player.global_position.distance_to(realm.zones.veyr.spawn_point()) < 1.5, 'released at the harbour')
 
+	# Doors: the realm only moves a player through a door they stand at
+	session.send(Protocol.C_USE_DOOR, {'door': 'tavern_enter'})
+	await frames(20)
+	check(Doors.interior_at(me_server().pos) == '', 'tavern door refused from the pier')
+	await teleport(me_server(), Vector3(-11.4, 0, 48.6))
+	player.rotation.y = PI / 2
+	player.head.rotation.x = 0.0
+	await frames(10)
+	check(main.world.doors.focused == 'tavern_enter' and main.world.doors.use_focused(), 'E at the tavern door')
+	await frames(40)
+	check(Doors.interior_at(me_server().pos) == Doors.TAVERN_NAME and Doors.interior_at(player.global_position) == Doors.TAVERN_NAME,
+			'realm moved the player into the tavern')
+	session.send(Protocol.C_USE_DOOR, {'door': 'tavern_exit'})
+	await frames(20)
+	check(Doors.interior_at(me_server().pos) == '' and player.global_position.distance_to(Vector3(-11.4, 4.4, 48.6)) < 1.5, 'and back out to the street')
+
 	# Persistence: log out to the lobby, then sign in again from scratch
 	var level := int(session.sheet.level)
 	bot.stop()

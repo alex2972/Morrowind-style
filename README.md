@@ -21,7 +21,7 @@ Open `project.godot` in Godot 4.7 and press **F5**. The game opens on the login 
 - **Play offline** starts a private realm inside the game (only this computer can connect) and signs you in with a local account. Your offline characters are kept on this computer.
 - **Sign in / Create account** connects to a realm at the given `host:port`. A dedicated realm runs headless with `run_server.bat` (settings in `config/server.cfg`, default port 27840).
 
-Then create up to three characters: a name, sex, race (Human, High Elf or Dark Elf), skin tone and class (Warrior, Priest or Mage). For now race and skin tint and scale the shared body. You arrive at the end of the harbour pier. Harbourmaster Ilvar, on the quay, has work for you.
+Then create up to three characters: a name, sex, race (Human, High Elf or Dark Elf), skin tone and class (Warrior, Priest or Mage). For now race and skin tint and scale the shared body. You arrive at the end of the harbour pier. Harbourmaster Ilvar, on the quay, has work for you. The signed house facing the main street at the top of the quay is the Lantern & Gull tavern: look at its door and press E to go in.
 
 | Key | Action |
 | --- | --- |
@@ -33,7 +33,7 @@ Then create up to three characters: a name, sex, race (Human, High Elf or Dark E
 | Tab | Target the next enemy in front of you |
 | Left click | Target what is under the crosshair (or under the cursor in interface mode) |
 | 1 - 0 | Action bar: attack, class abilities, tonics |
-| E / right click | Talk to the nearby or targeted NPC, or attack the targeted enemy |
+| E / right click | Open the door you are looking at ("E  Enter"), talk to the nearby or targeted NPC, or attack the targeted enemy |
 | V | Toggle first / third person |
 | F | Ready / sheathe the sword |
 | G | Light / put out the torch |

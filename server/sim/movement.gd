@@ -1,12 +1,13 @@
 extends RealmSystem
 ## Player movement. Clients move themselves (WoW-style responsiveness) and report their position 15 times a
 ## second; the realm accepts it only if it is physically plausible and snaps the client back otherwise.
-## Also owns teleports and /unstuck.
+## Also owns teleports, doors (shared/doors.gd) and /unstuck.
 
 const MAX_SPEED := 11.0    ## m/s horizontally (run is 5; leaves room for latency bursts)
 
 func setup() -> void:
 	realm.handle(Protocol.C_UNSTUCK, _on_unstuck)
+	realm.handle(Protocol.C_USE_DOOR, _on_use_door)
 
 func player_joined(p: Dictionary, _data: Dictionary) -> void:
 	p.clip = 'idle'
@@ -47,3 +48,14 @@ func _on_unstuck(p: Dictionary, _data: Dictionary) -> void:
 		return
 	var zone := realm.zone_of(p)
 	teleport(p, zone.spawn_point(), zone.spawn_yaw())
+
+func _on_use_door(p: Dictionary, data: Dictionary) -> void:
+	var door: Dictionary = Doors.DOORS.get(str(data.get('door', '')), {})
+	if p.dead or door.is_empty():
+		return
+	var at: Vector3 = door.pos
+	if Vector2(p.pos.x - at.x, p.pos.z - at.z).length() > Doors.REALM_RANGE or absf(p.pos.y - at.y) > 4.0:
+		return
+	if not p.cast.is_empty():
+		realm.combat.cancel_cast(p, 'Interrupted')
+	teleport(p, door.to, door.to_yaw)

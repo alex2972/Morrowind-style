@@ -59,6 +59,13 @@ var portrait_body := ''
 var _ui_scale := 1.0
 var session: Node = null   ## the online session (scripts/net/session.gd) while in the world
 var menu_logout: Button
+var prompt: Control          ## "E  Enter" under the crosshair while looking at a door
+var _prompt_action := ''
+var _prompt_label := ''
+var fade_rect: ColorRect     ## black screen while passing through a door
+var _fade_t := 0.0
+var _fade_out := 0.0
+var _fade_hold := 0.0
 
 func _ready() -> void:
 	layer = 10
@@ -83,6 +90,9 @@ func _ready() -> void:
 	_place(zone_frame, zone_label, Vector2(10, 2), Vector2(216, 30))
 	crosshair = _canvas(root, Vector2(16, 16))
 	crosshair.draw.connect(_draw_crosshair)
+	prompt = _canvas(root, Vector2(420, 70))
+	prompt.draw.connect(_draw_prompt)
+	prompt.hide()
 	_build_chat()
 	_build_dock()
 	_build_info_panel()
@@ -94,11 +104,17 @@ func _ready() -> void:
 	root.add_child(menu_shade)
 	menu_shade.hide()
 	_build_menu()
+	fade_rect = ColorRect.new()
+	fade_rect.color = Color.BLACK
+	fade_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	fade_rect.modulate.a = 0.0
+	fade_rect.hide()
+	root.add_child(fade_rect)
 	get_viewport().size_changed.connect(_layout)
 	_layout()
 	add_chat_message('Game', 'Welcome to Veyr. Your journey begins at the harbour.')
 	add_chat_message('Game', 'Enter to chat  •  I to use the interface  •  Esc for the menu')
-	add_chat_message('Game', 'WASD move  •  Tab target  •  1-0 abilities  •  E talk / attack  •  V change view')
+	add_chat_message('Game', 'WASD move  •  Tab target  •  1-0 abilities  •  E open / talk / attack  •  V change view')
 
 func _canvas(parent: Node, dimensions: Vector2) -> Control:
 	var c := Control.new()
@@ -129,6 +145,8 @@ func _layout() -> void:
 	dock.position = root.size - dock.size * dock.scale
 	info_panel.position = Vector2(0, -info_panel.size.y)
 	crosshair.position = root.size * 0.5 - Vector2(8, 8)
+	prompt.position = root.size * 0.5 + Vector2(-210, 56)
+	fade_rect.size = root.size
 	region_label.position = Vector2((root.size.x - 600) * 0.5, 48)
 	if menu.visible:
 		menu.position = (root.size - menu.size) * 0.5
@@ -301,7 +319,8 @@ func _draw_map() -> void:
 	c.draw_circle(center, 97, Color('#293529'))
 	var p := player.global_position
 	var uv := (Vector2(p.x, p.z) + Vector2.ONE * map_half) / (2.0 * map_half)
-	_round_texture(c, map_texture, center, 97, uv, Vector2.ONE * (48.0 / (2.0 * map_half)))
+	if Doors.interior_at(p) == '':   # interiors sit off the map: leave it blank inside
+		_round_texture(c, map_texture, center, 97, uv, Vector2.ONE * (48.0 / (2.0 * map_half)))
 	# World -Z is north. The map never rotates; only the player marker turns.
 	var fwd := Vector2(-sin(player.rotation.y), -cos(player.rotation.y))
 	var right := Vector2(-fwd.y, fwd.x)
@@ -660,7 +679,42 @@ func _draw_crosshair() -> void:
 	crosshair.draw_line(m + Vector2(0, -5), m + Vector2(0, -1.5), col)
 	crosshair.draw_line(m + Vector2(0, 1.5), m + Vector2(0, 5), col)
 
+func set_prompt(action: String, label: String) -> void:
+	## Skyrim-style activation prompt; empty action hides it.
+	_prompt_action = action
+	_prompt_label = label
+	prompt.visible = action != ''
+	prompt.queue_redraw()
+
+func _draw_prompt() -> void:
+	var w := prompt.size.x
+	_text(prompt, Vector2(0, 22), _prompt_label, w, 22, Color('#ece3c8'))
+	var action_w := font.get_string_size(_prompt_action, HORIZONTAL_ALIGNMENT_LEFT, -1, 19).x
+	var key := Rect2(Vector2((w - action_w - 36) * 0.5, 34), Vector2(26, 26))
+	prompt.draw_rect(key, Color(0.05, 0.05, 0.04, 0.8))
+	prompt.draw_rect(key, GOLD_DIM, false, 1.5)
+	_text(prompt, key.position + Vector2(0, 19), 'E', key.size.x, 17, GOLD)
+	prompt.draw_string_outline(font, key.position + Vector2(36, 19), _prompt_action, HORIZONTAL_ALIGNMENT_LEFT, -1, 19, 3, Color('#11130f'))
+	prompt.draw_string(font, key.position + Vector2(36, 19), _prompt_action, HORIZONTAL_ALIGNMENT_LEFT, -1, 19, GOLD)
+
+func fade(out_seconds: float, hold_seconds: float) -> void:
+	## Fade to black, hold, then back in over half a second (passing through a door).
+	_fade_out = out_seconds
+	_fade_hold = hold_seconds
+	_fade_t = 0.0
+	fade_rect.show()
+
+func _update_fade(delta: float) -> void:
+	if not fade_rect.visible:
+		return
+	_fade_t += delta
+	var back := _fade_t - _fade_out - _fade_hold
+	fade_rect.modulate.a = clampf(_fade_t / maxf(_fade_out, 0.01), 0.0, 1.0) if back < 0.0 else 1.0 - back / 0.5
+	if back > 0.5:
+		fade_rect.hide()
+
 func _process(delta: float) -> void:
+	_update_fade(delta)
 	status.queue_redraw()
 	map_box.queue_redraw()
 	crosshair.visible = not player.paused and not interface_open
