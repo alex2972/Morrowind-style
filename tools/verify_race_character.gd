@@ -1,20 +1,27 @@
 extends SceneTree
 ## Integration check: exported race scene, shared skeleton/clips, fallback and bald model.
 var failures := 0
+var tested_sex := ''
 func check(ok: bool, label: String) -> void:
-	print(('PASS ' if ok else 'FAIL ') + label)
+	print(('PASS ' if ok else 'FAIL ') + tested_sex + ': ' + label)
 	if not ok: failures += 1
 func _init() -> void:
 	call_deferred('run')
 func run() -> void:
+	verify_sex('male')
+	verify_sex('female')
+	print('RACE VALIDATION FAILURES: ', failures)
+	quit(1 if failures else 0)
+
+func verify_sex(sex: String) -> void:
+	tested_sex = sex
 	Catalog.races['high_elf'] = {'scale': 1.06, 'skins': ['fff8dc', 'f7ecc4', 'ecdcac', 'dcc794']}
-	var human: Node3D = Catalog.body_scene('male').instantiate()
-	var elf: Node3D = Catalog.body_scene('male', 'high_elf').instantiate()
+	var human: Node3D = Catalog.body_scene(sex).instantiate()
+	var elf: Node3D = Catalog.body_scene(sex, 'high_elf').instantiate()
 	root.add_child(human)
 	root.add_child(elf)
-	check(elf.get_meta('race_preset', '') == 'high_elf/male', 'male High Elf selects sculpted model')
-	check(Catalog.body_scene('female', 'high_elf') == Catalog.body_scene('female'), 'female falls back to existing model')
-	check(Catalog.body_scene('male', 'dark_elf') == Catalog.body_scene('male'), 'other races retain their models')
+	check(elf.get_meta('race_preset', '') == 'high_elf/' + sex, 'High Elf selects sculpted model')
+	check(Catalog.body_scene(sex, 'dark_elf') == Catalog.body_scene(sex), 'other races retain their models')
 	var hs := human.find_children('*', 'Skeleton3D', true, false)[0] as Skeleton3D
 	var es := elf.find_children('*', 'Skeleton3D', true, false)[0] as Skeleton3D
 	check(es.get_bone_count() == 53, '53 bones')
@@ -45,5 +52,4 @@ func run() -> void:
 	check(is_equal_approx(Catalog.race_scale('high_elf'), 1.06), 'existing height scale applied by callers')
 	human.free()
 	elf.free()
-	print('RACE VALIDATION FAILURES: ', failures)
-	quit(1 if failures else 0)
+

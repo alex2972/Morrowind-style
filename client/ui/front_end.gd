@@ -250,7 +250,7 @@ func show_create() -> void:
 	_button('Create', func() -> void: main.session.create_character(_identity.duplicate()), r).size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_button('Back', func() -> void: show_lobby(roster), r).size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	box.add_child(status)
-	status.text = 'Male High Elves now have a sculpted bald head and pointed ears. Other race variants are in progress.'
+	status.text = 'Male and female High Elves have sculpted bald heads and pointed ears. Other race variants are in progress.'
 	_update_preview()
 	name_edit.grab_focus.call_deferred()
 

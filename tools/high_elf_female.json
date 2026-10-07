@@ -1,0 +1,10 @@
+{
+ "id": "high_elf", "sex": "female",
+ "source": "docs/character_female/rig/player_body_female_rigged.blend",
+ "head_width": 0.97, "chin_width": 0.88, "chin_drop": 0.005,
+ "cheek_width": 0.005, "cheek_projection": 0.005,
+ "brow_projection": 0.006, "brow_angle": 0.005,
+ "neck_slim": 0.08, "ear_length": 0.029, "ear_rise": 0.027,
+ "skin_grade": [0.99, 1.08, 0.79],
+ "notes": "Female base body and bind skeleton retained; only head and neck sculpted. Height uses the existing runtime race scale. Bald."
+}

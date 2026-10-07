@@ -1,0 +1,15 @@
+INFO: PyNifly 28.3.0 registered
+00:01.047  blend            | Read blend: "Z:\godot\morrowind-style\docs\character_female\rig\player_body_female_rigged.blend"
+00:01.453  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+Z:\godot\morrowind-style\tools\preview_race_character.py:22: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world.use_nodes=True;bg=scene.world.node_tree.nodes.get('Background');bg.inputs[0].default_value=(.036,.045,.047,1);bg.inputs[1].default_value=.6
+00:04.094  render           | Saved: 'Z:\godot\morrowind-style\docs\character_high_elf_female\base.png'
+BlenderMCP addon registered
+[INFO ] services.locationservice ...............: Not adding link to MakeHuman user data, since neither explicit path nor auto-discovery is set in preferences.
+[INFO ] mpfb.init ..............................: Build info 20260722
+[INFO ] mpfb.init ..............................: Online access preference is not enabled. Not checking if MakeHuman is online.
+[INFO ] mpfb.init ..............................: MPFB initialization has finished.
+BlenderMCP addon unregistered
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

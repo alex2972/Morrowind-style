@@ -6,7 +6,7 @@ extends RefCounted
 
 const SEXES := ['male', 'female']
 const BODY_SCENES := {'male': 'res://scenes/props/player_body.tscn', 'female': 'res://scenes/props/player_body_female.tscn'}
-const RACE_BODY_SCENES := {'high_elf/male': 'res://scenes/props/player_high_elf_male.tscn'}
+const RACE_BODY_SCENES := {'high_elf/male': 'res://scenes/props/player_high_elf_male.tscn', 'high_elf/female': 'res://scenes/props/player_high_elf_female.tscn'}
 const PREVIEW_SPOT := Vector3(-11.6, 2.58, 100.5)   ## harbour pier, where the lobby shows the character
 
 static var version := ''

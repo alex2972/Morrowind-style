@@ -33,11 +33,13 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Female animation retargeting failed.' }
     & $blenderPath --background --python-exit-code 1 --python tools/build_race_character.py
     if ($LASTEXITCODE -ne 0) { throw 'High elf race build failed.' }
+    & $blenderPath --background --python-exit-code 1 --python tools/build_race_character.py -- --preset tools/high_elf_female.json
+    if ($LASTEXITCODE -ne 0) { throw 'Female high elf race build failed.' }
     & $GodotPath --headless --editor --path $projectRoot --import
     if ($LASTEXITCODE -ne 0) { throw 'Godot resource import failed.' }
     & $GodotPath --headless --path $projectRoot --script res://tools/build_world.gd
     if ($LASTEXITCODE -ne 0) { throw 'World build failed.' }
-    & $GodotPath --headless --path $projectRoot --script res://tools/refresh_character.gd -- player_high_elf_male
+    & $GodotPath --headless --path $projectRoot --script res://tools/refresh_character.gd -- player_high_elf_male player_high_elf_female
     if ($LASTEXITCODE -ne 0) { throw 'High elf scene refresh failed.' }
     & $GodotPath --headless --path $projectRoot --script res://tools/bake_server_world.gd
     if ($LASTEXITCODE -ne 0) { throw 'Server world bake failed.' }

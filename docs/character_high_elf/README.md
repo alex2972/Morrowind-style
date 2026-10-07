@@ -11,7 +11,7 @@ This is an original low-poly variant of the existing MakeHuman-derived male char
 - `tools/high_elf_male.json`: adjustable shape/colour settings.
 - `tools/build_race_character.py`: repeatable post-process of the finished base; does not rebuild a separate skeleton or modify the source character.
 
-Male High Elf selection uses the new scene in the lobby, world player, other actors, and portrait. Female High Elves and other races retain their existing models. No female or other race sculpt is included in this first review pass.
+Male High Elf selection uses the new scene in the lobby, world player, other actors, and portrait. Female High Elves now use their own variant; see `../character_high_elf_female/README.md`. Other races retain their existing models.
 
 ## Rig and proportions
 

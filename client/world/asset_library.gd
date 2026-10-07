@@ -58,7 +58,7 @@ func _visibility(key: String) -> float:
 	return 0.0
 
 # character models (skinned, layer PLAYER) and their materials
-const CHARACTERS := {'player_body': 'char_skin', 'player_body_female': 'char_skin_female', 'player_high_elf_male': ''}
+const CHARACTERS := {'player_body': 'char_skin', 'player_body_female': 'char_skin_female', 'player_high_elf_male': '', 'player_high_elf_female': ''}
 
 func build_scene(key: String, interior := false) -> PackedScene:
 	var src: PackedScene = load('res://assets/models/%s.glb' % key)
@@ -118,8 +118,8 @@ func _build_character_scene(source: PackedScene, key: String) -> PackedScene:
 	# Skinned meshes depend on their complete skeleton hierarchy and animation paths.
 	var root := source.instantiate()
 	root.name = key.to_pascal_case()
-	if key == 'player_high_elf_male':
-		root.set_meta('race_preset', 'high_elf/male')
+	if key in ['player_high_elf_male', 'player_high_elf_female']:
+		root.set_meta('race_preset', 'high_elf/' + key.trim_prefix('player_high_elf_'))
 	for node in root.find_children('*', '', true, false):
 		if node is MeshInstance3D:
 			node.layers = LAYER_PLAYER

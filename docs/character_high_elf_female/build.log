@@ -1,0 +1,59 @@
+INFO: PyNifly 28.3.0 registered
+00:01.172  blend            | Read blend: "Z:\godot\morrowind-style\docs\character_female\rig\player_body_female_rigged.blend"
+Z:\godot\morrowind-style\tools\build_race_character.py:162: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(name);mat.use_nodes=True
+BlenderMCP addon registered
+[INFO ] services.locationservice ...............: Not adding link to MakeHuman user data, since neither explicit path nor auto-discovery is set in preferences.
+[INFO ] mpfb.init ..............................: Build info 20260722
+[INFO ] mpfb.init ..............................: Online access preference is not enabled. Not checking if MakeHuman is online.
+[INFO ] mpfb.init ..............................: MPFB initialization has finished.
+INFO Draco is available, use library at Z:\godot\morrowind-style\Blender\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at Z:\godot\morrowind-style\Blender\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+18:32:21 | INFO: Starting glTF 2.0 export
+18:32:21 | INFO: Extracting primitive: base.002
+18:32:21 | INFO: Primitives created: 1
+18:32:33 | INFO: Finished glTF 2.0 export in 12.500630855560303 s
+
+Info: Saved as "high_elf_female.blend"
+{
+  "preset": {
+    "id": "high_elf",
+    "sex": "female",
+    "source": "docs/character_female/rig/player_body_female_rigged.blend",
+    "head_width": 0.97,
+    "chin_width": 0.88,
+    "chin_drop": 0.005,
+    "cheek_width": 0.005,
+    "cheek_projection": 0.005,
+    "brow_projection": 0.006,
+    "brow_angle": 0.005,
+    "neck_slim": 0.08,
+    "ear_length": 0.029,
+    "ear_rise": 0.027,
+    "skin_grade": [
+      0.99,
+      1.08,
+      0.79
+    ],
+    "notes": "Female base body and bind skeleton retained; only head and neck sculpted. Height uses the existing runtime race scale. Bald."
+  },
+  "source_sha256": "eb999c339c79a826fdc829030e21992631cbca695feda1869518ede01a913fe5",
+  "source_unmodified": true,
+  "shared_bones": 53,
+  "shared_clips": 73,
+  "identical_bind_matrices": true,
+  "identical_weights": true,
+  "identical_body_topology": true,
+  "identical_body_uvs": true,
+  "body_triangles": 4850,
+  "hair_triangles": 0,
+  "bald": true,
+  "body_below_neck_unchanged": true,
+  "max_sculpt_displacement_m": 0.037980282832202804,
+  "model": "assets\\models\\player_high_elf_female.glb",
+  "head_note": "Bald; tapered mandible, lean neck, angled supraorbital ridge and repainted angular brows."
+}
+BlenderMCP addon unregistered
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

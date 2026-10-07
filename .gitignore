@@ -8,3 +8,5 @@ tools/*.log
 
 tools/__pycache__/
 *.npz
+~*
+*.TMP

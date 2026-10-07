@@ -2,9 +2,12 @@
 import bpy, math, sys
 from pathlib import Path
 from mathutils import Vector, Matrix
-ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'docs/character_high_elf'
+ROOT=Path(__file__).resolve().parents[1]
+female='--female' in sys.argv
+OUT=ROOT/('docs/character_high_elf_female' if female else 'docs/character_high_elf')
 base='--base' in sys.argv
-bpy.ops.wm.open_mainfile(filepath=str(ROOT/'docs/character_animation/player_body_rigged.blend' if base else OUT/'high_elf_male.blend'))
+source=ROOT/('docs/character_female/rig/player_body_female_rigged.blend' if female else 'docs/character_animation/player_body_rigged.blend') if base else OUT/('high_elf_female.blend' if female else 'high_elf_male.blend')
+bpy.ops.wm.open_mainfile(filepath=str(source))
 rig=bpy.data.objects['PlayerRig'];rig.animation_data.action=None
 for t in rig.animation_data.nla_tracks:t.mute=True
 for b in rig.pose.bones:b.matrix_basis=Matrix.Identity(4)
@@ -26,6 +29,9 @@ if '--motion' in sys.argv:views=[(clip,20,2.06,.95,(640,1100)) for clip in ('idl
 if base:views=[('base',32,.45,1.685,(720,800))]
 if '--quick' in sys.argv:views=views[:2]
 for name,yaw,scale,z,res in views:
+ if female:
+  if scale<1:scale=.40;z=1.555
+  else:scale=1.9;z=.86
  if name.endswith('_pose'):
   clip={'idle_pose':'idle_loop','walk_pose':'walk_loop','run_pose':'run_loop','sword_pose':'sword_attack'}[name]
   track=next(t for t in rig.animation_data.nla_tracks if t.name==clip);strip=track.strips[0]

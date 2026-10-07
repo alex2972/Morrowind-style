@@ -10,6 +10,7 @@ import numpy as np
 from mathutils import Vector, Matrix
 from mathutils.kdtree import KDTree
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/'tools'))
 
 def smooth(a,b,x):
     t=np.clip((x-a)/(b-a),0,1)
@@ -169,8 +170,13 @@ def main():
     args=sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else []
     parser=argparse.ArgumentParser();parser.add_argument('--preset',default='tools/high_elf_male.json');opts=parser.parse_args(args)
     p=json.loads((ROOT/opts.preset).read_text(encoding='utf-8-sig'))
-    if p['id']!='high_elf' or p['sex']!='male':raise ValueError('Only the calibrated male high elf preset is implemented.')
-    out=ROOT/'docs/character_high_elf';out.mkdir(parents=True,exist_ok=True);(out/'.gdignore').touch()
+    if p['id']!='high_elf' or p['sex'] not in ('male','female'):raise ValueError('Unsupported race preset')
+    sex=p['sex']
+    shape_fn,paint_fn=shape,skin_atlas
+    if sex=='female':
+        from race_high_elf_female import shape_female,paint_female
+        shape_fn,paint_fn=shape_female,paint_female
+    out=ROOT/('docs/character_high_elf_female' if sex=='female' else 'docs/character_high_elf');out.mkdir(parents=True,exist_ok=True);(out/'.gdignore').touch()
     src=ROOT/p['source'];basehash=fingerprint(src)
     bpy.ops.wm.open_mainfile(filepath=str(src));bpy.context.preferences.filepaths.save_version=0
     body=bpy.data.objects['Body'];rig=bpy.data.objects['PlayerRig']
@@ -178,9 +184,9 @@ def main():
     for track in rig.animation_data.nla_tracks:track.mute=True
     for bone in rig.pose.bones:bone.matrix_basis=Matrix.Identity(4)
     bpy.context.scene.frame_set(0);bpy.context.view_layer.update()
-    before=snapshot(body,rig);original,shaped=shape(body,p)
-    texpath=ROOT/'assets/textures/char_high_elf_male.png';skin=skin_atlas(p,texpath)
-    body.data.materials.clear();body.data.materials.append(material('char_high_elf_male',skin))
+    before=snapshot(body,rig);original,shaped=shape_fn(body,p)
+    texpath=ROOT/f'assets/textures/char_high_elf_{sex}.png';skin=paint_fn(p,texpath)
+    body.data.materials.clear();body.data.materials.append(material(f'char_high_elf_{sex}',skin))
     for poly in body.data.polygons:poly.use_smooth=True
     after=snapshot(body,rig)
     for key in before:assert before[key]==after[key],key+' changed'
@@ -190,17 +196,18 @@ def main():
     bpy.ops.object.select_all(action='DESELECT')
     for obj in (body,rig):obj.select_set(True)
     bpy.context.view_layer.objects.active=rig
-    glb=ROOT/'assets/models/player_high_elf_male.glb'
+    glb=ROOT/f'assets/models/player_high_elf_{sex}.glb'
     bpy.ops.export_scene.gltf(filepath=str(glb),export_format='GLB',use_selection=True,
         export_yup=True,export_image_format='AUTO',export_materials='EXPORT',
         export_animations=True,export_animation_mode='NLA_TRACKS',export_force_sampling=True,
         export_skins=True,export_all_influences=False,export_def_bones=True,export_rest_position_armature=True)
-    bpy.ops.wm.save_as_mainfile(filepath=str(out/'high_elf_male.blend'))
+    bpy.ops.wm.save_as_mainfile(filepath=str(out/f'high_elf_{sex}.blend'))
     assert fingerprint(src)==basehash
     report={'preset':p,'source_sha256':basehash,'source_unmodified':True,'shared_bones':53,'shared_clips':73,
       'identical_bind_matrices':True,'identical_weights':True,'identical_body_topology':True,'identical_body_uvs':True,
       'body_triangles':sum(len(f.vertices)-2 for f in body.data.polygons),
       'hair_triangles':0,'bald':True,
+      'body_below_neck_unchanged':bool(np.array_equal(original[original[:,2]<1.43],shaped[original[:,2]<1.43])) if sex=='female' else None,
       'max_sculpt_displacement_m':float(np.linalg.norm(shaped-original,axis=1).max()),
       'model':str(glb.relative_to(ROOT)),'head_note':'Bald; tapered mandible, lean neck, angled supraorbital ridge and repainted angular brows.'}
     (out/'validation.json').write_text(json.dumps(report,indent=2));print(json.dumps(report,indent=2))
