@@ -94,6 +94,19 @@ func run() -> void:
 	check(player.body_model == 'female', 'body set from identity')
 	check(session.hotbar[1] == 'fireball' and session.ui != null, 'action bar built from the sheet')
 	check(session.item_count('health_tonic') == 2 and session.item_count('mana_tonic') == 1, 'starting items in the pack')
+	var hud: CanvasLayer = main.world.hud
+	hud._open_panel('Inventory')
+	await frames(5)
+	var inv: Control = hud.inventory_view
+	check(inv != null and inv.visible and inv.slots.size() == 28 and inv.slots[0].item == 'health_tonic' and inv.slots[0].count == 2 and inv.slots[0].icon != null, 'inventory grid: 28 slots, tonic icon and count')
+	inv.use_slot(0)
+	await wait_for(func() -> bool: return session.item_count('health_tonic') == 1, 2.0)
+	check(session.item_count('health_tonic') == 1, 'clicking a slot uses the item')
+	session.send(Protocol.C_SWAP_SLOTS, {'a': 0, 'b': 5})
+	await wait_for(func() -> bool: return inv.slots[5].item == 'health_tonic', 2.0)
+	check(inv.slots[5].item == 'health_tonic' and inv.slots[0].item == '', 'dragging swaps slots')
+	session.send(Protocol.C_SWAP_SLOTS, {'a': 0, 'b': 5})
+	hud._close_panel()
 	for e in realm.entities.values():
 		if e.kind == 'npc' and e.pos.y < -0.3:
 			print('  npc %s is under water at %s' % [e.eid, e.pos])
@@ -104,6 +117,7 @@ func run() -> void:
 	await teleport(me_server(), hm.pos + Vector3(0, 0, 2.5))
 	check(await wait_for(func() -> bool: return session.actors.has('harbourmaster')), 'harbourmaster visible to the client')
 	check(session.actors.harbourmaster.marker.text == '!', 'harbourmaster shows a quest marker (sent by the realm)')
+	session.set_target('harbourmaster')   # wandering harbour folk may pass closer
 	session.interact()
 	check(await wait_for(func() -> bool: return not session.dialogue.is_empty()), 'dialogue opened')
 	await say('quest:marsh_trouble')
@@ -190,7 +204,7 @@ func run() -> void:
 	await frames(20)
 	check(session.sheet.quests_done.has('Trouble in the Marsh'), 'quest completed')
 	check(int(session.sheet.level) > level0 or int(session.sheet.xp) >= xp0 + 250, 'quest XP awarded (level %d, %d xp)' % [int(session.sheet.level), int(session.sheet.xp)])
-	check(session.item_count('health_tonic') >= 5, 'quest reward items received')
+	check(session.item_count('health_tonic') >= 4, 'quest reward items received')
 	check(session.actors.harbourmaster.marker.text == '!', 'follow-up quest offered')
 
 	# Content hot reload (an admin edits the database, then /reload)
@@ -278,7 +292,7 @@ func run() -> void:
 	session.enter(slot)
 	await wait_for(func() -> bool: return session.in_world and not session.sheet.is_empty())
 	check(session.sheet.quests_done.has('Trouble in the Marsh') and int(session.sheet.level) == level, 'quests and level persisted')
-	check(session.item_count('health_tonic') >= 5, 'pack persisted')
+	check(session.item_count('health_tonic') >= 4, 'pack persisted')
 	main.log_out_account()
 	await frames(5)
 	bot.queue_free()

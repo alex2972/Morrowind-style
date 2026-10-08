@@ -50,6 +50,9 @@ var dock_sensitivity: HSlider
 var dock_time: Label
 var dock_buttons: Array[Button] = []
 var info_panel: Control
+var inventory_view: Control      ## client/ui/inventory_panel.gd while on a realm
+var inventory_gold: Label
+const INFO_HEIGHT := 300.0
 var info_title: Label
 var info_text: RichTextLabel
 var active_panel := ''
@@ -143,6 +146,8 @@ func _layout() -> void:
 	map_box.position = Vector2(root.size.x - 254, 16)
 	chat_box.position = Vector2(18, root.size.y - 218)
 	dock.position = root.size - dock.size * dock.scale
+	if info_panel.visible:
+		_apply_panel_shape()
 	info_panel.position = Vector2(0, -info_panel.size.y)
 	crosshair.position = root.size * 0.5 - Vector2(8, 8)
 	prompt.position = root.size * 0.5 + Vector2(-210, 56)
@@ -528,9 +533,46 @@ func _open_panel(title: String) -> void:
 	if title == 'Settings':
 		dock_settings.scroll_vertical = 0
 		dock_sensitivity.set_value_no_signal(player.mouse_sensitivity)
+	_apply_panel_shape()
 	_refresh_info()
 	info_panel.show()
 	_sync_dock_selection()
+
+func _inventory_mode() -> bool:
+	return session != null and active_panel == 'Inventory'
+
+func _apply_panel_shape() -> void:
+	## On a realm the Inventory panel becomes the slot grid: taller, sized to the space under the minimap.
+	if not _inventory_mode():
+		if inventory_view:
+			inventory_view.hide()
+			inventory_gold.hide()
+		info_panel.size = Vector2(dock.size.x, INFO_HEIGHT)
+		info_panel.position = Vector2(0, -INFO_HEIGHT)
+		return
+	if inventory_view == null or inventory_view.session != session:
+		if inventory_view:
+			inventory_view.queue_free()
+		inventory_view = Control.new()
+		inventory_view.set_script(load('res://client/ui/inventory_panel.gd'))
+		info_panel.add_child(inventory_view)
+		inventory_view.setup(self, session)
+		if inventory_gold == null:
+			inventory_gold = _label('', 16, GOLD_DIM)
+			inventory_gold.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+			_place(info_panel, inventory_gold, Vector2(120, 18), Vector2(120, 24))
+	info_text.visible = false
+	inventory_view.show()
+	inventory_gold.show()
+	# Fit 7 rows between the minimap and the dock (dock-local units), within sensible slot sizes.
+	var room := (dock.position.y - (map_box.position.y + map_box.size.y + 10.0)) / dock.scale.y
+	var rows: int = inventory_view.rows()
+	var slot := clampf((room - 52.0 - 14.0 - (rows - 1) * inventory_view.GAP - inventory_view.PAD * 2.0) / rows, 30.0, 52.0)
+	inventory_view.arrange(slot)
+	var grid: Vector2 = inventory_view.size
+	info_panel.size = Vector2(dock.size.x, 52.0 + grid.y + 14.0)
+	info_panel.position = Vector2(0, -info_panel.size.y)
+	inventory_view.position = Vector2((dock.size.x - grid.x) * 0.5, 52.0)
 
 func _refresh_info() -> void:
 	if active_panel == 'Settings':
@@ -540,6 +582,10 @@ func _refresh_info() -> void:
 		dock_weather.select(weather.ORDER.find(weather.target))
 		dock_model.select(1 if player.body_model == 'female' else 0)
 		dock_model.disabled = session != null
+		return
+	if _inventory_mode() and inventory_view:
+		inventory_view.refresh()
+		inventory_gold.text = '%d gold' % int(session.sheet.get('gold', 0))
 		return
 	if session:
 		var text := _session_panel(active_panel)
