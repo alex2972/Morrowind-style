@@ -29,6 +29,23 @@ func key(code: Key) -> void:
 	root.push_input(event)
 	await frames()
 
+func click(at: Vector2) -> void:
+	## A real mouse click: move, press, release.
+	var motion := InputEventMouseMotion.new()
+	motion.position = at
+	motion.global_position = at
+	root.push_input(motion)
+	await frames(2)
+	for pressed in [true, false]:
+		var e := InputEventMouseButton.new()
+		e.button_index = MOUSE_BUTTON_LEFT
+		e.position = at
+		e.global_position = at
+		e.pressed = pressed
+		e.button_mask = MOUSE_BUTTON_MASK_LEFT if pressed else 0
+		root.push_input(e)
+		await frames(2)
+
 func run() -> void:
 	scene = load('res://scenes/world/veyr.tscn').instantiate()
 	root.add_child(scene)
@@ -36,6 +53,24 @@ func run() -> void:
 	player = scene.get_node('Player')
 	await frames(10)
 	check(hud.chat_tabs.size() == 4, 'All four chat tabs exist')
+	# Space after clicking a HUD button must jump, not press that button again
+	root.size = Vector2i(1280, 720)
+	root.content_scale_size = Vector2i.ZERO
+	await frames(3)
+	hud._layout()
+	await frames(3)
+	player.frozen = false
+	hud.set_interface_open(true)
+	var inventory: Button = hud.dock_buttons[2]
+	await click(inventory.get_global_transform_with_canvas() * (inventory.size * 0.5))
+	check(hud.info_panel.visible and hud.active_panel == 'Inventory', 'Clicking the Inventory icon opens it')
+	await click(Vector2(640, 300))   # somewhere else on the screen
+	for i in 3:
+		await key(KEY_SPACE)
+	check(hud.info_panel.visible and hud.active_panel == 'Inventory', 'Space does not press the icon that was clicked earlier')
+	var focus := root.gui_get_focus_owner()
+	check(focus == null, 'No button keeps keyboard focus after a click (focus=%s)' % focus)
+	hud.set_interface_open(false)
 	check(hud.dock_buttons.size() == 6, 'Six reference menu icons are interactive; two slots remain empty')
 	hud.add_chat_message('Game', 'game sentinel')
 	hud.add_chat_message('Players', '[b]literal player message[/b]', 'Visitor')

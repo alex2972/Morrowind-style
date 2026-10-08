@@ -642,6 +642,8 @@ func set_interface_open(value: bool) -> void:
 			session.close_dialogue()
 
 func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and not event.pressed:
+		_drop_click_focus.call_deferred()
 	if player.paused or not event is InputEventKey or not event.pressed or event.echo:
 		return
 	if chat_input.has_focus():
@@ -661,6 +663,13 @@ func _input(event: InputEvent) -> void:
 	elif event.keycode == KEY_ESCAPE and interface_open:
 		set_interface_open(false)
 		get_viewport().set_input_as_handled()
+
+func _drop_click_focus() -> void:
+	## A clicked button keeps keyboard focus, and Space / Enter would then press it again - jumping would
+	## toggle the inventory. Once a click is over, only text boxes (chat) keep focus.
+	var focus := get_viewport().gui_get_focus_owner()
+	if focus and not (focus is LineEdit or focus is TextEdit) and not player.frozen:
+		focus.release_focus()
 
 func show_message(text: String, _seconds := 3.5) -> void:
 	add_chat_message('Game', text)
