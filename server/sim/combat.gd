@@ -88,6 +88,8 @@ func _target_for(p: Dictionary, a: Dictionary, tid: String) -> Dictionary:
 				return {'error': 'Invalid target.'}
 			if p.pos.distance_to(t.pos) > float(a.range) + 0.6:
 				return {'error': 'Out of range.'}
+			if not Rules.facing(p.yaw, p.pos, t.pos):
+				return {'error': 'You must be facing your target.'}
 			if not zone.sight(p.pos, t.pos):
 				return {'error': 'Target not in line of sight.'}
 			return t
@@ -303,6 +305,16 @@ func _tick_player(p: Dictionary, dt: float) -> void:
 		if t.is_empty() or t.dead:
 			p.auto = false
 		elif p.swing <= 0.0 and p.cast.is_empty() and p.pos.distance_to(t.pos) <= Rules.MELEE_RANGE:
+			var problem := ''
+			if not Rules.facing(p.yaw, p.pos, t.pos):
+				problem = 'You are facing the wrong way!'
+			elif not realm.zone_of(p).sight(p.pos, t.pos):
+				problem = 'Target not in line of sight.'
+			if problem != '':
+				if realm.now - float(p.get('swing_warned', -10.0)) > 2.0:   # like WoW, nag every couple of seconds
+					p.swing_warned = realm.now
+					realm.error(p, problem)
+				return
 			var cls: Dictionary = realm.content.classes[p.job]
 			p.swing = float(cls.swing)
 			realm.event_near(p, {'type': 'anim', 'id': p.eid, 'clip': 'sword_slash_a' if realm.rng().randf() < 0.5 else 'sword_slash_b'})

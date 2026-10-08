@@ -221,6 +221,9 @@ func _enter_world(state: Dictionary) -> void:
 	hud().session = self
 	in_world = true
 	p.set_third_person(true)
+	p.set_wow_controls(true)
+	if not p.clicked.is_connected(_on_click):
+		p.clicked.connect(_on_click)
 	entered_world.emit()
 
 func _leave_world_locally() -> void:
@@ -237,6 +240,9 @@ func _leave_world_locally() -> void:
 	hud().session = null
 	player().set_dead(false)
 	player().set_casting(false)
+	player().set_wow_controls(false)
+	if player().clicked.is_connected(_on_click):
+		player().clicked.disconnect(_on_click)
 	left_world.emit()
 
 func _teleport(pos: Vector3, yaw: float) -> void:
@@ -485,13 +491,15 @@ func _unhandled_input(event: InputEvent) -> void:
 			if not world().doors.use_focused():
 				interact()
 			get_viewport().set_input_as_handled()
-	elif event is InputEventMouseButton and event.pressed and event.button_index in [MOUSE_BUTTON_LEFT, MOUSE_BUTTON_RIGHT]:
-		var point: Vector2 = get_viewport().get_visible_rect().size * 0.5 if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED else event.position
-		var hit := click_target(point)
-		if event.button_index == MOUSE_BUTTON_RIGHT and hit:
-			interact()
-		elif not hit and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED and event.button_index == MOUSE_BUTTON_LEFT:
-			set_target('')
+
+func _on_click(button: int, at: Vector2) -> void:
+	## WoW clicks (the player tells us when a press was a click, not a camera drag): left selects what is under
+	## the cursor (or clears the target), right selects and interacts - talk to NPCs, attack enemies.
+	var hit := click_target(at)
+	if button == MOUSE_BUTTON_RIGHT and hit:
+		interact()
+	elif button == MOUSE_BUTTON_LEFT and not hit:
+		set_target('')
 
 func _physics_process(delta: float) -> void:
 	if not in_world or not connected:

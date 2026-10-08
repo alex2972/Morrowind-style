@@ -630,8 +630,9 @@ func _on_info_link(meta: Variant) -> void:
 
 func set_interface_open(value: bool) -> void:
 	interface_open = value
-	player.ui_active = value
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if value or player.paused else Input.MOUSE_MODE_CAPTURED
+	# WoW controls keep the cursor free and let you move with panels open; only typing holds you still.
+	player.ui_active = (value and chat_input.has_focus()) if player.wow_controls else value
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if value or player.paused or player.wow_controls else Input.MOUSE_MODE_CAPTURED
 	if not value:
 		var focus := get_viewport().gui_get_focus_owner()
 		if focus:
@@ -717,7 +718,7 @@ func _process(delta: float) -> void:
 	_update_fade(delta)
 	status.queue_redraw()
 	map_box.queue_redraw()
-	crosshair.visible = not player.paused and not interface_open
+	crosshair.visible = not player.paused and not interface_open and not player.wow_controls
 	_region_time -= delta
 	region_label.modulate.a = clampf(_region_time, 0, 1) * clampf((4 - _region_time) * 2, 0, 1)
 	if portrait_body != _portrait_key():

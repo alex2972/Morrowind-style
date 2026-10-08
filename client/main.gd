@@ -72,7 +72,7 @@ func _front_end_mode(on: bool) -> void:
 		world.hud.visible = true
 		world.hud.process_mode = Node.PROCESS_MODE_INHERIT
 		p.camera.make_current()
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if p.wow_controls else Input.MOUSE_MODE_CAPTURED
 
 func _preview_camera_transform() -> Transform3D:
 	var spot := Catalog.PREVIEW_SPOT

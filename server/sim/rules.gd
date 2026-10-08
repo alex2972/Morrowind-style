@@ -16,6 +16,13 @@ const INTERACT_RANGE := 5.0
 const PARTY_RANGE := 60.0        ## members this close share kills, XP and quest credit
 const PARTY_MAX := 5
 
+static func facing(yaw: float, from: Vector3, to: Vector3) -> bool:
+	## WoW's "in front of you": the target is within the 180 degrees ahead of `yaw` (0 = facing -Z).
+	var d := Vector2(to.x - from.x, to.z - from.z)
+	if d.length() < 0.6:
+		return true   # standing on top of each other
+	return Vector2(-sin(yaw), -cos(yaw)).dot(d.normalized()) >= 0.0
+
 static func xp_to_next(level: int) -> int:
 	## Experience needed to go from `level` to `level + 1`.
 	if level >= MAX_LEVEL:

@@ -46,9 +46,9 @@ func wipe(path: String) -> void:
 func me_server() -> Dictionary:
 	return realm.players.values()[0] if not realm.players.is_empty() else {}
 
-func teleport(p: Dictionary, pos: Vector3) -> void:
+func teleport(p: Dictionary, pos: Vector3, yaw := 0.0) -> void:
 	pos.y = realm.zone_of(p).ground(pos.x, pos.z) + 0.05
-	realm.movement.teleport(p, pos, 0.0)
+	realm.movement.teleport(p, pos, yaw)
 	await frames(20)
 
 func say(choice: String) -> void:
@@ -117,6 +117,12 @@ func run() -> void:
 	await wait_for(func() -> bool: return session.actors.has('bandit_1'))
 	session.set_target('bandit_1')
 	await frames(5)
+	check(session.player().wow_controls and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE, 'WoW controls: free cursor in the world')
+	await teleport(me_server(), bandit.pos + Vector3(0, 0, 14), PI)   # back turned to the bandit
+	session.use_slot(1)
+	await wait_for(func() -> bool: return session.ui.error_label.text.contains('facing'), 2.0)
+	check(session.ui.error_label.text.contains('facing') and session.me.get('cast', {}).is_empty(), 'cannot cast at an enemy behind you')
+	await teleport(me_server(), bandit.pos + Vector3(0, 0, 14))
 	var hp0: float = bandit.health
 	session.use_slot(1)
 	await wait_for(func() -> bool: return not session.me.get('cast', {}).is_empty(), 2.0)

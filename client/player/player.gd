@@ -26,6 +26,21 @@ var weapon_out := true
 var torch_out := false
 var swimming := false
 var third_person := false
+## WoW-style controls (set by the online session): free cursor, right-drag turns the character and camera,
+## left-drag orbits the camera, A/D turn (strafe while right-dragging), both buttons run, wheel zooms.
+var wow_controls := false
+
+signal clicked(button: int, screen_position: Vector2)   ## a mouse click that was not a camera drag
+
+const TURN_SPEED := PI            ## rad/s keyboard turning (WoW: 180 degrees per second)
+const BACKPEDAL := 0.65           ## backwards speed factor
+const ZOOM_MIN := 0.9             ## closer than this switches to first person
+const ZOOM_MAX := 14.0
+const DRAG_PIXELS := 4.0          ## mouse travel that turns a click into a camera drag
+var _cam_yaw := 0.0               ## camera orbit around the character (left-drag), radians
+var _zoom := 4.0
+var _held := {}                   ## mouse button -> {pos, dragged}
+var _drag_return := Vector2.ZERO
 var frozen := false         ## held still and hidden behind the front end (login, lobby)
 var dead := false
 var casting := false
@@ -191,8 +206,23 @@ func play_action(clip: String) -> void:
 	_action_left = _body_animation.get_animation(clip).length - 0.12
 
 func facing_yaw() -> float:
-	## The direction the body faces (it turns towards the travel direction), for other players' views.
+	## The direction the character faces, for the realm (facing checks) and other players' views.
+	if wow_controls:
+		return rotation.y
 	return rotation.y + ((body.rotation.y - _body_home_yaw) if body else 0.0)
+
+func set_wow_controls(value: bool) -> void:
+	wow_controls = value
+	_held.clear()
+	_cam_yaw = 0.0
+	head.rotation.y = 0.0
+	if value:
+		head.rotation.x = -0.25
+		_zoom = 4.0
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if value else Input.MOUSE_MODE_CAPTURED
+
+func _free_cursor_mode() -> int:
+	return Input.MOUSE_MODE_VISIBLE if wow_controls else Input.MOUSE_MODE_CAPTURED
 
 func current_clip() -> String:
 	return _locomotion_clip if _action_left <= 0.0 else 'idle'
@@ -202,7 +232,7 @@ func current_rate() -> float:
 
 func set_menu(value: bool) -> void:
 	paused = value
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if paused else Input.MOUSE_MODE_CAPTURED
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if paused else _free_cursor_mode()
 	world().hud.set_menu(paused)
 
 func return_to_spawn() -> void:
@@ -223,7 +253,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		world().hud.visible = not world().hud.visible
 	if paused:
 		return
-	if event is InputEventMouseButton and event.pressed and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+	if wow_controls and _wow_mouse(event):
+		return
+	if event is InputEventMouseButton and event.pressed and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED and not wow_controls:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * mouse_sensitivity)
@@ -244,11 +276,83 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed('cycle_weather'):
 		world().weather.next_weather()
 
+func _wow_mouse(event: InputEvent) -> bool:
+	## WoW mouse: clicks select / interact (emitted as `clicked`), drags steer the camera. True if handled.
+	if event is InputEventMouseButton and event.button_index in [MOUSE_BUTTON_LEFT, MOUSE_BUTTON_RIGHT]:
+		if event.pressed:
+			if _held.is_empty():
+				_drag_return = event.position
+			_held[event.button_index] = {'pos': event.position, 'travel': 0.0, 'dragged': false}
+			if event.button_index == MOUSE_BUTTON_RIGHT:
+				_face_camera()
+		elif _held.has(event.button_index):
+			var h: Dictionary = _held[event.button_index]
+			_held.erase(event.button_index)
+			if not h.dragged:
+				clicked.emit(event.button_index, h.pos)
+			if _held.is_empty() and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+				Input.warp_mouse(_drag_return)   # the cursor comes back where the drag started, like WoW
+		return true
+	if event is InputEventMouseButton and event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
+		_zoom_step(-0.6 if event.button_index == MOUSE_BUTTON_WHEEL_UP else 0.6)
+		return true
+	if event is InputEventMouseMotion and not _held.is_empty():
+		for h in _held.values():
+			h.travel += event.relative.length()
+			if h.travel > DRAG_PIXELS:
+				h.dragged = true
+		if _held.values().any(func(h: Dictionary) -> bool: return h.dragged):
+			if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			if _held.has(MOUSE_BUTTON_RIGHT):
+				rotate_y(-event.relative.x * mouse_sensitivity)    # right-drag: the character turns with the camera
+			else:
+				_cam_yaw -= event.relative.x * mouse_sensitivity   # left-drag: the camera orbits alone
+			var low := -1.5 if not third_person else -1.35
+			head.rotation.x = clampf(head.rotation.x - event.relative.y * mouse_sensitivity, low, 1.2)
+		return true
+	return false
+
+func _face_camera() -> void:
+	## Right mouse down: the character snaps to where the camera looks.
+	rotate_y(_cam_yaw)
+	_cam_yaw = 0.0
+
+func _zoom_step(amount: float) -> void:
+	if not third_person:
+		if amount > 0.0:
+			set_third_person(true)
+			_zoom = ZOOM_MIN + 0.4
+		return
+	_zoom = clampf(_zoom + amount * maxf(1.0, _zoom * 0.25), ZOOM_MIN - 0.1, ZOOM_MAX)
+	if _zoom < ZOOM_MIN:
+		set_third_person(false)
+		_cam_yaw = 0.0
+
+func _wow_input(delta: float) -> Vector2:
+	## Keyboard + mouse movement in WoW mode: A/D turn (strafe while right-dragging), both mouse buttons run.
+	var forward := Input.get_axis('move_back', 'move_forward')
+	var side := Input.get_axis('move_left', 'move_right')
+	var steering := _held.has(MOUSE_BUTTON_RIGHT)
+	if _held.has(MOUSE_BUTTON_LEFT) and steering:
+		forward = 1.0
+	var strafe := 0.0
+	if steering:
+		strafe = side
+	elif side != 0.0:
+		rotate_y(-side * TURN_SPEED * delta)
+	if (forward != 0.0 or strafe != 0.0) and not _held.has(MOUSE_BUTTON_LEFT):
+		_cam_yaw = lerp_angle(_cam_yaw, 0.0, 1.0 - exp(-delta * 4.0))   # the camera swings back behind
+	return Vector2(strafe, -forward).limit_length(1.0)
+
 func _physics_process(delta: float) -> void:
 	if paused or frozen:
 		return
 	var input := Input.get_vector('move_left', 'move_right', 'move_forward', 'move_back')
-	if dead or ui_active:   # the interface (chat, panels, dialogue) holds the character still
+	if wow_controls and not ui_active and not dead:
+		input = _wow_input(delta)
+	if dead or ui_active:   # typing in chat holds the character still
 		input = Vector2.ZERO
 	var dir := (transform.basis * Vector3(input.x, 0.0, input.y))
 	dir.y = 0.0
@@ -256,6 +360,8 @@ func _physics_process(delta: float) -> void:
 	sneaking = Input.is_action_pressed('sneak')
 	var running := Input.is_action_pressed('run') != auto_run
 	var speed := sneak_speed if sneaking else (run_speed if running else walk_speed)
+	if wow_controls and input.y > 0.1:
+		speed *= BACKPEDAL
 	swimming = global_position.y < water_level - 1.25
 	if swimming:
 		speed = swim_speed * (1.4 if running else 1.0)
@@ -346,12 +452,16 @@ func _process(delta: float) -> void:
 	if torch_out:
 		torch_light.light_energy = 1.7 + sin(_time * 13.0) * 0.12 + sin(_time * 7.3) * 0.15
 	camera.fov = lerpf(camera.fov, 75.0 + (3.0 if Input.is_action_pressed('run') != auto_run and moving else 0.0), delta * 4.0)
+	if wow_controls:
+		head.rotation.y = _cam_yaw
 	if third_person:
 		_place_third_person_camera(delta)
 
 func _place_third_person_camera(delta: float) -> void:
 	## Orbit behind the shoulders with the head's pitch; pull in when a wall is in the way.
 	var offset := Vector3(0.0, 0.3, 2.9)
+	if wow_controls:
+		offset = Vector3(0.0, 0.25, _zoom)
 	var from := head.global_position
 	var to := head.to_global(offset)
 	var q := PhysicsRayQueryParameters3D.create(from, to)
@@ -422,9 +532,27 @@ func _update_body_animation(delta: float) -> void:
 			var running := Input.is_action_pressed('run') != auto_run
 			clip = 'run' if running and not sneaking else 'walk'
 			var authored_speed := RUN_CLIP_SPEED if clip == 'run' else WALK_CLIP_SPEED
+			if wow_controls:
+				var local := global_basis.inverse() * planar_velocity
+				if local.z > 0.3 * speed and _body_animation.has_animation('walk_backward'):
+					clip = 'walk_backward'
+					authored_speed = WALK_CLIP_SPEED
+				elif absf(local.z) <= 0.3 * speed:
+					clip = 'strafe_right' if local.x > 0.0 else 'strafe_left'
+					authored_speed = WALK_CLIP_SPEED * 1.6
+					if not _body_animation.has_animation(clip):
+						clip = 'walk'
 			rate = clampf(speed / (authored_speed * body.scale.y), 0.15, 2.0)
 	# Face the actual travel direction, including diagonal/backward movement (also in the air).
-	if speed > 0.08 and not swimming:
+	if wow_controls:
+		# WoW: the body faces where the character faces; diagonals lean the body 45 degrees into the move.
+		var lean := 0.0
+		if speed > 0.08 and not swimming:
+			var local := global_basis.inverse() * planar_velocity
+			if absf(local.z) > 0.3 * speed and absf(local.x) > 0.3 * speed:
+				lean = -PI / 4.0 * signf(local.x) * (1.0 if local.z < 0.0 else -1.0)
+		body.rotation.y = lerp_angle(body.rotation.y, _body_home_yaw + lean, 1.0 - exp(-delta * 14.0))
+	elif speed > 0.08 and not swimming:
 		var local_direction := global_basis.inverse() * planar_velocity
 		var heading := atan2(-local_direction.x, -local_direction.z)
 		body.rotation.y = lerp_angle(body.rotation.y, _body_home_yaw + heading, 1.0 - exp(-delta * 14.0))
