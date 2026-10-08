@@ -64,7 +64,7 @@ static func race_scale(race: String) -> float:
 	return float(races.get(race, {}).get('scale', 1.0))
 
 static func race_stretch(race: String) -> Vector3:
-	## A race's `scale` is a height stretch: taller and longer-limbed, never wider (high elves 1.10).
+	## A race's `scale` is a height stretch: taller and longer-limbed, never wider (high elves 1.07, from the races table).
 	return Vector3(1.0, race_scale(race), 1.0)
 
 static func skin_color(race: String, skin: int) -> Color:

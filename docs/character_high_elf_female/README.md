@@ -15,7 +15,7 @@ Selecting Female + High Elf now chooses this model in creation previews, the wor
 
 ## Preservation
 
-The original female source is `docs/character_female/rig/player_body_female_rigged.blend`. It remains unchanged. The sculpt is restricted to the head and neck; all body vertices below 1.43 m retain their original coordinates. Topology, UVs, vertex weights and all 53 bind transforms are retained. The original female animation set is exported intact; these are the female-compatible versions of the 73 clips, not male clips applied to different bind proportions. Runtime race height remains the existing 1.06 scale.
+The original female source is `docs/character_female/rig/player_body_female_rigged.blend`. It remains unchanged. The sculpt is restricted to the head and neck; all body vertices below 1.43 m retain their original coordinates. Topology, UVs, vertex weights and all 53 bind transforms are retained. The original female animation set is exported intact; these are the female-compatible versions of the 73 clips, not male clips applied to different bind proportions. Runtime race height is the same `races.scale` as the male (1.07 for the High Elf, a vertical-only stretch), so a female High Elf stands 7% taller than a female Human with 7% longer legs; set the value in the `races` table.
 
 The atlas is derived from `assets/textures/char_body_female.png` and its original bake maps at `docs/character_female/player_body_female.npz`. Painting uses the bake-space coordinates; sculpting uses the current fitted model's coordinates. This distinction preserves the earlier female proportion and neck adjustments.
 

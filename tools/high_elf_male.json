@@ -14,7 +14,7 @@
     1.03,
     0.79
   ],
-  "notes": "Exact human bind skeleton and clips; height comes from Catalog.race_scale (1.06), applied once at runtime.",
+  "notes": "Exact human bind skeleton and clips; height comes from Catalog.race_scale (the high_elf row of the races table, 1.07), applied once at runtime.",
   "chin_projection": 0.003,
   "chin_width": 0.78,
   "jaw_width": 0.001,

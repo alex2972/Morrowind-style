@@ -15,7 +15,7 @@ func run() -> void:
 
 func verify_sex(sex: String) -> void:
 	tested_sex = sex
-	Catalog.races['high_elf'] = {'scale': 1.06, 'skins': ['fff8dc', 'f7ecc4', 'ecdcac', 'dcc794']}
+	Catalog.races['high_elf'] = {'scale': 1.07, 'skins': ['fff8dc', 'f7ecc4', 'ecdcac', 'dcc794']}
 	var human: Node3D = Catalog.body_scene(sex).instantiate()
 	var elf: Node3D = Catalog.body_scene(sex, 'high_elf').instantiate()
 	root.add_child(human)
@@ -49,7 +49,7 @@ func verify_sex(sex: String) -> void:
 	for mesh in meshes:
 		check(mesh.layers == 16, 'player render layer: ' + mesh.name)
 	Catalog.apply_appearance(elf, 'high_elf', 3)
-	check(is_equal_approx(Catalog.race_scale('high_elf'), 1.06), 'existing height scale applied by callers')
+	check(is_equal_approx(Catalog.race_scale('high_elf'), 1.07), 'existing height scale applied by callers')
 	human.free()
 	elf.free()
 

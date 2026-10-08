@@ -15,7 +15,7 @@ Male High Elf selection uses the new scene in the lobby, world player, other act
 
 ## Rig and proportions
 
-The 53 bones, their rest matrices, body weights, body topology, UVs and 73 animation clips are retained. The body is subtly slimmer; the existing runtime High Elf scale (1.06) supplies height once, so the animation skeleton and foot placement remain compatible. Changing limb lengths would require an additional proportion-aware animation step, not merely sharing bone names.
+The 53 bones, their rest matrices, body weights, body topology, UVs and 73 animation clips are retained. The body is subtly slimmer; the runtime High Elf scale (`races.scale` in the database, 1.07, a vertical-only stretch applied to both sexes) supplies height once, so the animation skeleton and foot placement remain compatible. Changing limb lengths would require an additional proportion-aware animation step, not merely sharing bone names.
 
 The high elf is bald. Its jaw now tapers diagonally to a compact, pointed chin rather than extending into a broad block. The neck is slimmer with a tucked throat; the forehead recedes above a pronounced, angled brow ridge. The original straight eyebrows are removed and replaced with lower, feathered, rising brows, with restrained forehead and socket shading. Ears are sculpted from the original head topology. Hair and runtime face sliders are not implemented. Earlier iterations are archived under `before_jaw_revision/` and `before_reference_revision/`.
 
